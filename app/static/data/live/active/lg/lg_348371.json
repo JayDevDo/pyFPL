@@ -1,0 +1,37 @@
+{
+    "new_entries": {
+        "has_next": false,
+        "page": 1,
+        "results": [
+            {
+                "entry": 704118,
+                "entry_name": "Darwinian Evolution",
+                "joined_time": "2022-07-11T17:54:27.931367Z",
+                "player_first_name": "Jay",
+                "player_last_name": "Vando"
+            }
+        ]
+    },
+    "last_updated_data": null,
+    "league": {
+        "id": 348371,
+        "name": "EarlyBirds 22-23",
+        "created": "2022-07-11T17:54:27.925502Z",
+        "closed": false,
+        "max_entries": 16,
+        "league_type": "x",
+        "scoring": "h",
+        "admin_entry": 704118,
+        "start_event": 2,
+        "code_privacy": "p",
+        "has_cup": false,
+        "cup_league": null,
+        "ko_rounds": null,
+        "lgCount": 50
+    },
+    "standings": {
+        "has_next": false,
+        "page": 1,
+        "results": []
+    }
+}

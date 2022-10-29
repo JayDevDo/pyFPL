@@ -1,0 +1,23 @@
+{% include "nav.html" %}
+  <h1 class="jumbotron">HOME</h1>
+  <h2>of Jays python FPL playground</h2>
+
+  <div>
+    <form action = "/teamId" method = "post" value=704118>
+       <p>Enter your league id:</p>
+       <p><input type = "number" name = "newTmId" /></p>
+       <p><input type = "submit" value = "submit" /></p>
+    </form>    
+  </div>
+
+
+  <div>
+    <ul>
+      <li>
+        <span><a href="/leagueType/0">Get classic leagues</a></span>
+      </li>
+      <li>
+        <span><a href="/leagueType/1">Get H2H leagues</a></span>
+      </li>
+    </ul>
+  </div>

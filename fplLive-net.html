@@ -1,0 +1,4201 @@
+<!DOCTYPE html>
+
+<html class="wide wow-animation" lang="en">
+	<style>
+
+		/* Variables */
+		$gold: #e9cc74;
+		$black-gradient-to-bottom: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0.90) 90%);
+		$black-gradient-to-top: linear-gradient(to top, rgba(0,0,0,0) 0%, rgba(0,0,0,0.90) 90%);
+
+		.eff{
+			display:none;
+		}
+	
+		.fut-player-card {
+			position: relative!important;
+			width: 300px;
+			height: 485px;
+			background-position: center center!important;
+			background-size: 100% 100%;
+			background-repeat: no-repeat!important;
+			padding: 3.8rem 0!important;
+			z-index: 2!important;
+			transition: 200ms ease-in!important;
+		}
+
+		.fut-player-card .player-card-top {
+			position: relative;
+			display: flex;
+			color: #e9cc74;
+			padding: 0 1.5rem;
+		}
+
+		.fut-player-card .player-card-top .player-master-info {
+			position: absolute;
+			line-height: 2.2rem;
+			font-weight: 300;
+			text-transform: uppercase;
+		}
+
+		.fut-player-card .player-card-top .player-master-info .player-rating {
+			font-size: 2rem;
+		}
+
+		.fut-player-card .player-card-top .player-master-info .player-position {
+			font-size: 1.4rem;
+		}
+	
+		.fut-player-card .player-card-top .player-master-info .player-nation {
+			display: block;
+			width: 2rem;
+			height: 25px;
+			margin: 0.3rem 0;
+		}
+
+		.fut-player-card .player-card-top .player-master-info .player-nation img {
+			width: 100%;
+			height: 100%;
+			-o-object-fit: contain;
+			object-fit: contain;
+		}
+
+		.fut-player-card .player-card-top .player-master-info .player-club {
+			display: block;
+			width: 2.1rem;
+			height: 40px;
+		}
+
+		.fut-player-card .player-card-top .player-master-info .player-club img {
+			width: 100%;
+			height: 100%;
+			-o-object-fit: contain;
+			object-fit: contain;
+		}
+
+		.fut-player-card .player-card-top .player-picture {
+			width: 200px;
+			height: 200px;
+			margin: 0 auto;
+			padding-bottom:15%;
+			overflow: hidden;
+		}
+
+		.fut-player-card .player-card-top .player-picture img {
+			width: 100%;
+			height: 100%;
+			-o-object-fit: contain;
+			object-fit: contain;
+			position: relative;
+			right: -1.5rem;
+			bottom: 0;
+		}
+
+		.fut-player-card .player-card-top .player-picture .player-extra {
+			position: absolute;
+			right: 0;
+			bottom: -0.5rem;
+			overflow: hidden;
+			font-size: 1rem;
+			font-weight: 700;
+			text-transform: uppercase;
+			width: 100%;
+			height: 2rem;
+			padding: 0 1.5rem;
+			text-align: right;
+			background: none;
+		}
+
+		.fut-player-card .player-card-top .player-picture .player-extra span {
+			margin-left: 0.6rem;
+			text-shadow: 2px 2px #333;
+		}
+
+		.fut-player-card .player-card-bottom {
+			position: relative;
+		}
+	
+		.fut-player-card .player-card-bottom .player-info {
+			display: block;
+			padding: 0.3rem 0;
+			color: #e9cc74;
+			width: 90%;
+			margin: 0 auto;
+			height: auto;
+			position: relative;
+			z-index: 2;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-name {
+			width: 100%;
+			display: block;
+			text-align: center;
+			font-size: 1.6rem;
+			height:40px;
+			text-transform: uppercase;
+			border-bottom: 2px solid rgba(233, 204, 116, 0.1);
+			padding-bottom: 0.3rem;
+			overflow: hidden;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-name span {
+			display: block;
+			text-shadow: 2px 2px #111;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features {
+			margin: 0.5rem auto;
+			display: flex;
+			justify-content: center;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features .player-features-col {
+			border-right: 2px solid rgba(233, 204, 116, 0.1);
+			padding: 0 2.3rem;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features .player-features-col span {
+			display: flex;
+			font-size: 1rem;
+			text-transform: uppercase;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features .player-features-col span .player-feature-value {
+			margin-right: 0.3rem;
+			font-weight: 700;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features .player-features-col span .player-feature-title {
+			font-weight: 300;
+		}
+
+		.fut-player-card .player-card-bottom .player-info .player-features .player-features-col:last-child {
+			border: 0;
+		}
+
+		blockquote {
+			font-size: 1.1em;
+			line-height: 1.6em;
+			padding: 20px 20px 20px 40px;
+			border-left: none;
+			position: relative;
+			text-indent: -19px
+		}
+
+		section#block_content {
+			text-align: left
+		}
+
+		blockquote p {
+			font-size: 1em
+		}
+
+		blockquote:before,
+		blockquote:after {
+			font-family: Arial, serif;
+			font-size: 2.5em;
+			vertical-align: middle;
+			line-height: 0
+		}
+
+		blockquote:before {
+			content: open-quote;
+			margin-right: 4px
+		}
+
+		blockquote:after {
+			content: close-quote;
+			margin-left: 3px
+		}
+
+		blockquote.blockstyle,
+		blockquote.style2 {
+			background: #fff;
+			font-style: italic
+		}
+
+		blockquote.blockstyle p,
+			blockquote.style2 p {
+			display: inline
+		}
+
+		blockquote.blockstyle {
+			position: relative
+		}
+
+		blockquote.blockstyle>span.triangle:before {
+			text-indent: 0;
+			content: "\f0da";
+			font-family: FontAwesome;
+			color: #f0715f;
+			position: absolute;
+			left: -1px;
+			top: 50%;
+			margin-top: -11px;
+			font-style: normal
+		}
+
+		blockquote.blockstyle:before,
+		blockquote.blockstyle:after {
+			color: #f0715f
+		}
+
+		blockquote.blockstyle.border-color-blue {
+			border-color: #1100ff
+		}
+
+		blockquote.blockstyle.border-color-blue>span.triangle:before {
+			color: #000dff
+		}
+
+		blockquote.blockstyle.border-color-yellow {
+			border-color: #fdb714
+		}
+
+		blockquote.blockstyle.border-color-yellow>span.triangle:before {
+			color: #fdb714
+		}
+
+		.bar{
+			background-color: green;
+			position: relative;
+			height: 16px;
+			margin-top: 8px;
+			margin-bottom: 8px;
+		}
+
+		.player-info-table table th:nth-child(even), .player-info-table table td:nth-child(even) {
+			color: #1100ff!important;
+			white-space: nowrap;
+		}
+
+		.content {
+			display: none;
+			padding : 5px;
+			text-align : center;
+		}
+	
+		.table-standings td {
+			padding: 5px;
+			height: auto!important;
+			font-weight: 400!important;
+		}
+
+		*{
+			-webkit-overflow-scrolling: touch;
+		}
+	
+		.codegena{position:relative;width:50%;height:0;padding-bottom:28.14%;}
+		.codegena iframe{position:absolute;top:0;left:50%;width:100%;height:100%;}
+
+		@media(max-width: 800px){
+			.codegena{position:relative;width:100%;height:0;padding-bottom:56.27198%;}
+			.codegena iframe{position:absolute;top:0;left:0;width:100%;height:100%;}
+		}
+
+		.wrapper {
+			position: relative;
+		}
+
+		#infoi {
+			position: absolute;
+			top: 2%;
+			left: 2%;
+			height:0;width:27%;padding-bottom:20%
+		}
+	
+		#infoi3 {
+			position: absolute;
+			top: 2%;
+			left: 2%;
+			height:0;width:30%;padding-bottom:20%
+		}
+
+		#infoi2 {
+			position: absolute;
+			top: 17%;
+			left: 10%;
+			height:0;width:20%;padding-bottom:20%
+		}
+
+		.table-team-statistic td {
+			padding:5px!important;
+		}
+
+		.done {
+			border-radius: 25px;
+			margin-top: 16px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;
+			background-color: rgb(12, 12, 156);
+		}
+
+		.missed {margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;
+			background-color: red;
+		}
+
+		.live{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color:#de9206;
+		}
+
+		.yet{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color: green;
+		}
+
+		.bench{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color: black;
+		}
+
+		.playerbox {
+			border-radius: 10px;
+			border-style:solid;
+			text-align: center;
+			padding: 0.8%;
+			float:left;
+			background-color: rgb(12, 12, 156);
+			border-color:rgb(12, 12, 156);
+			border-width:thick;
+			margin: 0.8%;
+			font-size: 13!important;
+			font-margin: bold;
+			color: #fff;
+		}
+
+		.playerbox2 {
+			border-style:solid;
+			text-align: center;
+			padding: 0.8%;
+			background-color: rgb(12, 12, 156);
+			border-color:rgb(12, 12, 156);
+			border-width:thick;
+			margin: 0.8%;
+			font-size: 13!important;
+			font-margin: bold;
+			color: #fff;
+		}
+
+		.player-voting-item span.hid {
+			visibility: hidden;
+			background-color: white;
+			text-align: center;
+			border-radius: 6px;
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			margin-left:-20%;
+		}
+
+		li span.hid {
+			visibility: hidden;
+			background-color: white;
+			text-align: center;
+			border-radius: 6px;
+
+			/* Position the tooltip */
+			position: absolute;
+			z-index: 1;
+			margin-left:-20%;
+		}
+
+		.live2{
+			margin-top: 0px;
+			font-size: 12px;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 14px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color:#de9206;
+		}
+
+		.yet2{margin-top: 0px;
+			font-size: 12px;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 14px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color:green;
+		}
+
+		.missed2{
+			margin-top: 0px;
+			font-size: 12px;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 14px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color:red;
+		}
+
+		.bench2{
+			margin-top: 0px;
+			font-size: 12px;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 14px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color:black;
+		}
+
+		.done2 {
+			margin-top: 0px;
+			font-size: 12px;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 14px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color: rgb(12, 12, 156);
+		}
+
+		.base {
+			margin-top: 0px;
+			vertical-align: middle;
+			color: black;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: grid;
+			font-size: 9px;
+			border: 0px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			/* text-transform: uppercase; */
+			white-space: nowrap;
+			text-align: center;
+			vertical-align: middle;
+			background-color: white;
+		}
+		
+		.player-voting-item:hover span.hid {
+			visibility: visible;
+		}
+
+		li:hover span.hid {
+			visibility: visible;
+		}
+
+		.done {
+			border-radius: 25px;
+			margin-top: 16px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;
+			background-color: rgb(12, 12, 156);
+		}
+
+		.missed {margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;
+			background-color: red;
+		}
+
+		.live{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color:#de9206;
+		}
+
+		.yet{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color: green;
+		}
+
+		.bench{
+			margin-top: 16px;
+			border-radius: 25px;
+			font-size: 12px;
+			display: inline-flex;
+			justify-content: center;
+			align-items: center;
+			vertical-align: middle;
+			color: #fff;
+			width: 100%;
+			position: relative;
+			overflow: hidden;
+			display: inline-block;
+			font-size: 14px;
+			line-height: 1.25;
+			border: 2px solid;
+			font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+			font-weight: 500;
+			letter-spacing: 0.025em;
+			text-transform: uppercase;
+			white-space: nowrap;
+			text-overflow: ellipsis;
+			text-align: center;
+			cursor: pointer;
+			vertical-align: middle;
+			user-select: none;
+			border-radius: 4px;
+			transition: .3s ease-out all;background-color: black;
+		}
+
+		.clickrow {
+			cursor: pointer;
+		}
+
+		#website {
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+			width: 100%;
+			font-size:large;
+			font-weight:600;
+		}
+
+		[class*="col-"] {
+			float: left;
+			padding: 15px;
+		}
+
+		.team{
+			font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+			border-collapse: collapse;
+		}
+
+
+		input, button, select, optgroup, textarea {
+			margin: 0;
+			font-family: inherit;
+			font-size: inherit;
+			line-height: inherit;
+			color: inherit;
+			font: inherit;
+			text-transform: uppercase;
+			font-weight: 500;
+			letter-spacing: .05em;
+		}
+
+		.team td, .team th {
+			border-bottom: 0px solid white;
+			border-top: 0px solid white;
+			border-collapse: collapse;
+			padding: 6px;
+		}
+
+		#inline{
+			display: inline-block;
+			width: 30%;
+			min-height: 50px;
+			margin:2%;
+			display:grid;
+			height: auto;
+		}
+
+		#website td, #website th {
+			border-bottom: 1px solid black;
+			border-top: 1px solid black;
+			border-collapse: collapse;
+			padding: 6px;
+		}
+
+		.col-1 {width: 8.33%;}
+		.col-2 {width: 16.66%;}
+		.col-3 {width: 25%;}
+		.col-4 {width: 33.33%;}
+		.col-5 {width: 41.66%;}
+		.col-6 {width: 50%;text-align: center;}
+		.col-7 {width: 58.33%;}
+		.col-8 {width: 66.66%;}
+		.col-9 {width: 75%;}
+		.col-10 {width: 83.33%;}
+		.col-11 {width: 91.66%;}
+		.col-12 {width: 100%;}
+
+		@media screen and (min-width: 1320px) {
+			div#mydiv { display: none }
+		}
+	
+		.example_responsive_122 { width: 320px; height: 100px; }
+		@media(min-width: 500px) { .example_responsive_1242 { width: 468px; height: 60px; } }
+		@media(min-width: 800px) { 
+			.example_responsive_1242 { width: 900px; height: 90px; }
+			.column-fdr{
+				font-size:40%!important;
+			}
+		}
+
+
+		.example_responsive_122 { width: 100%!important;  }
+
+		/* Responsive layout - makes the three columns stack on top of each other instead of next to each other */
+		@media screen and (max-width: 800px) {
+			[class*="col-"] {
+				float: none;
+				padding: 15px;
+			}
+
+			.my {width:60%; text-align: center;}
+			.col-6 {width: 30%;max-width: 100%;}
+
+			table, th, td {
+				text-align: center;
+				font-size: small;
+			}
+
+			th,td {
+				padding: 0px;
+			}
+		}
+
+	</style>
+
+	<head>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.0/chart.min.js"></script>
+		<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+
+		<!-- Site Title-->
+		<title>LiveFPL</title>
+		<meta name="format-detection" content="telephone=no">
+		<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, user-scalable=1">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="description" content="Guide to all fantasy premier league live action. Check your live overall rank as it updates in real time, and your league tables">
+		<meta name="keywords" content="FPL, live, live rank, fantasy premier league, fantasy, premier league, overall rank, leagues">
+	</head>
+
+	<link rel="icon" href="../static/new_logo.ico" type="image/x-icon">
+	<!-- Stylesheets-->
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Kanit:300,400,500,500i,600,900%7CRoboto:400,900">
+	<link rel="stylesheet" href="../static2/css/bootstrap.css">
+	<link rel="stylesheet" href="../static2/css/fonts.css">
+	<link rel="stylesheet" href="../static2/css/style.css?version=992" id="main-styles-link">
+	<style>.ie-panel{display: none;background: #212121;padding: 10px 0;box-shadow: 3px 3px 5px 0 rgba(0,0,0,.3);clear: both;text-align:center;position: relative;z-index: 1;} html.ie-10 .ie-panel, html.lt-ie-10 .ie-panel {display: block;}</style>
+
+	</head>
+
+
+	<body onload="javascript:myFunc()">
+
+		<div class="ie-panel">
+			<a href="http://windows.microsoft.com/en-US/internet-explorer/"><img src="../static2/images/ie8-panel/warning_bar_0000_us.jpg" height="42" width="820" alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."></a>
+		</div>
+
+		<div id="preloader">
+			<div class="preloader-body">
+				<div class="preloader-item"></div>
+			</div>
+		</div>
+		<!-- Page-->
+
+		<div class="page">
+		<!-- Page Header-->
+
+			<style>
+				.rd-navbar-panel {height:80px;}
+				.rd-navbar-brand img {max-width: 250px!important;}
+				@media(max-width: 800px){.texty {font-size: xx-small;}}
+				.rd-navbar-collapse.active{display:none;}
+			</style>
+
+			<header class="section page-header rd-navbar-dark">
+
+				<!-- RD Navbar-->
+				<div class="rd-navbar-wrap">
+				<nav class="rd-navbar rd-navbar-classic" data-layout="rd-navbar-fixed" data-sm-layout="rd-navbar-fixed" data-md-layout="rd-navbar-fixed" data-md-device-layout="rd-navbar-fixed" data-lg-layout="rd-navbar-fixed" data-lg-device-layout="rd-navbar-fixed" data-xl-layout="rd-navbar-static" data-xl-device-layout="rd-navbar-static" data-xxl-layout="rd-navbar-static" data-xxl-device-layout="rd-navbar-static" data-lg-stick-up-offset="166px" data-xl-stick-up-offset="166px" data-xxl-stick-up-offset="166px" data-lg-stick-up="true" data-xl-stick-up="true" data-xxl-stick-up="true">
+				<div class="rd-navbar-panel">
+				<!-- RD Navbar Toggle-->
+				<button class="rd-navbar-toggle" data-rd-navbar-toggle=".rd-navbar-main"><span></span></button>
+				<!-- RD Navbar Panel-->
+
+				<div class="rd-navbar-panel-inner container">
+				<div class="rd-navbar-collapse active rd-navbar-panel-item rd-navbar-panel-item-left" >
+
+				</div>
+				<div class="rd-navbar-panel-item rd-navbar-panel-item-right">
+				<article class="post-inline" style="text-align: center;">
+				<time class="post-inline-time" datetime="2019"><a href="../rank"><img  src="../static/new_logo2.png" style="height:30px;margin-top:5%;margin-bottom:2%" alt="" /></a></time>
+				<p class="texty" >Exact Live Ranks, Leagues, Top10k, Chips and more!</p>
+				</article>
+				</div>
+				<div class="rd-navbar-collapse-toggle rd-navbar-fixed-element-1" data-rd-navbar-toggle=".rd-navbar-collapse"><span></span></div>
+				</div>
+				</div>
+				<div class="rd-navbar-main">
+				<div class="rd-navbar-main-top">
+				<div class="rd-navbar-main-container container">
+				<!-- RD Navbar Brand-->
+				<div class="rd-navbar-brand"><a class="brand" href="../rank"><img  src="../static/new_logo_long.png" alt="" /></a>
+				</div>
+				<!-- RD Navbar List-->
+				<ul class="rd-navbar-list">
+
+
+				</ul>
+				<!-- RD Navbar Search-->
+				<div class="rd-navbar-search">
+
+				</div>
+
+				</div>
+				<div class="rd-navbar-main-bottom rd-navbar-darker">
+				<div class="rd-navbar-main-container container">
+				<!-- RD Navbar Nav-->
+				<ul class="rd-navbar-nav">
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../rank">Live Rank</a></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../leagues">Live Leagues</a></li>
+				<li class="rd-nav-item " style="color:red"><a class="rd-nav-link" href="../myteam">Transfer Planner</a>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../games">Live Games & Bonus</a></li>
+
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../dgw">DGW/BGW nums in rank tiers</a></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../whatif">What if? Rank for all scenarios</a></li>
+				<li class="rd-nav-item " style="color:red"><a class="rd-nav-link" href="../favorites">Track Favorite Managers</a>
+
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../EO">Ownership + captains</a></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../chips">Chips</a></li>
+				<li class="rd-nav-item " style="color:red"><a class="rd-nav-link" href="../elite">Legendary Managers</a>
+
+				<li class="rd-nav-item " style="color:red;display:none"><a class="rd-nav-link" href="../turningpoint">Branch off your Team</a>
+
+
+
+				<li class="rd-nav-item " style="display:none"><a class="rd-nav-link" href="../save">Save Your Season Data</a>
+
+				<li class="rd-nav-item " style="color:red"><a class="rd-nav-link" href="../ticker">Season Ticker</a>
+
+
+
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../top10k">Top10k</a>
+				<ul class="rd-menu rd-navbar-dropdown">
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../top10k">Live Top10k Statistics</a></li>
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../top10k_ownership">Top10k Player Ownership</a></li>
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../top10k_summary">Top10k GW by GW Summary</a></li>
+
+				</ul></li>
+
+
+
+
+				<li class="rd-nav-item "><a class="rd-nav-link" href = "../Overall">Overall</a>
+				<ul class="rd-menu rd-navbar-dropdown">
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../Overall">Live Overall Statistics</a></li>
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../figs">Visualized Overall Selections</a></li>
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../overall_ownership">Overall Player Ownership</a></li>
+
+				</ul></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href = "../rank_tiers">Rank Tiers (1K, 10K, 100K, ..)</a>
+				<ul class="rd-menu rd-navbar-dropdown">
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../local">Your local tier statistics</a></li>
+				<li class="rd-dropdown-item"><a class="rd-dropdown-link" href="../rank_tiers">Compare different tiers</a></li>
+
+
+				</ul></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../autosubs">Live Autosubs</a></li>
+				<li class="rd-nav-item "><a class="rd-nav-link" href="../prices">Price Changes</a></li>
+
+
+
+
+				</ul>
+
+				<li class="rd-nav-item " style="display:none"><span><form action="https://bit.ly/FFScoutLiveFPL" method="post" target="_top" style="font-size:9px;margin-left: 14px;">
+
+				<input type="image" src="../static/signupscout.png" border="0" name="submit" style="width:122px"><br>To Fantasy Football Scout
+				</form></span></li>
+
+
+				<li class="rd-nav-item " ><span><form action="../remove_ads/"  target="_top" style="font-size:9px;margin-left: 14px;">
+
+				<input type="image" src="../static/signupscout.png" border="0" name="submit" style="width:122px"><br>To remove ads & support LiveFPL
+				</form></span></li>
+
+
+
+
+				</div>
+
+				</div>
+				</div></div>
+				</nav>
+
+				</div>
+
+			</header>
+
+			<div style="text-align:center;background-color:rgb(53, 54, 60);border-style:none">
+				<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+				<ins class="adsbygoogle example_responsive_122"
+				style="display:inline-block"
+				data-ad-client="ca-pub-7466981426984905"
+				data-ad-slot="7149328176"></ins></ins>
+				<script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+			</div>
+
+			<section class="section section-md bg-gray-100">
+			<div class="container">
+
+
+
+
+			<h6>If you like LiveFPL and would like to navigate it the full year without ads, feel free to support us <a style="color:red" href="../remove_ads">here</a></h6>
+
+			<br>
+
+
+		<div style="    border-style: solid;border-color:black;display:none">
+			<h3 class="blog-post-title" style="text-transform:none">There is a New Virtual FPL Minigame Starting Sunday! [<a style="color:red" href="../rules">Rules here</a>] Winner gets a customized FPL shirt :)</h3>
+			<h4  style="text-transform:none">Have fun in the break creating teams satisfying the following criteria: [<a style="color:red" href="../play">Play Now</a>]</h4>
+			<table style="font-size:80%;table-layout:fixed;color:black">
+				<thead style="color:white;background-color:darkblue">
+					<td style="width:20%">Round</td>
+					<td style="width:30%">Challenge Name</td>
+					<td style="width:50%">Requirement</td>
+				</thead>
+
+				<tbody>
+
+					<tr><td style="width:20%">Round 1</td><td style="width:30%"> "The Wealthy" </td><td style="width:50%"> Unlimited Budget </td></tr>
+					<tr><td style="width:20%">Round 2</td><td style="width:30%"> "The Diverse" </td><td style="width:50%"> No Players from the same PL team</td></tr>
+					<tr><td style="width:20%">Round 3</td><td style="width:30%"> "The Bargain" </td><td style="width:50%"> No players above £6.5M </td></tr>
+					<tr><td style="width:20%">Round 4</td><td style="width:30%"> "The Differential" </td><td style="width:50%"> Unlimited number of players per PL team, but no player owned by more than 10%</td></tr>
+
+				</tbody>
+
+			</table>
+
+			<br>
+
+		</div>
+
+
+<h2 class="heading-component-title" >Jay Vando Live Page
+</h2>
+<p><button style="font-family: Poppins, sans-serif;color:white;background-color: green;" onclick="olddesign()">Switch To New Design</button></p>
+
+<br><br>
+<table><tr><td style="color:black">
+<input type="text" id="namez" name="namez" value="Jay Vando">
+<input style="display:none" type="text" id="idzz" name="idzz" value="704118">
+<td >
+<a class="button button-default button-block" style="background-color: darkmagenta;    padding: 5px;" href="javascript:void(0)" onclick="changename();"><span>Change Name</span></a>
+</td>
+</td></tr></table>
+
+
+
+<h5>
+View live league table <select id ="choose" name="choose" style="color:black;max-width:80%" onchange="doSomething(this.value);" onfocus="this.selectedIndex = -1;">
+
+
+<option value="12"  >Liverpool</option>
+
+<option value="172"  >Netherlands</option>
+
+<option value="276"  >Gameweek 1</option>
+
+<option value="314"  >Overall</option>
+
+<option value="357"  >Official #FPLPod -  b624s7</option>
+
+<option value="440"  >FFM League</option>
+
+<option value="6259"  >Always Cheating Super League</option>
+
+<option value="7712"  >Fantasy 606</option>
+
+<option value="11214"  >Who Got The Assist? Minileague</option>
+
+<option value="24432"  >Beat the @FPLGeneral</option>
+
+<option value="64808"  >WorldSoccerTalk.com</option>
+
+<option value="112029"  >Fantasy Football Scout</option>
+
+<option value="141661"  >fantasyfootballfix.com</option>
+
+<option value="146285"  >JaysLeagueCup</option>
+
+<option value="329400"  >Official /r/FantasyPL Classic League</option>
+
+<option value="513213"  >Viaplay League</option>
+
+<option value="844605"  >The Athletic</option>
+
+<option value="941528"  >League 941528</option>
+
+<option value="1435428"  selected  >That Peter Crouch Podcast</option>
+
+</select>
+</h5>
+
+
+<br>
+<h6>Other Live Features:</h6>
+<table style="width:100%;table-layout: fixed;">
+
+<tr>
+<td style="width:60%;"><a class="button button-default button-block" style="background-color: darkmagenta;" href="../chips"><span>Chips + Captains</span></a></td>
+<td ><a class="button button-default button-block" style="background-color: darkmagenta;" href="../top10k"><span>Top10k</span></a></td>
+
+
+</tr>
+<tr>
+<td style="width:60%;"><a class="button button-default button-block" style="background-color: darkmagenta;" href="../local"><span>Managers Around You</span></a></td>
+<td><a class="button button-default button-block" style="background-color: darkmagenta;" href="../whatif"><span>What if?</span></a></td>
+
+
+</tr>
+<tr>
+<td style="width:60%;"><a class="button button-default button-block" style="background-color: darkmagenta;" href="../games"><span>Live Games/Bonus</span></a></td>
+<td><a class="button button-default button-block" style="background-color: darkmagenta;" href="../dgw"><span>Ownership</span></a></td>
+
+
+</tr>
+</table>
+
+
+
+
+<br>
+<article class="game-result game-result-long team2-orange" style="background-color: #edeff4;border: 0;">
+
+
+<button type="button" class="btn btn-info" data-toggle="collapse" data-target="#demo" style="color: #fff;background-color: #5bc0de;width:50%">Change Team ID</button>
+
+
+
+</article>
+
+
+
+
+
+
+
+
+<div id="demo" class="collapse">
+
+
+<article class="game-result game-result-long team2-orange">
+
+
+<form id="form1" action="../rank" method="POST">
+<tr>
+
+<td ><input name="contents" id="s1" placeholder="Enter your FPL id " class ="form-control" style ="text-align:center;"></input> </td>
+
+</tr>
+<tr><td  style="text-align:center"><a href="../static/fpl_id.jpg">How to get my FPL id? </a></td></tr>
+<tr>
+
+<td  style="text-align:center"><input type="button" name ="mainbtn" class="btn btn-success" value="Enter id" onclick=" handleChange()" style="color:white;background-color:blue"></input></td>
+
+</tr>
+</form> </article></div>
+<div id="msg" style="color:black;text-align:center"></div>
+
+
+<div></div>
+<br>
+
+
+<article class="heading-component"> <ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></article>
+
+
+<article class="heading-component" >
+<div class="heading-component-inner">
+
+<div class="heading-component-aside">
+
+</div>
+</div>
+</article>
+
+<div class="row row-50" style="margin-right:-10%;margin-left:-10%">
+<div class="col-lg-4">
+
+
+
+<div class="aside-component">
+<!-- Heading Component-->
+
+<article class="heading-component">
+<div class="heading-component-inner">
+
+
+
+
+
+<h5 class="heading-component-title"> Your Team vs Top10k and Overall
+</h5>
+<h10 class="heading-component-title">Legendary Managers can be found <a href="../elite">here</a></h10>
+
+
+</div>
+</article>
+<!-- List Post Classic-->
+
+<article class="game-result game-result-long team2-orange">
+
+
+<div class="table-custom-responsive">
+
+<table class="table-custom table-custom-bordered table-team-statistic">
+<tbody >
+
+<tr><td colspan="4" style="height: 10px;background-color:#35ad79;;color:white"> Live Scores [Bonus  included] </td></tr>
+
+
+
+
+
+
+<tr>
+
+
+<td>
+
+<p class="team-statistic-counter" style="font-size:20px">46 (0) = 46</p>
+
+<p class="team-statistic-title">Your Team</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">50.92 (-0.64) = 50.28</p>
+<p class="team-statistic-title">Top10k</p>
+<p class="team-statistic-title"><a href="top10k">See more</a></p>
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">47.29 (-0.77) = 46.53</p>
+<p class="team-statistic-title">Overall</p>
+<p class="team-statistic-title"><a href="Overall">See more</a></p>
+</td>
+<td>
+
+<p class="team-statistic-counter" style="font-size:20px">50.23 (-0.77) = 49.47</p>
+
+<p class="team-statistic-title">Legendary Managers</p>
+<p class="team-statistic-title"><a href="elite">See more</a></p>
+</td>
+</tr>
+
+
+
+
+<tr><td colspan="4" style="height: 10px;background-color:#35ad79;;color:white">Autosubs + Vice Captains Increase</td></tr>
+<tr>
+<td style="height: 10%!important;">
+<p class="team-statistic-counter" style="font-size: 20px" >6</p>
+<p class="team-statistic-title" >Your Team</p>
+
+</td>
+<td style="height: 10%!important;">
+<p class="team-statistic-counter" style="font-size: 20px">0.23</p>
+<p class="team-statistic-title" >Top10k</p>
+<p class="team-statistic-title"><a href="autosubs">See more</a></p>
+</td>
+<td style="height: 10%!important;">
+<p class="team-statistic-counter" style="font-size: 20px">1.11</p>
+<p class="team-statistic-title" >Overall</p>
+<p class="team-statistic-title" ><a href="autosubs">See more</a></p>
+</td>
+<td style="height: 10%!important;">
+<p class="team-statistic-counter" style="font-size: 20px">0.31</p>
+<p class="team-statistic-title" >Legendary Managers</p>
+</td>
+</tr>
+
+<tr><td colspan="4" style="height: 10px;background-color:#35ad79;;color:white">Number of Fixtures [includes doubles/blanks]</td></tr>
+<tr>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">11/12</p>
+
+<p class="team-statistic-title">Your Team</p>
+
+</td>
+
+<td>
+<p class="team-statistic-counter" style="font-size:20px">9.53/12.03</p>
+<p class="team-statistic-title">Top10k</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">9.97/12.04</p>
+<p class="team-statistic-title">Overall</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">9.75/12.0</p>
+<p class="team-statistic-title">Legendary Managers</p>
+
+</td>
+</tr>
+
+<tr><td colspan="4" style="height: 10px;background-color:#35ad79;;color:white;font-size:12px">Budget Remaining to Play [Captain counts once]</td></tr>
+<tr>
+<td>
+<p class="team-statistic-counter" style="font-size:15px">£5.7/£75.0</p>
+
+<p class="team-statistic-title">Your Team</p>
+
+</td>
+
+<td>
+<p class="team-statistic-counter" style="font-size:15px">£17.5/£82.2</p>
+<p class="team-statistic-title">Top10k</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:15px">£14.3/£76.8</p>
+<p class="team-statistic-title">Overall</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:15px">£14.5/£82.9</p>
+<p class="team-statistic-title">Legendary Managers</p>
+
+</td>
+</tr>
+
+<tr><td colspan="4" style="height: 10px;background-color:#35ad79;;color:white">Captain Points [already doubled/tripled]</td></tr>
+<tr>
+<td>
+
+<p class="team-statistic-counter" style="font-size:20px">26</p>
+
+<p class="team-statistic-title">Your Team</p>
+
+</td>
+
+<td>
+<p class="team-statistic-counter" style="font-size:20px">24.35</p>
+<p class="team-statistic-title">Top10k</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">18.91</p>
+<p class="team-statistic-title">Overall</p>
+
+</td>
+<td>
+<p class="team-statistic-counter" style="font-size:20px">23.61</p>
+<p class="team-statistic-title">Legendary Managers</p>
+
+</td>
+</tr>
+
+
+
+
+
+</tbody></table>
+
+</div></div>
+
+
+
+
+</article>
+
+<br>
+<article class="game-result game-result-long team2-orange"><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></article>
+
+
+
+</div>
+
+
+
+<div class="col-lg-4">
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Rank Details
+</h5>
+<h10 class="heading-component-title">[Overall Ranks are > 99% exact.]</h10>
+</div>
+</article>
+<div class="player-info-corporate">
+
+<div class="player-info-main" style="text-align:center">
+<table style="table-layout:fixed;width:100%"><tr><td style="width:60%">
+
+<h4 class="player-info-title">Jay Vando</h4>
+<p class="player-info-subtitle" style="color:black">GW13</p>
+
+<hr style="height:5px; visibility:hidden;margin-top: 0;" />
+
+
+
+</td>
+
+
+<td style="width:25%">
+
+
+
+<table class="table-custom table-custom-bordered table-team-statistic">
+<tr><td style="height:20%;padding:10px!important">
+
+<p class="team-statistic-counter" style="font-size:16px">46(0)=46</p>
+
+
+</td></tr>
+<tr><td style="height:20%;padding:10px!important">
+
+
+
+<span class="list-statictics-counter">463,402  <img src="../static/down.png" style="width:auto;" > </span>
+
+
+</td></tr>
+
+</table>
+
+
+</td></tr></table>
+<hr>
+
+<div class="player-info-table" style="text-align:center">
+<h4 class="player-info-title" style="color:darkblue">Points</h4>
+<p class="player-info-subtitle" style="color:darkblue">Gained Points: -2</p>
+<br>
+<div class="table-custom-wrap">
+<table class="table-custom" style="color:black;font-size:100%">
+
+<tbody><tr>
+
+<th>GW13 Live</th>
+<th>46 + 6 = 52</th>
+
+
+<th>Total</th>
+<th>742 + 6 = 748</th>
+
+</tr>
+<tr>
+
+
+
+<th>Safety Score</th>
+<th>54</th>
+
+<th id="gwgaintitle">GW13 Gain</th>
+<th id ="gwgain">-2</th>
+
+
+
+
+
+</tr>
+
+<tr>
+<th>Off 10k</th>
+<th> 54 </th>
+
+<th>Off 300K</th>
+<th>4</th>
+</tr>
+
+
+</tbody></table>
+</div>
+</div>
+<hr>
+<div class="player-info-table" style="text-align:center">
+<h4 class="player-info-title" style="color:darkblue">Ranks</h4>
+<p class="player-info-subtitle" style="color:darkblue">Gained Rank: -17,493</p>
+
+<br>
+<div class="table-custom-wrap">
+<table class="table-custom" style="color:black;font-size:90%">
+
+<tbody><tr>
+<th>New pre-subs</th>
+<th>463,402  <img src="../static/down.png" style="width:auto;" > </th>
+
+<th>Old</th>
+<th>350,225</th> 
+</tr>
+<tr>
+<th>New post-subs</th><th>367,718  <img src="../static/down.png" style="width:auto;" > 
+
+
+</th>
+<th>Change%</th> <th>4.99%  <img src="../static/down.png" style="width:auto;" > </th>
+
+
+
+</tr>
+<tr >
+
+<th>GW rank</th><th>6,350,992</th>
+
+
+
+
+
+</tr>
+
+</tbody></table>
+
+
+</div>
+</div>
+<hr>
+<div class="player-info-table" style="text-align:center" id="star">
+
+
+</div>
+<hr>
+
+<div class="player-info-table" style="text-align:center" >
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7466981426984905"
+crossorigin="anonymous"></script>
+<ins class="adsbygoogle"
+style="display:none"
+data-ad-format="fluid"
+data-ad-layout-key="-gr-c+2w-13-6o"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="4504190984"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+<div class="player-info-table" style="text-align:center" id="battle">
+
+
+</div>
+
+<div class="player-info-progress">
+<h4 class="player-info-title" style="color:darkblue">Team Ratings</h4>
+<!-- Linear progress bar-->
+
+
+
+<article class="progress-linear progress-bar-modern animated">
+<div class="progress-header" >
+<p style="color:black">Template Rating</p>
+</div>
+
+<div class="progress-bar-linear-wrap">
+<div class="progress-bar-linear" style="width: 81.0%;"></div>
+</div><span class="progress-value" style=" margin-right: 15px!important;color:black">81.0</span>
+<p style="font-size:10px;color:darkblue">    very template</p>
+
+</article>
+
+
+
+
+<br>
+
+
+
+<span class="list-statictics-counter" style="color:black">How heavy each line of your team is compared to top10k teams:</span>
+<br>
+
+<article class="progress-linear progress-bar-modern animated">
+<div class="progress-header" >
+<p style="color:black">GK</p>
+</div>
+
+<div class="progress-bar-linear-wrap">
+<div class="progress-bar-linear" style="width: 39.0%;"></div>
+</div><span class="progress-value" style=" margin-right: 15px!important;color:black">39.0</span>
+<div class="progress-header" ><p style="font-size:10px;color:darkblue"> Average </p></div>
+</article>
+
+<article class="progress-linear progress-bar-modern animated">
+<div class="progress-header" >
+<p style="color:black">Def</p>
+</div>
+
+<div class="progress-bar-linear-wrap">
+<div class="progress-bar-linear" style="width: 34.0%;"></div>
+</div><span class="progress-value" style=" margin-right: 15px!important;color:black">34.0</span>
+<div class="progress-header" ><p style="font-size:10px;color:darkblue"> Light </p></div>
+</article>
+
+<article class="progress-linear progress-bar-modern animated">
+<div class="progress-header" >
+<p style="color:black">Mid</p>
+</div>
+
+<div class="progress-bar-linear-wrap">
+<div class="progress-bar-linear" style="width: 57.0%;"></div>
+</div><span class="progress-value" style=" margin-right: 15px!important;color:black">57.0</span>
+<div class="progress-header" ><p style="font-size:10px;color:darkblue"> Average </p></div>
+</article>
+
+<article class="progress-linear progress-bar-modern animated">
+<div class="progress-header" >
+<p style="color:black">Fwd</p>
+</div>
+
+<div class="progress-bar-linear-wrap">
+<div class="progress-bar-linear" style="width: 57.0%;"></div>
+</div><span class="progress-value" style=" margin-right: 15px!important;color:black">57.0</span>
+<div class="progress-header" ><p style="font-size:10px;color:darkblue"> Average </p></div>
+</article>
+
+
+
+
+
+<br>
+<span class="list-statictics-counter" style="color:black">Last Updated @ 2022-10-23 15:24:23 GMT</span>
+<br>
+
+
+<hr>
+<h4 class="player-info-title" style="color:darkblue">GW Summary Card</h4>
+<h8 class="player-info-title" style="color:darkblue" id="futtitle"></h8>
+<table style="width:90%"><tr><td colspan="2"><button id="futbtn" onclick="revertfut()" style='display:none;color: black;font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;'>Switch to the default TOTW design</button>
+</td></tr><tr>
+<td style="color:black">
+<input type="text" id="namez2" name="namez" value="Jay Vando">
+<input style="display:none" type="text" id="idzz2" name="idzz" value="704118"></td>
+<td >
+<button id="futbtn2" onclick="changename2()" style='color: black;font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;'>Change Name on Card</button>
+
+</td>
+</tr>
+<tr><td colspan="2" style='color:black;font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;'>
+<button id="futswitch" onclick="futswitch()" style='display:none;color: black;font-family: "Kanit", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;'>Show FPL points per line</button>
+FWD/MID/.. numbers represent <br><input type="radio" id="fplpts" name="choice" value="fplpts">
+<label for="fplpts">FPL Points</label>
+<input type="radio" id="strength" name="choice" value="strength" checked="checked">
+<label for="strength">Strength</label>
+</td></tr>
+</table>
+<br>
+<div id="futcard" class="fut-player-card" style="  margin: 0 auto;position: relative!important;width: 300px;height: 485px;background-image: url('../static/FUT.png') !important;background-position: center center!important;background-size: 100% 100%;background-repeat: no-repeat!important;padding: 3.8rem 0!important;z-index: 2!important;transition: 200ms ease-in!important;">
+<!-- Player Card Top-->
+<div class="player-card-top">
+<div class="player-master-info" style="margin-top:8%">
+<div id ="futgw" class="player-position" style="margin-left:-40%"><span>GW 13</span></div>
+
+<div  class="player-position" style="margin-left:-40%;font-size:1rem"><span id="futscore" style="font-weight:bold;font-size: smaller;">52(0)=52</span></div>
+<div  class="player-rating" style="margin-left:-20%;font-size:1.2rem!important"><span id="futrank" style="font-weight:bold">463,402  <img src="../static/down.png" style="width:auto;" ></span></div>
+
+
+</div>
+<div  class="player-picture"><img id="messipic" src='../static/messi.png' alt="Star" draggable="false"/>
+<div  class="player-extra"><span id="starmessi"></span></div>
+</div>
+</div>
+<!-- Player Card Bottom-->
+<div class="player-card-bottom">
+<div class="player-info">
+<!-- Player Name-->
+<div class="player-name"><span>Jay Vando</span></div>
+<!-- Player Features-->
+<div class="player-features">
+<div class="player-features-col">
+<span style="    margin-left: 10%;">
+
+<div class="player-feature-value" id="F_score">57</div>
+<div class="player-feature-title">FWD</div></span>
+<span style="    margin-left: 10%;">
+<div class="player-feature-value"  id="M_score">57</div>
+<div class="player-feature-title">MID</div></span>
+<span style="    margin-left: 10%;">
+
+<div class="player-feature-value" id="D_score">34</div>
+<div class="player-feature-title">DEF</div></span>
+<span style="    margin-left: 10%;">
+
+<div class="player-feature-value"  id="G_score">39</div>
+<div class="player-feature-title">GK</div></span>
+</div>
+<div class="player-features-col">
+
+<span style="    margin-left: -15%;">
+<div class="player-feature-value">54</div>
+<div class="player-feature-title">Safety</div></span>
+<span  style="    margin-left: -15%;">
+<div class="player-feature-value">-2</div>
+<div class="player-feature-title">PTS GAIN</div></span>
+<span  style="    margin-left: -15%;">
+<div class="player-feature-value">4.99%&#8595;</div>
+<div class="player-feature-title">Rank</div></span>
+<span style="    margin-left: -15%;">
+<div class="player-feature-value">81.0%</div>
+<div class="player-feature-title">TEMP</div></span>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+<h8 style="color:black">Card Design adjusted from <a href="https://bootsnipp.com/selimdoyranli">Selim Doyranlı</a></h8><br>
+<h8 style="color:black">TEMP = Template Rating</h8>
+
+
+
+</div>
+</div>
+</div>
+
+
+
+<ul class="list-statictics"><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script></ul></div>
+
+
+<div class="col-lg-4">
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Jay Vando Team Points
+
+
+</h5>
+
+<h7 class="heading-component-title" style="display:none">Kits updated by the awesome designer <a href="https://twitter.com/ryndk"
+	 style="color:green">Ryan</a>
+</h7>
+<button id="hidefixbtn" onclick="hidefix()">Hide Fixtures</button>
+</div>
+</article>
+
+
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%;overflow-x: visible;">
+
+
+
+
+
+
+
+<table style="width:100%; text-align: center">
+<tr>
+<td class ="playerbox2" style="text-align: center;border-color:#de9206;background-color:#de9206">Live</td>
+<td  class ="playerbox2" style="text-align: center;border-color:green;background-color:green">Yet to play</td>
+<td  class ="playerbox2" style="text-align: center;background-color:rgb(12, 12, 156);border-color:rgb(12, 12, 156)">Played</td>
+<td  class ="playerbox2" style="text-align: center;border-color:red;background-color:red">Didn't feature</td>
+</tr>
+
+</table>
+
+
+<table style="width:100%; text-align: center;font-size:11px;background-color:#659420">
+<tr>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#11088; Differential (<25% EO*): could boost rank</td>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#129335; Template (>75% EO): rank gain: small</td>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#128123; Ghost (>90% EO): Owned by ~everyone</td>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#128373; Spy (>100% EO): will drop your rank</td>
+
+
+</tr>
+</table>
+
+<table style="width:100%; text-align: center;table-layout:fixed;background-color:#659420">
+<tr>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:black;color:white;width:50%" id="previous" onclick="prev()">View Previous Gameweek</td>
+
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:black;color:white" id="next" onclick="next()">View Next Gameweek</td>
+
+
+</tr>
+</table>
+
+
+
+
+<div class="wrapper" id="visual">
+
+<div class="block-voting" style="border:none;background-image: url('../static/pitch.png')">
+<div style="text-align:center">
+
+<div class="group-md" style="margin-left:0" id="GKs">
+
+</div>
+
+<div class="group-md" style="margin-left:0" id="Defs">
+
+</div>
+<div class="group-md" style="margin-left:0" id="Mids">
+
+</div>
+<div class="group-md" style="margin-left:0" id="Fwds">
+
+</div>
+<div  id="Bench">
+<hr>
+
+</div>
+</div>
+</div>
+
+
+
+<div id="infoi">
+
+<table class="table-custom table-custom-bordered table-team-statistic">
+<tr><td style="height:20%;padding:10px!important">
+
+<p class="team-statistic-counter" style="font-size:16px" id="infoi_top">46(0)=46</p>
+
+
+</td></tr>
+<tr><td style="height:20%;padding:10px!important">
+
+<span class="list-statictics-counter" id="infoi_bottom">463,402  <img src="../static/down.png" style="width:auto;" > </span>
+
+
+
+</td></tr>
+</table>
+
+</div>
+
+
+</div>
+
+
+
+
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<br><br>
+<section id="block_content">
+<div style="width:90%;margin-left:5%">
+<blockquote class="blockstyle"> “If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat. If you know neither the enemy nor yourself, you will succumb in every battle.”― Sun Tzu</blockquote>
+</div>
+</section>
+</div></div></div>
+<div class="row row-50" style="margin-right:-10%;margin-left:-10%">
+
+<div class='col-lg-4'>
+
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Your transfers vs. Top10k
+</h5>
+
+</div>
+</article>
+
+
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%">
+<table class="table-custom table-standings table-classic "  style=" table-layout: fixed;display: block;max-height: 800px;overflow-y: scroll;">
+<thead>
+<tr><th colspan="4" style="text-align:center">Your Transfers</th></tr>
+<tr>
+<th style="width:20%">Transfer</th>
+<th style="width:30%">Player In</th>
+<th style="width:30%">Player Out</th>
+<th style="width:20%">Immediate Gain</th>
+</tr>
+</thead>
+<tbody id ="transferz_table">
+
+
+
+</tbody>
+</table>
+
+
+</div>
+
+
+
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%">
+<table class="table-custom table-standings table-classic "  id="commonz" style="table-layout: fixed;">
+<thead>
+<tr><th colspan="4" style="text-align:center">Top10k</th></tr>
+<tr>
+<th style="width:20%">%</th>
+<th style="width:30%">Player In</th>
+<th style="width:30%">Player Out</th>
+<th style="width:20%">Immediate Gain</th>
+</tr>
+</thead>
+<tbody id ="commonz_table">
+
+
+
+</tbody>
+</table>
+
+
+</div>
+</article>
+<!-- <ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> -->
+
+
+
+
+</div>
+<div class="col-lg-4">
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Rank Gains from your team
+</h5>
+
+</div>
+</article>
+<table style="width:100%; text-align: center;font-size:14px;background-color:#659420">
+<tr>
+
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">Please note that the shown rank gains are all approximate</td>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">Rank gain doesn't really scale linearly with points</td>
+
+
+</tr>
+</table>
+<div class="block-voting" style="border:none;background-image: url('../static/pitch.png')">
+
+<div style="text-align:center" id="gain_team">
+<div class="group-md" style="margin-left:0" id="rng">
+<div class="player-voting-item" style="width:19%;text-align: center;margin-left:1%;margin-right:0%"><div style="position: relative;"><img src="../static/logos/10.png" style="width:80%;margin-bottom:10%"></div><div class="base" style="margin:0;font-size:11px">Example</div><div class="base" style="margin:0;display:block;font-size:11px">Rank gain/pt<img src="../static/up.png" style="width:auto;margin-left:5%"></div><div class="done2" style="margin:0;text-align:-webkit-center!important;"><table style="width:100%!important;table-layout: fixed!important;text-align:-webkit-center!important;justify-content:center!important;"><tbody><tr style="text-align:-webkit-center!important;"><td style="text-align:-webkit-center!important;width:50%;justify-content:center!important;font-size:8px">Pts</td><td class="eff" style="display:none;border-left: 1px solid white;text-align:-webkit-center;justify-content:center!important;width:50%;font-size:8px">Gain</td></tr></tbody></table></div><div class="done2" style="margin:0;font-size:xx-small"><span>Rank gain<img src="../static/up.png" style="width:auto;margin-left: 10%;"> </span></div></div>
+
+</div>
+<div class="group-md" style="margin-left:0" id="GKs2">
+
+</div>
+
+<div class="group-md" style="margin-left:0" id="Defs2">
+
+</div>
+<div class="group-md" style="margin-left:0" id="Mids2">
+
+</div>
+<div class="group-md" style="margin-left:0" id="Fwds2">
+
+</div>
+
+</div>
+<div id="infoi3"></div>
+</div>
+
+
+</div>
+
+<div class="col-lg-4">
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Team of threats around your rank
+</h5>
+
+</div>
+</article>
+
+<table style="width:100%; text-align: center;font-size:14px;background-color:#659420">
+<tr>
+
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#128128; Major danger (>50% EO or >3 effective points)</td>
+<td class ="playerbox2" style="text-align: center;border-color:#659420;background-color:#659420;color:white">&#128520; Medium danger (>30% EO or >2 effective points)</td>
+
+
+</tr>
+</table>
+<div class="block-voting" style="border:none;background-image: url('../static/pitch.png')">
+
+<div style="text-align:center" id="threat_team">
+
+</div>
+<div id="infoi2"></div>
+</div>
+
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+</div>
+
+
+
+
+
+</div>
+
+
+<div class="row row-50" style="margin-right:-10%;margin-left:-10%">
+
+
+
+
+<div class="col-lg-4">
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Live totals needed for ranks
+</h5>
+
+</div>
+</article>
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%">
+<table class="table-custom table-standings table-classic "  id="website22z">
+<thead>
+<tr>
+<th style="width:40%;text-align: center;">Live Rank</th>
+
+<th style="width:30%;text-align: center;">Points </th>
+
+
+<th style="width:30%;text-align: center;">Points post-autosubs</th>
+
+
+
+<th style="width:30%;text-align: center;">How far ahead of you</th>
+
+</tr>
+</thead>
+<tbody>
+
+
+<tr>
+
+
+<td style="width:40%"> 1</td>
+
+
+<td >873.0</td>
+
+<td >873.0</td>
+<td style="width:30%;text-align: center;">125.0</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 100</td>
+
+
+<td >845</td>
+
+<td >846</td>
+<td style="width:30%;text-align: center;">98</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 1K</td>
+
+
+<td >825</td>
+
+<td >825</td>
+<td style="width:30%;text-align: center;">77</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 5K</td>
+
+
+<td >810</td>
+
+<td >810</td>
+<td style="width:30%;text-align: center;">62</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 10K</td>
+
+
+<td >802</td>
+
+<td >802</td>
+<td style="width:30%;text-align: center;">54</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 25K</td>
+
+
+<td >791</td>
+
+<td >792</td>
+<td style="width:30%;text-align: center;">44</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 50K</td>
+
+
+<td >782</td>
+
+<td >782</td>
+<td style="width:30%;text-align: center;">34</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 100K</td>
+
+
+<td >772</td>
+
+<td >772</td>
+<td style="width:30%;text-align: center;">24</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 200K</td>
+
+
+<td >760</td>
+
+<td >760</td>
+<td style="width:30%;text-align: center;">12</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 300K</td>
+
+
+<td >752</td>
+
+<td >752</td>
+<td style="width:30%;text-align: center;">4</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 400K</td>
+
+
+<td >745</td>
+
+<td >746</td>
+<td style="width:30%;text-align: center;">-2</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 500K</td>
+
+
+<td >740</td>
+
+<td >740</td>
+<td style="width:30%;text-align: center;">-8</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 1M</td>
+
+
+<td >719</td>
+
+<td >720</td>
+<td style="width:30%;text-align: center;">-28</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 2M</td>
+
+
+<td >691</td>
+
+<td >692</td>
+<td style="width:30%;text-align: center;">-56</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 3M</td>
+
+
+<td >668</td>
+
+<td >669</td>
+<td style="width:30%;text-align: center;">-79</td>
+
+
+
+
+</tr>
+
+<tr>
+
+
+<td style="width:40%"> 4M</td>
+
+
+<td >646</td>
+
+<td >647</td>
+<td style="width:30%;text-align: center;">-101</td>
+
+
+
+
+</tr>
+
+
+</tbody>
+</table>
+</div>
+
+<ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+</div>
+
+<div class="col-lg-4">
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> The effect of each Premier League Team on your team vs Top10k
+</h5>
+
+</div>
+</article>
+
+
+
+
+
+
+
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%">
+<table class="table-custom table-standings table-classic "  id="website2z2z">
+<thead>
+<tr>
+<th style="width:20%;text-align: center;">Team</th>
+
+<th style="width:20%;text-align: center;">Your points</th>
+
+<th style="width:20%;text-align: center;">avg points around you</th>
+
+<th style="width:40%;text-align: center;">Gain from PL team </th>
+
+
+</tr>
+</thead>
+<tbody id ="PL_teams">
+
+
+</tbody>
+</table>
+</div></div>
+<div class='col-lg-4'>
+
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title"> Main threats to your rank
+</h5>
+<h8 class="heading-component-title">Effective points are points you gain/lose against the average</h8>
+</div>
+</article>
+<div class="table-custom-responsive"  style="width:95%;margin-left:2.5%">
+<table class="table-custom table-standings table-classic "  id="website22">
+<thead>
+<tr>
+<th style="width:30%">Player</th>
+<th style="width:20%">EO</th>
+<th style="width:20%">Live Score</th>
+<th style="width:20%">Effective points against you</th>
+</tr>
+</thead>
+<tbody id ="danger_table">
+
+
+
+</tbody>
+</table>
+
+
+</div>
+</article>
+<!-- <ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-7466981426984905"
+data-ad-slot="5472294743"
+data-ad-format="auto"
+data-full-width-responsive="true"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script> -->
+
+
+
+<br><br>
+<br><br><br>
+
+<article class="heading-component">
+<div class="heading-component-inner">
+<h5 class="heading-component-title">Glossary Terms:
+</h5>
+</div>
+</article>
+
+<div class="game-glossary">
+<div class="game-glossary-wrap row-10">
+<div class="game-glossary-column">
+<table class="game-glossary-terms" style="font-size:smaller!important">
+<tbody><tr>
+<td>Safety Score:</td>
+<td style="color:black!important">Score needed to avoid a red arrow <u>so far</u>.</td>
+</tr>
+<tr>
+<td>Template Rating:</td>
+<td style="color:black!important">Similarity to top10K teams.</td>
+</tr>
+<tr>
+<td>Legendary Managers:</td>
+<td style="color:black!important">Best 1000 managers of all time <a href="../elite">[list]</a>.</td>
+</tr>
+</tbody></table>
+</div>
+
+</div>
+
+</div>
+</div>
+
+
+
+</div>
+</section>
+<!-- Start of shit-->
+
+
+<div class="snackbars" id="form-output-global"></div>
+
+<!-- Javascript-->
+<script src="../static2/js/core.min.js"></script>
+<script src="../static2/js/script.js"></script>
+
+
+<script>$(".game-result-details > li").click(function () {
+//getting the next element
+$content = $(this).next();
+//checking if its already visible
+if (!($content.is(":visible"))) {
+//no - its hidden - slide all the other open tabs to hide
+$(".content").slideUp("fast");
+//open up the content needed
+$content.slideToggle(500);
+}
+else if (($content.is(":visible"))) {
+//no - its hidden - slide all the other open tabs to hide
+
+//open up the content needed
+$content.slideToggle(300);
+}
+});</script>
+
+<script>$(".clickrow").click(function () {
+//getting the next element
+$content = $(this).next();
+//checking if its already visible
+if (!($content.is(":visible"))) {
+//no - its hidden - slide all the other open tabs to hide
+
+//open up the content needed
+$content.slideToggle(500);
+}
+else if (($content.is(":visible"))) {
+//no - its hidden - slide all the other open tabs to hide
+
+//open up the content needed
+$content.slideToggle(300);
+}
+});</script>
+
+<script>
+
+
+function hidefix()
+{
+if (document.getElementById("hidefixbtn").innerText=="Show Fixtures")
+{
+all = document.getElementsByClassName("column-fdr");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "block";
+}
+document.getElementById("hidefixbtn").innerText="Hide Fixtures";
+
+$.ajax({
+type: "POST",
+url: "/hidefix",
+data: JSON.stringify({ hide:false }),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+}})
+
+}
+
+else{
+all = document.getElementsByClassName("column-fdr");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+document.getElementById("hidefixbtn").innerText="Show Fixtures";
+
+$.ajax({
+type: "POST",
+url: "/hidefix",
+data: JSON.stringify({ hide:true }),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+}})
+}
+
+}
+
+function revertfut()
+{
+bg_color = "unset";
+bg ="../static/FUT.png";
+bg_width = "100%";
+botcolor = "#e9cc74"
+color = "#e9cc74";
+
+document.getElementById("futbtn").style.display="none";
+document.getElementById("futcard").style.backgroundImage = "url("+bg+")";
+document.getElementById("futcard").style.backgroundSize  = bg_width;
+document.getElementById("futgw").style.color  = color;
+document.getElementById("futscore").style.color  = color;
+document.getElementById("futrank").style.color  = color;
+document.getElementById("futscore").style.backgroundColor  = bg_color;
+document.getElementById("futrank").style.backgroundColor  = bg_color;
+all = document.getElementsByClassName("player-features-col");
+for (var i = 0; i < all.length; i++) {
+all[i].style.color = botcolor;
+}
+}
+function callAjax()
+{
+var x = document.getElementById("s1").value;
+$.ajax({
+type: "POST",
+url: "/check_team_status",
+data: JSON.stringify({ id:x }),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+
+
+
+if (html=="OK")
+{document.getElementById('form1').submit();}
+
+else
+{document.getElementById("msg").innerHTML='<img src="../static/demo_wait.gif" width="64" height="64" /><br>'+html
+setTimeout(callAjax, 5000);
+
+}
+
+
+
+
+}})}
+
+$('input[type=radio][name=choice]').change(function() {
+futswitch()
+});
+
+function futswitch()
+{
+d = document.getElementById("futswitch").innerText;
+if (d== "Show strength per line")
+{
+document.getElementById("futswitch").innerText = "Show FPL points per line";
+document.getElementById("G_score").innerText = parseInt(39.0);
+document.getElementById("D_score").innerText = parseInt(34.0);
+document.getElementById("M_score").innerText = parseInt(57.0);
+document.getElementById("F_score").innerText = parseInt(57.0);
+document.getElementById("strength").checked = true;
+
+
+
+}
+
+else
+{
+document.getElementById("futswitch").innerText = "Show strength per line";
+document.getElementById("G_score").innerText = G_score;
+document.getElementById("D_score").innerText = D_score;
+document.getElementById("M_score").innerText = M_score;
+document.getElementById("F_score").innerText = F_score;
+document.getElementById("fplpts").checked = true;
+
+
+
+}
+}
+
+function changename2()
+{
+var num = parseInt(document.getElementById("idzz2").value);
+var name = document.getElementById("namez2").value;
+$.ajax({
+type: "POST",
+url: "/change_rank_name",
+data: JSON.stringify({id:num,name:name}),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+if (html=="OK"){
+console.log(html)
+window.location.reload();
+}
+
+}})
+
+}
+
+function changename()
+{
+var num = parseInt(document.getElementById("idzz").value);
+var name = document.getElementById("namez").value;
+$.ajax({
+type: "POST",
+url: "/change_rank_name",
+data: JSON.stringify({id:num,name:name}),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+if (html=="OK"){
+console.log(html)
+window.location.reload();
+}
+
+}})
+
+}
+
+
+
+function handleChange(input) {
+var x = document.getElementById("s1").value;
+var flag = false;
+if( (x%1)===0 && (x>0) && (x<12000000)) {
+
+
+
+callAjax()
+
+
+// data is an integer
+}
+else{
+alert("Please Enter a Proper ID");
+return false;
+}
+
+}
+function upper(s)
+{
+if (s[4]=="H")
+{
+return s[0]+s[1]+s[2]
+}
+else
+{
+return s[0].toLowerCase()+s[1].toLowerCase()+s[2].toLowerCase()
+}
+}
+
+var team_gains = new Map();
+var muls = new Map();
+var gwplan = 13;
+var original_html = "";
+var curgw = 13;
+function prev()
+{
+if (gwplan==curgw)
+{
+original_html = document.getElementById("visual").innerHTML;
+}
+else
+{
+
+document.getElementById("hidefixbtn").style.display="none";
+gwplan = gwplan-1;
+if (gwplan==curgw)
+{
+document.getElementById("visual").innerHTML = original_html;
+}
+else
+{
+all = document.getElementsByClassName("nofix");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("column-fdr");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("future");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("fix"+gwplan);
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "block";
+}
+document.getElementById("infoi_top").innerText ="GW "+gwplan+" lineup"
+document.getElementById("infoi_bottom").innerHTML ="<a href='../myteam' style='color:red;font-size:smaller'>Plan your team for future GWs</a>"
+
+
+}
+
+}
+}
+function next()
+{
+if (gwplan==curgw)
+{
+original_html = document.getElementById("visual").innerHTML;
+}
+if (gwplan <38)
+{
+gwplan = gwplan+1;
+if (gwplan==curgw)
+{
+document.getElementById("visual").innerHTML = original_html;
+}
+else
+{
+document.getElementById("hidefixbtn").style.display="none";
+all = document.getElementsByClassName("nofix");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("column-fdr");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("future");
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "none";
+}
+all = document.getElementsByClassName("fix"+gwplan);
+for (var i = 0; i < all.length; i++) {
+all[i].style.display = "block";
+}
+document.getElementById("infoi_top").innerText ="GW "+gwplan+" lineup"
+document.getElementById("infoi_bottom").innerHTML ="<a href='../myteam' style='color:red;font-size:smaller'>Plan your team for future GWs</a>"
+
+}
+
+}
+}
+
+var G_score = 0;
+var D_score = 0;
+var M_score = 0;
+var F_score = 0;
+var tz = {1: 'Arsenal',
+2: 'Aston Villa',
+3: 'Bournemouth',
+4: 'Brentford',
+5: 'Brighton',
+
+6: 'Chelsea',
+7: 'Crystal Palace',
+8: 'Everton',
+
+
+9: 'Fulham',
+10: 'Leicester',
+11: 'Leeds',
+12: 'Liverpool',
+13: 'Man City',
+14: 'Man Utd',
+15: 'Newcastle',
+16: "Nott'm Forest",
+17: 'Southampton',
+18: 'Spurs',
+19: 'West Ham',
+20: 'Wolves'}
+var performjs = function (callback) {
+var curgw = 13;
+
+
+$.getJSON("../static3/players.json", function(players) {
+
+$.getJSON("../static3/teams.json", function(teams) {
+$.getJSON("../static3/types.json", function(types) {
+$.getJSON("../static3/top10k.json?_="+curgw, function(top10k) {
+$.getJSON("../static3/local_"+6+".json?_="+curgw, function(local) {
+$.getJSON("../static3/fdr.json", function(fdr) {
+$.getJSON("../static3/fdr_color.json", function(colors) {
+$.getJSON("../static3/common.json?_="+curgw, function(common) {
+$.getJSON("../static3/calc_"+curgw+".json", function(old_calc){
+
+
+
+var got_local = "True";
+//var got_local = false;
+
+var eo = ([81, 357, 14, 306, 169, 283, 19, 314, 318, 80, 297, 318]);
+var cap = eo[eo.length-1];
+var vice = 283;
+var TC = (eo.length==13)
+
+var pts = ({"-1": 0, "1": 0, "10": 12, "100": 0, "101": 1, "102": 0, "103": 2, "104": 1, "105": 0, "106": 1, "107": 5, "108": 1, "109": 1, "11": 0, "110": 1, "111": 7, "112": 1, "113": 1, "114": 1, "115": 0, "116": 2, "117": 0, "118": 0, "119": 1, "12": 0, "120": 1, "121": 0, "122": 0, "123": 1, "124": 0, "125": 0, "126": 0, "127": 2, "128": 2, "129": 0, "13": 2, "130": 8, "131": 0, "132": 1, "133": 3, "134": 0, "135": 0, "136": 3, "137": 0, "138": 0, "139": 2, "14": 6, "140": 1, "141": 2, "142": 2, "143": 0, "144": 0, "145": 0, "146": 0, "147": 0, "148": 0, "149": 1, "15": 6, "150": 4, "151": 0, "152": 2, "153": 0, "154": 0, "155": 0, "156": 1, "157": 0, "158": 2, "159": 2, "16": 7, "160": 1, "161": 0, "162": 0, "163": 0, "164": 0, "165": 1, "166": 2, "167": 0, "168": 0, "169": 2, "17": 0, "170": 1, "171": 2, "172": 0, "173": 1, "174": 0, "175": 0, "176": 0, "177": 0, "178": 6, "179": 0, "18": 0, "180": 0, "181": 0, "182": 6, "183": 0, "184": 0, "185": 1, "186": 12, "187": 0, "188": 0, "189": 2, "19": 3, "190": 1, "191": 8, "192": 0, "193": 0, "194": 11, "195": 8, "196": 0, "197": 0, "198": 0, "199": 5, "2": 2, "20": 0, "200": 0, "201": 2, "202": 0, "203": 0, "204": 0, "205": 2, "206": 0, "207": 0, "208": 0, "209": 2, "21": 0, "210": 9, "211": 2, "212": 2, "213": 0, "214": 0, "215": 0, "216": 0, "217": 1, "218": 0, "219": 0, "22": 0, "220": 2, "221": 1, "222": 2, "223": 0, "224": 0, "225": 9, "226": 0, "227": 0, "228": 0, "229": 0, "23": 0, "230": 2, "231": 0, "232": 0, "233": 5, "234": 0, "235": 2, "236": 0, "237": 2, "238": 2, "239": 0, "24": 0, "240": 0, "241": 0, "242": 0, "243": 0, "244": 0, "245": 3, "246": 2, "247": 0, "248": 0, "249": 0, "25": 0, "250": 0, "251": 0, "252": 1, "253": 0, "254": 10, "255": 4, "256": 0, "257": 6, "258": 6, "259": 10, "26": 6, "260": 0, "261": 8, "262": 0, "263": 0, "264": 8, "265": 0, "266": 6, "267": 0, "268": 6, "269": 3, "27": 0, "270": 0, "271": 2, "272": 0, "273": 0, "274": 2, "275": 1, "276": 0, "277": 0, "278": 1, "279": 2, "28": 2, "280": 2, "281": 4, "282": 2, "283": 2, "284": 2, "285": 1, "286": 1, "287": 0, "288": 0, "289": 0, "29": 0, "290": 0, "291": 2, "292": 0, "293": 0, "294": 2, "295": 6, "296": 2, "297": 0, "298": 0, "299": 0, "3": 10, "30": 12, "300": 0, "301": 9, "302": 0, "303": 1, "304": 3, "305": 2, "306": 2, "307": 5, "308": 0, "309": 2, "31": 7, "310": 0, "311": 9, "312": 2, "313": 0, "314": 1, "315": 2, "316": 1, "317": 0, "318": 13, "319": 1, "32": 0, "320": 0, "321": 0, "322": 0, "323": 0, "324": 0, "325": 0, "326": 0, "327": 2, "328": 0, "329": 1, "33": 0, "330": 0, "331": 0, "332": 5, "333": 2, "334": 0, "335": 3, "336": 0, "337": 1, "338": 1, "339": 0, "34": 0, "340": 1, "341": 0, "342": 2, "343": 0, "344": 1, "345": 0, "346": 6, "347": 0, "348": 0, "349": 0, "35": 0, "350": 0, "351": 0, "352": 0, "353": 0, "354": 0, "355": 0, "356": 0, "357": 0, "358": 0, "359": 0, "36": 0, "360": 0, "361": 0, "362": 0, "363": 0, "364": 0, "365": 0, "366": 0, "367": 0, "368": 0, "369": 0, "37": 0, "370": 0, "371": 0, "372": 0, "373": 0, "374": 0, "375": 0, "376": 0, "377": 0, "378": 0, "379": 6, "38": 0, "380": 0, "381": 0, "382": 0, "383": 0, "384": 0, "385": 6, "386": 0, "387": 3, "388": 0, "389": 0, "39": 10, "390": 0, "391": 0, "392": 0, "393": 0, "394": 1, "395": 0, "396": 0, "397": 9, "398": 11, "399": 0, "4": 0, "40": 6, "400": 0, "401": 0, "402": 0, "403": 0, "404": 0, "405": 2, "406": 2, "407": 2, "408": 2, "409": 0, "41": 0, "410": 0, "411": 0, "412": 0, "413": 2, "414": 0, "415": 0, "416": 2, "417": 2, "418": 0, "419": 0, "42": 3, "420": 2, "421": 0, "422": 2, "423": 0, "424": 0, "425": 0, "426": 0, "427": 0, "428": 0, "429": 0, "43": 6, "430": 0, "431": 0, "432": 0, "433": 0, "434": 0, "435": 0, "436": 0, "437": 0, "438": 0, "439": 0, "44": 6, "440": 0, "441": 0, "442": 0, "443": 0, "444": 0, "445": 0, "446": 0, "447": 0, "448": 0, "449": 0, "45": 13, "450": 0, "451": 0, "452": 0, "453": 0, "454": 0, "455": 0, "456": 0, "457": 0, "458": 0, "459": 0, "46": 6, "460": 0, "461": 0, "462": 0, "463": 0, "464": 0, "465": 0, "466": 0, "467": 0, "468": 0, "469": 0, "47": 0, "470": 0, "471": 0, "472": 0, "473": 0, "474": 0, "475": 6, "476": 0, "477": 0, "478": 1, "479": 3, "48": 1, "480": 2, "481": 0, "482": 1, "483": 2, "484": 1, "485": 0, "486": 0, "487": 0, "488": 0, "489": 0, "49": 0, "490": 0, "491": 2, "492": 0, "493": 3, "494": 0, "495": 0, "496": 0, "497": 0, "498": 0, "499": 0, "5": 0, "50": 0, "500": 0, "501": 0, "502": 0, "503": 2, "504": 0, "505": 0, "506": 0, "507": 0, "508": 2, "509": 0, "51": 0, "510": 0, "511": 0, "512": 2, "513": 0, "514": 0, "515": 0, "516": 1, "517": 0, "518": 0, "519": 3, "52": 0, "520": 0, "521": 0, "522": 0, "523": 0, "524": 0, "525": 0, "526": 0, "527": 3, "528": 0, "529": 0, "53": 0, "530": 0, "531": 0, "532": 0, "533": 1, "534": 6, "535": 0, "536": 1, "537": 0, "538": 6, "539": 0, "54": 0, "540": 0, "541": 0, "542": 0, "543": 0, "544": 0, "545": 0, "546": 0, "547": 0, "548": 0, "549": 1, "55": 0, "550": 0, "551": 0, "552": 0, "553": 0, "554": 0, "555": 0, "556": 0, "557": 0, "558": 1, "559": 0, "56": 0, "560": 0, "561": 0, "562": 0, "563": 0, "564": 0, "565": 0, "566": 0, "567": 0, "568": 1, "569": 0, "57": 0, "570": 0, "571": 0, "572": 0, "573": 0, "574": 0, "575": 0, "576": 0, "577": 3, "578": 0, "579": 0, "58": 0, "580": 1, "581": 0, "582": 2, "583": 3, "584": 0, "585": 0, "586": 0, "587": 0, "588": 0, "589": 2, "59": 0, "590": 0, "591": 0, "592": 0, "593": 10, "594": 0, "595": 0, "596": 0, "597": 0, "598": 0, "599": 0, "6": 3, "60": 0, "600": 0, "601": 0, "602": 1, "603": 0, "604": 0, "605": 0, "606": 0, "607": 0, "608": 0, "609": 1, "61": 0, "610": 2, "611": 3, "612": 7, "613": 0, "614": 2, "615": 0, "616": 0, "617": 2, "618": 0, "619": 0, "62": 0, "620": 0, "621": 0, "622": 0, "623": 2, "624": 0, "625": 2, "626": 0, "627": 0, "628": 7, "629": 0, "63": 0, "630": 0, "631": 0, "632": 0, "633": 0, "634": 0, "635": 0, "636": 0, "637": 0, "638": 0, "639": 0, "64": 0, "640": 0, "641": 0, "642": 0, "643": 0, "644": 0, "645": 0, "646": 0, "647": 0, "648": 0, "649": 0, "65": 0, "650": 0, "651": 0, "652": 0, "653": 0, "654": 0, "655": 0, "656": 0, "657": 0, "658": 0, "659": 0, "66": 0, "660": 0, "661": 0, "662": 0, "663": 0, "664": 0, "665": 0, "666": 0, "667": 0, "668": 0, "669": 0, "67": 0, "670": 0, "671": 0, "672": 0, "673": 0, "674": 0, "675": 0, "676": 0, "677": 0, "678": 0, "679": 0, "68": 0, "680": 0, "681": 0, "682": 0, "683": 0, "684": 0, "685": 0, "686": 0, "687": 0, "688": 0, "689": 0, "69": 0, "690": 0, "691": 0, "692": 0, "693": 0, "694": 0, "695": 0, "696": 0, "697": 0, "698": 0, "699": 0, "7": 3, "70": 0, "700": 0, "701": 0, "702": 0, "703": 0, "704": 0, "705": 0, "706": 0, "707": 0, "708": 0, "709": 0, "71": 0, "710": 0, "711": 0, "712": 0, "713": 0, "714": 0, "715": 0, "716": 0, "717": 0, "718": 0, "719": 0, "72": 0, "720": 0, "721": 0, "722": 0, "723": 0, "724": 0, "725": 0, "726": 0, "727": 0, "728": 0, "729": 0, "73": 0, "730": 0, "731": 0, "732": 0, "733": 0, "734": 0, "735": 0, "736": 0, "737": 0, "738": 0, "739": 0, "74": 0, "740": 0, "741": 0, "742": 0, "743": 0, "744": 0, "745": 0, "746": 0, "747": 0, "748": 0, "749": 0, "75": 0, "750": 0, "751": 0, "752": 0, "753": 0, "754": 0, "755": 0, "756": 0, "757": 0, "758": 0, "759": 0, "76": 0, "760": 0, "761": 0, "762": 0, "763": 0, "764": 0, "765": 0, "766": 0, "767": 0, "768": 0, "769": 0, "77": 0, "770": 0, "771": 0, "772": 0, "773": 0, "774": 0, "775": 0, "776": 0, "777": 0, "778": 0, "779": 0, "78": 0, "780": 0, "781": 0, "782": 0, "783": 0, "784": 0, "785": 0, "786": 0, "787": 0, "788": 0, "789": 0, "79": 0, "790": 0, "791": 0, "792": 0, "793": 0, "794": 0, "795": 0, "796": 0, "797": 0, "798": 0, "799": 0, "8": 0, "80": 2, "800": 0, "801": 0, "802": 0, "803": 0, "804": 0, "805": 0, "806": 0, "807": 0, "808": 0, "809": 0, "81": 2, "810": 0, "811": 0, "812": 0, "813": 0, "814": 0, "815": 0, "816": 0, "817": 0, "818": 0, "819": 0, "82": 1, "820": 0, "821": 0, "822": 0, "823": 0, "824": 0, "825": 0, "826": 0, "827": 0, "828": 0, "829": 0, "83": 1, "830": 0, "831": 0, "832": 0, "833": 0, "834": 0, "835": 0, "836": 0, "837": 0, "838": 0, "839": 0, "84": 0, "840": 0, "841": 0, "842": 0, "843": 0, "844": 0, "845": 0, "846": 0, "847": 0, "848": 0, "849": 0, "85": 0, "850": 0, "851": 0, "852": 0, "853": 0, "854": 0, "855": 0, "856": 0, "857": 0, "858": 0, "859": 0, "86": 2, "860": 0, "861": 0, "862": 0, "863": 0, "864": 0, "865": 0, "866": 0, "867": 0, "868": 0, "869": 0, "87": 0, "870": 0, "871": 0, "872": 0, "873": 0, "874": 0, "875": 0, "876": 0, "877": 0, "878": 0, "879": 0, "88": 2, "880": 0, "881": 0, "882": 0, "883": 0, "884": 0, "885": 0, "886": 0, "887": 0, "888": 0, "889": 0, "89": 1, "890": 0, "891": 0, "892": 0, "893": 0, "894": 0, "895": 0, "896": 0, "897": 0, "898": 0, "899": 0, "9": 0, "90": 0, "900": 0, "901": 0, "902": 0, "903": 0, "904": 0, "905": 0, "906": 0, "907": 0, "908": 0, "909": 0, "91": 0, "910": 0, "911": 0, "912": 0, "913": 0, "914": 0, "915": 0, "916": 0, "917": 0, "918": 0, "919": 0, "92": 0, "920": 0, "921": 0, "922": 0, "923": 0, "924": 0, "925": 0, "926": 0, "927": 0, "928": 0, "929": 0, "93": 1, "930": 0, "931": 0, "932": 0, "933": 0, "934": 0, "935": 0, "936": 0, "937": 0, "938": 0, "939": 0, "94": 0, "940": 0, "941": 0, "942": 0, "943": 0, "944": 0, "945": 0, "946": 0, "947": 0, "948": 0, "949": 0, "95": 2, "950": 0, "951": 0, "952": 0, "953": 0, "954": 0, "955": 0, "956": 0, "957": 0, "958": 0, "959": 0, "96": 0, "960": 0, "961": 0, "962": 0, "963": 0, "964": 0, "965": 0, "966": 0, "967": 0, "968": 0, "969": 0, "97": 0, "970": 0, "971": 0, "972": 0, "973": 0, "974": 0, "975": 0, "976": 0, "977": 0, "978": 0, "979": 0, "98": 0, "980": 0, "981": 0, "982": 0, "983": 0, "984": 0, "985": 0, "986": 0, "987": 0, "988": 0, "989": 0, "99": 0, "990": 0, "991": 0, "992": 0, "993": 0, "994": 0, "995": 0, "996": 0, "997": 0, "998": 0, "999": 0});
+
+var status = ({"1": "y", "10": "l", "100": "y", "101": "d", "102": "m", "103": "d", "104": "d", "105": "y", "106": "d", "107": "d", "108": "d", "109": "d", "11": "y", "110": "d", "111": "d", "112": "d", "113": "d", "114": "d", "115": "m", "116": "d", "117": "m", "118": "m", "119": "d", "12": "y", "120": "d", "121": "m", "122": "m", "123": "d", "124": "m", "125": "m", "126": "m", "127": "d", "128": "d", "129": "m", "13": "l", "130": "d", "131": "m", "132": "d", "133": "d", "134": "m", "135": "m", "136": "d", "137": "m", "138": "m", "139": "d", "14": "l", "140": "d", "141": "d", "142": "d", "143": "m", "144": "m", "145": "m", "146": "m", "147": "m", "148": "m", "149": "d", "15": "l", "150": "d", "151": "m", "152": "d", "153": "m", "154": "m", "155": "m", "156": "d", "157": "m", "158": "d", "159": "d", "16": "l", "160": "d", "161": "d", "162": "m", "163": "m", "164": "m", "165": "d", "166": "d", "167": "d", "168": "d", "169": "d", "17": "y", "170": "d", "171": "d", "172": "m", "173": "d", "174": "m", "175": "m", "176": "m", "177": "m", "178": "d", "179": "m", "18": "y", "180": "m", "181": "m", "182": "d", "183": "m", "184": "m", "185": "d", "186": "d", "187": "m", "188": "m", "189": "d", "19": "l", "190": "d", "191": "d", "192": "m", "193": "m", "194": "d", "195": "d", "196": "m", "197": "m", "198": "m", "199": "d", "2": "l", "20": "y", "200": "y", "201": "l", "202": "y", "203": "y", "204": "y", "205": "l", "206": "y", "207": "y", "208": "y", "209": "l", "21": "y", "210": "l", "211": "l", "212": "l", "213": "y", "214": "y", "215": "y", "216": "y", "217": "l", "218": "y", "219": "y", "22": "y", "220": "l", "221": "l", "222": "l", "223": "y", "224": "y", "225": "l", "226": "y", "227": "y", "228": "y", "229": "y", "23": "y", "230": "l", "231": "y", "232": "y", "233": "l", "234": "y", "235": "l", "236": "y", "237": "l", "238": "l", "239": "y", "24": "y", "240": "y", "241": "y", "242": "y", "243": "y", "244": "y", "245": "l", "246": "l", "247": "y", "248": "y", "249": "y", "25": "y", "250": "y", "251": "y", "252": "l", "253": "y", "254": "l", "255": "l", "256": "y", "257": "l", "258": "l", "259": "l", "26": "l", "260": "y", "261": "l", "262": "y", "263": "y", "264": "l", "265": "y", "266": "l", "267": "y", "268": "l", "269": "l", "27": "y", "270": "y", "271": "l", "272": "m", "273": "y", "274": "d", "275": "d", "276": "m", "277": "m", "278": "d", "279": "d", "28": "l", "280": "d", "281": "d", "282": "d", "283": "d", "284": "d", "285": "d", "286": "d", "287": "m", "288": "m", "289": "m", "29": "y", "290": "m", "291": "d", "292": "m", "293": "m", "294": "d", "295": "d", "296": "d", "297": "m", "298": "m", "299": "m", "3": "l", "30": "l", "300": "m", "301": "d", "302": "m", "303": "d", "304": "d", "305": "d", "306": "d", "307": "d", "308": "m", "309": "d", "31": "l", "310": "m", "311": "d", "312": "d", "313": "y", "314": "d", "315": "d", "316": "d", "317": "m", "318": "d", "319": "d", "32": "y", "320": "m", "321": "y", "322": "m", "323": "m", "324": "m", "325": "m", "326": "m", "327": "d", "328": "m", "329": "d", "33": "y", "330": "m", "331": "d", "332": "d", "333": "d", "334": "m", "335": "d", "336": "m", "337": "d", "338": "d", "339": "m", "34": "y", "340": "d", "341": "m", "342": "d", "343": "m", "344": "d", "345": "m", "346": "l", "347": "m", "348": "m", "349": "y", "35": "y", "350": "y", "351": "y", "352": "y", "353": "y", "354": "y", "355": "m", "356": "y", "357": "y", "358": "y", "359": "y", "36": "y", "360": "y", "361": "y", "362": "y", "363": "y", "364": "y", "365": "y", "366": "y", "367": "y", "368": "y", "369": "y", "37": "y", "370": "y", "371": "y", "372": "y", "373": "y", "374": "y", "375": "y", "376": "y", "377": "y", "378": "m", "379": "d", "38": "y", "380": "m", "381": "m", "382": "m", "383": "m", "384": "m", "385": "d", "386": "m", "387": "d", "388": "d", "389": "m", "39": "l", "390": "m", "391": "m", "392": "m", "393": "m", "394": "d", "395": "m", "396": "m", "397": "d", "398": "d", "399": "m", "4": "y", "40": "l", "400": "y", "401": "y", "402": "y", "403": "y", "404": "y", "405": "l", "406": "l", "407": "l", "408": "l", "409": "y", "41": "y", "410": "y", "411": "y", "412": "y", "413": "l", "414": "y", "415": "y", "416": "l", "417": "l", "418": "y", "419": "y", "42": "l", "420": "l", "421": "y", "422": "l", "423": "y", "424": "y", "425": "y", "426": "y", "427": "y", "428": "y", "429": "y", "43": "l", "430": "y", "431": "y", "432": "y", "433": "y", "434": "y", "435": "y", "436": "y", "437": "y", "438": "y", "439": "y", "44": "l", "440": "y", "441": "y", "442": "y", "443": "y", "444": "y", "445": "y", "446": "y", "447": "y", "448": "y", "449": "y", "45": "l", "450": "y", "451": "y", "452": "y", "453": "y", "454": "y", "455": "y", "456": "y", "457": "y", "458": "y", "459": "y", "46": "l", "460": "y", "461": "y", "462": "y", "463": "y", "464": "y", "465": "y", "466": "y", "467": "y", "468": "y", "469": "y", "47": "y", "470": "y", "471": "y", "472": "y", "473": "y", "474": "m", "475": "d", "476": "y", "477": "l", "478": "l", "479": "l", "48": "d", "480": "l", "481": "y", "482": "l", "483": "l", "484": "l", "485": "y", "486": "y", "487": "y", "488": "y", "489": "y", "49": "y", "490": "y", "491": "l", "492": "y", "493": "d", "494": "y", "495": "m", "496": "m", "497": "m", "498": "m", "499": "m", "5": "y", "50": "y", "500": "m", "501": "m", "502": "m", "503": "l", "504": "m", "505": "y", "506": "y", "507": "m", "508": "l", "509": "y", "51": "y", "510": "y", "511": "m", "512": "l", "513": "y", "514": "m", "515": "y", "516": "l", "517": "y", "518": "m", "519": "d", "52": "y", "520": "m", "521": "y", "522": "y", "523": "m", "524": "m", "525": "y", "526": "y", "527": "d", "528": "y", "529": "y", "53": "y", "530": "m", "531": "m", "532": "y", "533": "d", "534": "d", "535": "y", "536": "d", "537": "y", "538": "l", "539": "y", "54": "y", "540": "y", "541": "y", "542": "m", "543": "m", "544": "m", "545": "y", "546": "y", "547": "y", "548": "y", "549": "l", "55": "y", "550": "m", "551": "m", "552": "y", "553": "m", "554": "y", "555": "y", "556": "y", "557": "y", "558": "l", "559": "m", "56": "y", "560": "m", "561": "m", "562": "y", "563": "m", "564": "m", "565": "y", "566": "y", "567": "y", "568": "l", "569": "m", "57": "y", "570": "d", "571": "y", "572": "y", "573": "m", "574": "y", "575": "y", "576": "y", "577": "d", "578": "y", "579": "y", "58": "y", "580": "l", "581": "y", "582": "d", "583": "d", "584": "m", "585": "m", "586": "d", "587": "m", "588": "y", "589": "l", "59": "y", "590": "m", "591": "y", "592": "m", "593": "d", "594": "y", "595": "l", "596": "m", "597": "y", "598": "y", "599": "m", "6": "l", "60": "y", "600": "m", "601": "m", "602": "d", "603": "y", "604": "m", "605": "m", "606": "m", "607": "y", "608": "y", "609": "d", "61": "y", "610": "d", "611": "d", "612": "l", "613": "y", "614": "l", "615": "m", "616": "m", "617": "d", "618": "y", "619": "y", "62": "y", "620": "m", "621": "m", "622": "y", "623": "l", "624": "y", "625": "l", "626": "y", "627": "m", "628": "d", "629": "y", "63": "y", "630": "y", "631": "y", "632": "y", "633": "y", "634": "m", "635": "m", "636": "y", "637": "m", "638": "y", "639": "y", "64": "y", "640": "m", "641": "y", "642": "m", "643": "m", "644": "m", "645": "y", "65": "y", "66": "y", "67": "y", "68": "y", "69": "y", "7": "l", "70": "y", "71": "y", "72": "y", "73": "y", "74": "y", "75": "y", "76": "y", "77": "y", "78": "y", "79": "y", "8": "y", "80": "l", "81": "l", "82": "l", "83": "l", "84": "l", "85": "l", "86": "l", "87": "y", "88": "l", "89": "l", "9": "y", "90": "l", "91": "y", "92": "l", "93": "l", "94": "y", "95": "l", "96": "y", "97": "y", "98": "y", "99": "y"});
+var explaind = ({"1": [["minutes", 0, 0], ["BPS", 0, 0]], "10": [["minutes", 64, 2], ["assists", 1, 3], ["clean_sheets", 1, 4], ["BPS", 41, 0], ["Bonus", 3, 3]], "100": [["minutes", 0, 0], ["BPS", 0, 0]], "101": [["minutes", 45, 1], ["BPS", 3, 0]], "102": [["minutes", 0, 0], ["BPS", 0, 0]], "103": [["minutes", 78, 2], ["BPS", 4, 0]], "104": [["minutes", 86, 2], ["yellow_cards", 1, -1], ["BPS", 9, 0]], "105": [["minutes", 0, 0], ["BPS", 0, 0]], "106": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 9, 0]], "107": [["minutes", 90, 2], ["assists", 1, 3], ["BPS", 21, 0]], "108": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 14, 0]], "109": [["minutes", 65, 2], ["goals_conceded", 2, -1], ["BPS", 9, 0]], "11": [["minutes", 0, 0], ["BPS", 0, 0]], "110": [["minutes", 12, 1], ["BPS", 2, 0]], "111": [["minutes", 90, 2], ["goals_scored", 1, 5], ["BPS", 21, 0]], "112": [["minutes", 35, 1], ["BPS", 4, 0]], "113": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 12, 0]], "114": [["minutes", 45, 1], ["BPS", 3, 0]], "115": [["minutes", 0, 0], ["BPS", 0, 0]], "116": [["minutes", 86, 2], ["BPS", 13, 0]], "117": [["minutes", 0, 0], ["BPS", 0, 0]], "118": [["minutes", 0, 0], ["BPS", 0, 0]], "119": [["minutes", 3, 1], ["BPS", 2, 0]], "12": [["minutes", 0, 0], ["BPS", 0, 0]], "120": [["minutes", 90, 2], ["yellow_cards", 1, -1], ["BPS", 7, 0]], "121": [["minutes", 0, 0], ["BPS", 0, 0]], "122": [["minutes", 0, 0], ["BPS", 0, 0]], "123": [["minutes", 11, 1], ["BPS", 3, 0]], "124": [["minutes", 0, 0], ["BPS", 0, 0]], "125": [["minutes", 0, 0], ["BPS", 0, 0]], "126": [["minutes", 0, 0], ["BPS", 0, 0]], "127": [["minutes", 90, 2], ["BPS", 7, 0]], "128": [["minutes", 90, 2], ["BPS", 15, 0]], "129": [["minutes", 0, 0], ["BPS", 0, 0]], "13": [["minutes", 64, 2], ["clean_sheets", 1, 1], ["yellow_cards", 1, -1], ["BPS", 1, 0]], "130": [["minutes", 90, 2], ["goals_scored", 1, 5], ["yellow_cards", 1, -1], ["bonus", 2, 2], ["BPS", 25, 0]], "131": [["minutes", 0, 0], ["BPS", 0, 0]], "132": [["minutes", 54, 1], ["BPS", 6, 0]], "133": [["minutes", 90, 2], ["saves", 5, 1], ["BPS", 19, 0]], "134": [["minutes", 0, 0], ["BPS", 0, 0]], "135": [["minutes", 0, 0], ["BPS", 0, 0]], "136": [["minutes", 78, 2], ["clean_sheets", 1, 1], ["BPS", 4, 0]], "137": [["minutes", 0, 0], ["BPS", 0, 0]], "138": [["minutes", 0, 0], ["BPS", 0, 0]], "139": [["minutes", 90, 2], ["BPS", 11, 0]], "14": [["minutes", 64, 2], ["clean_sheets", 1, 4], ["BPS", 27, 0]], "140": [["minutes", 16, 1], ["BPS", 2, 0]], "141": [["minutes", 90, 2], ["BPS", 10, 0]], "142": [["minutes", 90, 2], ["BPS", 7, 0]], "143": [["minutes", 0, 0], ["BPS", 0, 0]], "144": [["minutes", 0, 0], ["BPS", 0, 0]], "145": [["minutes", 0, 0], ["BPS", 0, 0]], "146": [["minutes", 0, 0], ["BPS", 0, 0]], "147": [["minutes", 0, 0], ["BPS", 0, 0]], "148": [["minutes", 0, 0], ["BPS", 0, 0]], "149": [["minutes", 3, 1], ["BPS", 2, 0]], "15": [["minutes", 64, 2], ["clean_sheets", 1, 4], ["BPS", 21, 0]], "150": [["minutes", 11, 1], ["assists", 1, 3], ["BPS", 10, 0]], "151": [["minutes", 0, 0], ["BPS", 0, 0]], "152": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["saves", 3, 1], ["BPS", 13, 0]], "153": [["minutes", 0, 0], ["BPS", 0, 0]], "154": [["minutes", 0, 0], ["BPS", 0, 0]], "155": [["minutes", 0, 0], ["BPS", 0, 0]], "156": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 9, 0]], "157": [["minutes", 0, 0], ["BPS", 0, 0]], "158": [["minutes", 61, 2], ["BPS", 9, 0]], "159": [["minutes", 74, 2], ["BPS", 6, 0]], "16": [["minutes", 64, 2], ["clean_sheets", 1, 4], ["BPS", 30, 0], ["Bonus", 1, 1]], "160": [["minutes", 90, 2], ["yellow_cards", 1, -1], ["BPS", -6, 0]], "161": [["minutes", 28, 1], ["yellow_cards", 1, -1], ["BPS", 3, 0]], "162": [["minutes", 0, 0], ["BPS", 0, 0]], "163": [["minutes", 0, 0], ["BPS", 0, 0]], "164": [["minutes", 0, 0], ["BPS", 0, 0]], "165": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 14, 0]], "166": [["minutes", 90, 2], ["BPS", 4, 0]], "167": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["yellow_cards", 1, -1], ["BPS", 9, 0]], "168": [["minutes", 28, 1], ["yellow_cards", 1, -1], ["BPS", -4, 0]], "169": [["minutes", 90, 2], ["BPS", 9, 0]], "17": [["minutes", 0, 0], ["BPS", 0, 0]], "170": [["minutes", 90, 2], ["goals_conceded", 3, -1], ["BPS", 11, 0]], "171": [["minutes", 61, 2], ["BPS", 9, 0]], "172": [["minutes", 0, 0], ["BPS", 0, 0]], "173": [["minutes", 15, 1], ["BPS", 5, 0]], "174": [["minutes", 0, 0], ["BPS", 0, 0]], "175": [["minutes", 0, 0], ["BPS", 0, 0]], "176": [["minutes", 0, 0], ["BPS", 0, 0]], "177": [["minutes", 0, 0], ["BPS", 0, 0]], "178": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["BPS", 24, 0]], "179": [["minutes", 0, 0], ["BPS", 0, 0]], "18": [["minutes", 0, 0], ["BPS", 0, 0]], "180": [["minutes", 0, 0], ["BPS", 0, 0]], "181": [["minutes", 0, 0], ["BPS", 0, 0]], "182": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["BPS", 23, 0]], "183": [["minutes", 0, 0], ["BPS", 0, 0]], "184": [["minutes", 0, 0], ["BPS", 0, 0]], "185": [["minutes", 4, 1], ["BPS", 3, 0]], "186": [["minutes", 90, 2], ["assists", 2, 6], ["clean_sheets", 1, 1], ["bonus", 3, 3], ["BPS", 35, 0]], "187": [["minutes", 0, 0], ["BPS", 0, 0]], "188": [["minutes", 0, 0], ["BPS", 0, 0]], "189": [["minutes", 72, 2], ["clean_sheets", 1, 1], ["yellow_cards", 1, -1], ["BPS", -1, 0]], "19": [["minutes", 64, 2], ["clean_sheets", 1, 1], ["BPS", 9, 0]], "190": [["minutes", 4, 1], ["BPS", 3, 0]], "191": [["minutes", 77, 2], ["goals_scored", 1, 4], ["bonus", 2, 2], ["BPS", 32, 0]], "192": [["minutes", 0, 0], ["BPS", 0, 0]], "193": [["minutes", 0, 0], ["BPS", 0, 0]], "194": [["minutes", 90, 2], ["assists", 1, 3], ["clean_sheets", 1, 4], ["bonus", 2, 2], ["BPS", 32, 0]], "195": [["minutes", 85, 2], ["goals_scored", 1, 5], ["clean_sheets", 1, 1], ["BPS", 29, 0]], "196": [["minutes", 0, 0], ["BPS", 0, 0]], "197": [["minutes", 0, 0], ["BPS", 0, 0]], "198": [["minutes", 0, 0], ["BPS", 0, 0]], "199": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["yellow_cards", 1, -1], ["BPS", 22, 0]], "2": [["minutes", 63, 2], ["BPS", 12, 0]], "20": [["minutes", 0, 0], ["BPS", 0, 0]], "200": [["minutes", 0, 0], ["BPS", 0, 0]], "201": [["minutes", 63, 2], ["BPS", 13, 0]], "202": [["minutes", 0, 0], ["BPS", 0, 0]], "203": [["minutes", 0, 0], ["BPS", 0, 0]], "204": [["minutes", 0, 0], ["BPS", 0, 0]], "205": [["minutes", 63, 2], ["BPS", 11, 0]], "206": [["minutes", 0, 0], ["BPS", 0, 0]], "207": [["minutes", 0, 0], ["BPS", 0, 0]], "208": [["minutes", 0, 0], ["BPS", 0, 0]], "209": [["minutes", 63, 2], ["BPS", 8, 0]], "21": [["minutes", 0, 0], ["BPS", 0, 0]], "210": [["minutes", 63, 2], ["goals_scored", 1, 4], ["BPS", 31, 0], ["Bonus", 3, 3]], "211": [["minutes", 63, 2], ["BPS", 9, 0]], "212": [["minutes", 63, 2], ["BPS", 6, 0]], "213": [["minutes", 0, 0], ["BPS", 0, 0]], "214": [["minutes", 0, 0], ["BPS", 0, 0]], "215": [["minutes", 0, 0], ["BPS", 0, 0]], "216": [["minutes", 0, 0], ["BPS", 0, 0]], "217": [["minutes", 63, 2], ["yellow_cards", 1, -1], ["BPS", 7, 0]], "218": [["minutes", 0, 0], ["BPS", 0, 0]], "219": [["minutes", 0, 0], ["BPS", 0, 0]], "22": [["minutes", 0, 0], ["BPS", 0, 0]], "220": [["minutes", 63, 2], ["BPS", 9, 0]], "221": [["minutes", 63, 2], ["yellow_cards", 1, -1], ["BPS", 7, 0]], "222": [["minutes", 63, 2], ["BPS", 8, 0]], "223": [["minutes", 0, 0], ["BPS", 0, 0]], "224": [["minutes", 0, 0], ["BPS", 0, 0]], "225": [["minutes", 63, 2], ["goals_scored", 1, 5], ["BPS", 23, 0], ["Bonus", 2, 2]], "226": [["minutes", 0, 0], ["BPS", 0, 0]], "227": [["minutes", 0, 0], ["BPS", 0, 0]], "228": [["minutes", 0, 0], ["BPS", 0, 0]], "229": [["minutes", 0, 0], ["BPS", 0, 0]], "23": [["minutes", 0, 0], ["BPS", 0, 0]], "230": [["minutes", 63, 2], ["BPS", 12, 0]], "231": [["minutes", 0, 0], ["BPS", 0, 0]], "232": [["minutes", 0, 0], ["BPS", 0, 0]], "233": [["minutes", 63, 2], ["assists", 1, 3], ["BPS", 14, 0]], "234": [["minutes", 0, 0], ["BPS", 0, 0]], "235": [["minutes", 63, 2], ["BPS", 12, 0]], "236": [["minutes", 0, 0], ["BPS", 0, 0]], "237": [["minutes", 63, 2], ["BPS", 4, 0]], "238": [["minutes", 63, 2], ["BPS", 9, 0]], "239": [["minutes", 0, 0], ["BPS", 0, 0]], "24": [["minutes", 0, 0], ["BPS", 0, 0]], "240": [["minutes", 0, 0], ["BPS", 0, 0]], "241": [["minutes", 0, 0], ["BPS", 0, 0]], "242": [["minutes", 0, 0], ["BPS", 0, 0]], "243": [["minutes", 0, 0], ["BPS", 0, 0]], "244": [["minutes", 0, 0], ["BPS", 0, 0]], "245": [["minutes", 63, 2], ["BPS", 16, 0], ["Bonus", 1, 1]], "246": [["minutes", 63, 2], ["BPS", 9, 0]], "247": [["minutes", 0, 0], ["BPS", 0, 0]], "248": [["minutes", 0, 0], ["BPS", 0, 0]], "249": [["minutes", 0, 0], ["BPS", 0, 0]], "25": [["minutes", 0, 0], ["BPS", 0, 0]], "250": [["minutes", 0, 0], ["BPS", 0, 0]], "251": [["minutes", 0, 0], ["BPS", 0, 0]], "252": [["minutes", 7, 1], ["BPS", 3, 0]], "253": [["minutes", 0, 0], ["BPS", 0, 0]], "254": [["minutes", 68, 2], ["clean_sheets", 1, 4], ["saves", 5, 1], ["BPS", 31, 0], ["Bonus", 3, 3]], "255": [["minutes", 7, 1], ["assists", 1, 3], ["BPS", 13, 0]], "256": [["minutes", 0, 0], ["BPS", 0, 0]], "257": [["minutes", 68, 2], ["clean_sheets", 1, 4], ["BPS", 20, 0]], "258": [["minutes", 68, 2], ["clean_sheets", 1, 4], ["BPS", 24, 0]], "259": [["minutes", 68, 2], ["goals_scored", 1, 5], ["clean_sheets", 1, 1], ["BPS", 29, 0], ["Bonus", 2, 2]], "26": [["minutes", 64, 2], ["clean_sheets", 1, 4], ["BPS", 26, 0]], "260": [["minutes", 0, 0], ["BPS", 0, 0]], "261": [["minutes", 68, 2], ["goals_scored", 1, 5], ["clean_sheets", 1, 1], ["BPS", 22, 0]], "262": [["minutes", 0, 0], ["BPS", 0, 0]], "263": [["minutes", 0, 0], ["BPS", 0, 0]], "264": [["minutes", 68, 2], ["goals_scored", 1, 5], ["clean_sheets", 1, 1], ["BPS", 26, 0]], "265": [["minutes", 0, 0], ["BPS", 0, 0]], "266": [["minutes", 61, 2], ["assists", 1, 3], ["clean_sheets", 1, 1], ["BPS", 17, 0]], "267": [["minutes", 0, 0], ["BPS", 0, 0]], "268": [["minutes", 68, 2], ["clean_sheets", 1, 4], ["BPS", 20, 0]], "269": [["minutes", 60, 2], ["clean_sheets", 1, 1], ["BPS", 7, 0]], "27": [["minutes", 0, 0], ["BPS", 0, 0]], "270": [["minutes", 0, 0], ["BPS", 0, 0]], "271": [["minutes", 60, 2], ["BPS", 3, 0]], "272": [["minutes", 0, 0], ["BPS", 0, 0]], "273": [["minutes", 0, 0], ["BPS", 0, 0]], "274": [["minutes", 61, 2], ["BPS", 17, 0]], "275": [["minutes", 28, 1], ["BPS", 10, 0]], "276": [["minutes", 0, 0], ["BPS", 0, 0]], "277": [["minutes", 0, 0], ["BPS", 0, 0]], "278": [["minutes", 14, 1], ["BPS", 3, 0]], "279": [["minutes", 75, 2], ["BPS", 6, 0]], "28": [["minutes", 64, 2], ["BPS", -7, 0]], "280": [["minutes", 90, 2], ["BPS", 8, 0]], "281": [["minutes", 90, 2], ["saves", 6, 2], ["BPS", 20, 0]], "282": [["minutes", 90, 2], ["BPS", 11, 0]], "283": [["minutes", 90, 2], ["BPS", 1, 0]], "284": [["minutes", 90, 2], ["BPS", 17, 0]], "285": [["minutes", 28, 1], ["BPS", 13, 0]], "286": [["minutes", 90, 2], ["yellow_cards", 1, -1], ["BPS", 9, 0]], "287": [["minutes", 0, 0], ["BPS", 0, 0]], "288": [["minutes", 0, 0], ["BPS", 0, 0]], "289": [["minutes", 0, 0], ["BPS", 0, 0]], "29": [["minutes", 0, 0], ["BPS", 0, 0]], "290": [["minutes", 0, 0], ["BPS", 0, 0]], "291": [["minutes", 90, 2], ["BPS", 11, 0]], "292": [["minutes", 0, 0], ["BPS", 0, 0]], "293": [["minutes", 0, 0], ["BPS", 0, 0]], "294": [["minutes", 90, 2], ["BPS", 19, 0]], "295": [["minutes", 72, 2], ["clean_sheets", 1, 4], ["BPS", 17, 0]], "296": [["minutes", 61, 2], ["BPS", -2, 0]], "297": [["minutes", 0, 0], ["BPS", 0, 0]], "298": [["minutes", 0, 0], ["BPS", 0, 0]], "299": [["minutes", 0, 0], ["BPS", 0, 0]], "3": [["minutes", 64, 2], ["goals_scored", 1, 5], ["clean_sheets", 1, 1], ["BPS", 36, 0], ["Bonus", 2, 2]], "30": [["minutes", 63, 2], ["goals_scored", 2, 8], ["yellow_cards", 1, -1], ["BPS", 54, 0], ["Bonus", 3, 3]], "300": [["minutes", 0, 0], ["BPS", 0, 0]], "301": [["minutes", 90, 2], ["goals_scored", 1, 5], ["bonus", 2, 2], ["BPS", 30, 0]], "302": [["minutes", 0, 0], ["BPS", 0, 0]], "303": [["minutes", 61, 2], ["yellow_cards", 1, -1], ["BPS", 0, 0]], "304": [["minutes", 78, 2], ["clean_sheets", 1, 1], ["BPS", 6, 0]], "305": [["minutes", 76, 2], ["BPS", 4, 0]], "306": [["minutes", 90, 2], ["BPS", 15, 0]], "307": [["minutes", 90, 2], ["assists", 1, 3], ["BPS", 23, 0]], "308": [["minutes", 0, 0], ["BPS", 0, 0]], "309": [["minutes", 90, 2], ["BPS", 14, 0]], "31": [["minutes", 63, 2], ["clean_sheets", 1, 4], ["saves", 3, 1], ["BPS", 27, 0]], "310": [["minutes", 0, 0], ["BPS", 0, 0]], "311": [["minutes", 90, 2], ["assists", 2, 6], ["bonus", 1, 1], ["BPS", 26, 0]], "312": [["minutes", 90, 2], ["BPS", 13, 0]], "313": [["minutes", 0, 0], ["BPS", 0, 0]], "314": [["minutes", 28, 1], ["BPS", 2, 0]], "315": [["minutes", 90, 2], ["BPS", 11, 0]], "316": [["minutes", 13, 1], ["BPS", 3, 0]], "317": [["minutes", 0, 0], ["BPS", 0, 0]], "318": [["minutes", 79, 2], ["goals_scored", 2, 8], ["bonus", 3, 3], ["BPS", 55, 0]], "319": [["minutes", 10, 1], ["BPS", 3, 0]], "32": [["minutes", 0, 0], ["BPS", 0, 0]], "320": [["minutes", 0, 0], ["BPS", 0, 0]], "321": [["minutes", 0, 0], ["BPS", 0, 0]], "322": [["minutes", 0, 0], ["BPS", 0, 0]], "323": [["minutes", 0, 0], ["BPS", 0, 0]], "324": [["minutes", 0, 0], ["BPS", 0, 0]], "325": [["minutes", 0, 0], ["BPS", 0, 0]], "326": [["minutes", 0, 0], ["BPS", 0, 0]], "327": [["minutes", 90, 2], ["BPS", 9, 0]], "328": [["minutes", 0, 0], ["BPS", 0, 0]], "329": [["minutes", 59, 1], ["BPS", 5, 0]], "33": [["minutes", 0, 0], ["BPS", 0, 0]], "330": [["minutes", 0, 0], ["BPS", 0, 0]], "331": [["minutes", 38, 1], ["yellow_cards", 1, -1], ["BPS", -1, 0]], "332": [["minutes", 90, 2], ["assists", 1, 3], ["yellow_cards", 1, -1], ["bonus", 1, 1], ["BPS", 22, 0]], "333": [["minutes", 90, 2], ["BPS", 7, 0]], "334": [["minutes", 0, 0], ["BPS", 0, 0]], "335": [["minutes", 80, 2], ["clean_sheets", 1, 1], ["BPS", 4, 0]], "336": [["minutes", 0, 0], ["BPS", 0, 0]], "337": [["minutes", 30, 1], ["BPS", 3, 0]], "338": [["minutes", 10, 1], ["BPS", 0, 0]], "339": [["minutes", 0, 0], ["BPS", 0, 0]], "34": [["minutes", 0, 0], ["BPS", 0, 0]], "340": [["minutes", 51, 1], ["BPS", 1, 0]], "341": [["minutes", 0, 0], ["BPS", 0, 0]], "342": [["minutes", 90, 2], ["BPS", 10, 0]], "343": [["minutes", 0, 0], ["BPS", 0, 0]], "344": [["minutes", 9, 1], ["BPS", 4, 0]], "345": [["minutes", 0, 0], ["BPS", 0, 0]], "346": [["minutes", 63, 2], ["assists", 1, 3], ["BPS", 16, 0], ["Bonus", 1, 1]], "347": [["minutes", 0, 0], ["BPS", 0, 0]], "348": [["minutes", 0, 0], ["BPS", 0, 0]], "349": [["minutes", 0, 0], ["BPS", 0, 0]], "35": [["minutes", 0, 0], ["BPS", 0, 0]], "350": [["minutes", 0, 0], ["BPS", 0, 0]], "351": [["minutes", 0, 0], ["BPS", 0, 0]], "352": [["minutes", 0, 0], ["BPS", 0, 0]], "353": [["minutes", 0, 0], ["BPS", 0, 0]], "354": [["minutes", 0, 0], ["BPS", 0, 0]], "355": [["minutes", 0, 0], ["BPS", 0, 0]], "356": [["minutes", 0, 0], ["BPS", 0, 0]], "357": [["minutes", 0, 0], ["BPS", 0, 0]], "358": [["minutes", 0, 0], ["BPS", 0, 0]], "359": [["minutes", 0, 0], ["BPS", 0, 0]], "36": [["minutes", 0, 0], ["BPS", 0, 0]], "360": [["minutes", 0, 0], ["BPS", 0, 0]], "361": [["minutes", 0, 0], ["BPS", 0, 0]], "362": [["minutes", 0, 0], ["BPS", 0, 0]], "363": [["minutes", 0, 0], ["BPS", 0, 0]], "364": [["minutes", 0, 0], ["BPS", 0, 0]], "365": [["minutes", 0, 0], ["BPS", 0, 0]], "366": [["minutes", 0, 0], ["BPS", 0, 0]], "367": [["minutes", 0, 0], ["BPS", 0, 0]], "368": [["minutes", 0, 0], ["BPS", 0, 0]], "369": [["minutes", 0, 0], ["BPS", 0, 0]], "37": [["minutes", 0, 0], ["BPS", 0, 0]], "370": [["minutes", 0, 0], ["BPS", 0, 0]], "371": [["minutes", 0, 0], ["BPS", 0, 0]], "372": [["minutes", 0, 0], ["BPS", 0, 0]], "373": [["minutes", 0, 0], ["BPS", 0, 0]], "374": [["minutes", 0, 0], ["BPS", 0, 0]], "375": [["minutes", 0, 0], ["BPS", 0, 0]], "376": [["minutes", 0, 0], ["BPS", 0, 0]], "377": [["minutes", 0, 0], ["BPS", 0, 0]], "378": [["minutes", 0, 0], ["BPS", 0, 0]], "379": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["BPS", 27, 0]], "38": [["minutes", 0, 0], ["BPS", 0, 0]], "380": [["minutes", 0, 0], ["BPS", 0, 0]], "381": [["minutes", 0, 0], ["BPS", 0, 0]], "382": [["minutes", 0, 0], ["BPS", 0, 0]], "383": [["minutes", 0, 0], ["BPS", 0, 0]], "384": [["minutes", 0, 0], ["BPS", 0, 0]], "385": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["BPS", 27, 0]], "386": [["minutes", 0, 0], ["BPS", 0, 0]], "387": [["minutes", 90, 2], ["clean_sheets", 1, 1], ["BPS", 4, 0]], "388": [["minutes", 26, 1], ["yellow_cards", 1, -1], ["BPS", 0, 0]], "389": [["minutes", 0, 0], ["BPS", 0, 0]], "39": [["minutes", 63, 2], ["assists", 1, 3], ["clean_sheets", 1, 4], ["BPS", 28, 0], ["Bonus", 1, 1]], "390": [["minutes", 0, 0], ["BPS", 0, 0]], "391": [["minutes", 0, 0], ["BPS", 0, 0]], "392": [["minutes", 0, 0], ["BPS", 0, 0]], "393": [["minutes", 0, 0], ["BPS", 0, 0]], "394": [["minutes", 26, 1], ["BPS", -2, 0]], "395": [["minutes", 0, 0], ["BPS", 0, 0]], "396": [["minutes", 0, 0], ["BPS", 0, 0]], "397": [["minutes", 63, 2], ["goals_scored", 1, 4], ["bonus", 3, 3], ["BPS", 34, 0]], "398": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["saves", 7, 2], ["bonus", 3, 3], ["BPS", 34, 0]], "399": [["minutes", 0, 0], ["BPS", 0, 0]], "4": [["minutes", 0, 0], ["BPS", 0, 0]], "40": [["minutes", 63, 2], ["goals_scored", 1, 4], ["BPS", 20, 0]], "400": [["minutes", 0, 0], ["BPS", 0, 0]], "401": [["minutes", 0, 0], ["BPS", 0, 0]], "402": [["minutes", 0, 0], ["BPS", 0, 0]], "403": [["minutes", 0, 0], ["BPS", 0, 0]], "404": [["minutes", 0, 0], ["BPS", 0, 0]], "405": [["minutes", 64, 2], ["BPS", 9, 0]], "406": [["minutes", 64, 2], ["BPS", 2, 0]], "407": [["minutes", 64, 2], ["BPS", 12, 0]], "408": [["minutes", 64, 2], ["BPS", 5, 0]], "409": [["minutes", 0, 0], ["BPS", 0, 0]], "41": [["minutes", 0, 0], ["BPS", 0, 0]], "410": [["minutes", 0, 0], ["BPS", 0, 0]], "411": [["minutes", 0, 0], ["BPS", 0, 0]], "412": [["minutes", 0, 0], ["BPS", 0, 0]], "413": [["minutes", 64, 2], ["BPS", 6, 0]], "414": [["minutes", 0, 0], ["BPS", 0, 0]], "415": [["minutes", 0, 0], ["BPS", 0, 0]], "416": [["minutes", 64, 2], ["BPS", 9, 0]], "417": [["minutes", 64, 2], ["BPS", 6, 0]], "418": [["minutes", 0, 0], ["BPS", 0, 0]], "419": [["minutes", 0, 0], ["BPS", 0, 0]], "42": [["minutes", 63, 2], ["clean_sheets", 1, 1], ["BPS", 5, 0]], "420": [["minutes", 64, 2], ["BPS", 8, 0]], "421": [["minutes", 0, 0], ["BPS", 0, 0]], "422": [["minutes", 64, 2], ["BPS", 11, 0]], "423": [["minutes", 0, 0], ["BPS", 0, 0]], "424": [["minutes", 0, 0], ["BPS", 0, 0]], "425": [["minutes", 0, 0], ["BPS", 0, 0]], "426": [["minutes", 0, 0], ["BPS", 0, 0]], "427": [["minutes", 0, 0], ["BPS", 0, 0]], "428": [["minutes", 0, 0], ["BPS", 0, 0]], "429": [["minutes", 0, 0], ["BPS", 0, 0]], "43": [["minutes", 63, 2], ["clean_sheets", 1, 4], ["BPS", 21, 0]], "430": [["minutes", 0, 0], ["BPS", 0, 0]], "431": [["minutes", 0, 0], ["BPS", 0, 0]], "432": [["minutes", 0, 0], ["BPS", 0, 0]], "433": [["minutes", 0, 0], ["BPS", 0, 0]], "434": [["minutes", 0, 0], ["BPS", 0, 0]], "435": [["minutes", 0, 0], ["BPS", 0, 0]], "436": [["minutes", 0, 0], ["BPS", 0, 0]], "437": [["minutes", 0, 0], ["BPS", 0, 0]], "438": [["minutes", 0, 0], ["BPS", 0, 0]], "439": [["minutes", 0, 0], ["BPS", 0, 0]], "44": [["minutes", 63, 2], ["clean_sheets", 1, 4], ["BPS", 21, 0]], "440": [["minutes", 0, 0], ["BPS", 0, 0]], "441": [["minutes", 0, 0], ["BPS", 0, 0]], "442": [["minutes", 0, 0], ["BPS", 0, 0]], "443": [["minutes", 0, 0], ["BPS", 0, 0]], "444": [["minutes", 0, 0], ["BPS", 0, 0]], "445": [["minutes", 0, 0], ["BPS", 0, 0]], "446": [["minutes", 0, 0], ["BPS", 0, 0]], "447": [["minutes", 0, 0], ["BPS", 0, 0]], "448": [["minutes", 0, 0], ["BPS", 0, 0]], "449": [["minutes", 0, 0], ["BPS", 0, 0]], "45": [["minutes", 63, 2], ["goals_scored", 1, 5], ["assists", 1, 3], ["clean_sheets", 1, 1], ["BPS", 41, 0], ["Bonus", 2, 2]], "450": [["minutes", 0, 0], ["BPS", 0, 0]], "451": [["minutes", 0, 0], ["BPS", 0, 0]], "452": [["minutes", 0, 0], ["BPS", 0, 0]], "453": [["minutes", 0, 0], ["BPS", 0, 0]], "454": [["minutes", 0, 0], ["BPS", 0, 0]], "455": [["minutes", 0, 0], ["BPS", 0, 0]], "456": [["minutes", 0, 0], ["BPS", 0, 0]], "457": [["minutes", 0, 0], ["BPS", 0, 0]], "458": [["minutes", 0, 0], ["BPS", 0, 0]], "459": [["minutes", 0, 0], ["BPS", 0, 0]], "46": [["minutes", 63, 2], ["assists", 1, 3], ["clean_sheets", 1, 1], ["BPS", 19, 0]], "460": [["minutes", 0, 0], ["BPS", 0, 0]], "461": [["minutes", 0, 0], ["BPS", 0, 0]], "462": [["minutes", 0, 0], ["BPS", 0, 0]], "463": [["minutes", 0, 0], ["BPS", 0, 0]], "464": [["minutes", 0, 0], ["BPS", 0, 0]], "465": [["minutes", 0, 0], ["BPS", 0, 0]], "466": [["minutes", 0, 0], ["BPS", 0, 0]], "467": [["minutes", 0, 0], ["BPS", 0, 0]], "468": [["minutes", 0, 0], ["BPS", 0, 0]], "469": [["minutes", 0, 0], ["BPS", 0, 0]], "47": [["minutes", 0, 0], ["BPS", 0, 0]], "470": [["minutes", 0, 0], ["BPS", 0, 0]], "471": [["minutes", 0, 0], ["BPS", 0, 0]], "472": [["minutes", 0, 0], ["BPS", 0, 0]], "473": [["minutes", 0, 0], ["BPS", 0, 0]], "474": [["minutes", 0, 0], ["BPS", 0, 0]], "475": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["BPS", 28, 0]], "476": [["minutes", 0, 0], ["BPS", 0, 0]], "477": [["minutes", 66, 2], ["goals_conceded", 3, -1], ["yellow_cards", 1, -1], ["BPS", 11, 0]], "478": [["minutes", 68, 2], ["goals_conceded", 3, -1], ["BPS", 9, 0]], "479": [["minutes", 63, 2], ["clean_sheets", 1, 1], ["BPS", 14, 0]], "48": [["minutes", 11, 1], ["BPS", 3, 0]], "480": [["minutes", 68, 2], ["BPS", 10, 0]], "481": [["minutes", 0, 0], ["BPS", 0, 0]], "482": [["minutes", 1, 1], ["BPS", 3, 0]], "483": [["minutes", 68, 2], ["BPS", 3, 0]], "484": [["minutes", 68, 2], ["goals_conceded", 3, -1], ["BPS", 7, 0]], "485": [["minutes", 0, 0], ["BPS", 0, 0]], "486": [["minutes", 0, 0], ["BPS", 0, 0]], "487": [["minutes", 0, 0], ["BPS", 0, 0]], "488": [["minutes", 0, 0], ["BPS", 0, 0]], "489": [["minutes", 0, 0], ["BPS", 0, 0]], "49": [["minutes", 0, 0], ["BPS", 0, 0]], "490": [["minutes", 0, 0], ["BPS", 0, 0]], "491": [["minutes", 68, 2], ["BPS", 13, 0]], "492": [["minutes", 0, 0], ["BPS", 0, 0]], "493": [["minutes", 90, 2], ["clean_sheets", 1, 1], ["BPS", 10, 0]], "494": [["minutes", 0, 0], ["BPS", 0, 0]], "495": [["minutes", 0, 0], ["BPS", 0, 0]], "496": [["minutes", 0, 0], ["BPS", 0, 0]], "497": [["minutes", 0, 0], ["BPS", 0, 0]], "498": [["minutes", 0, 0], ["BPS", 0, 0]], "499": [["minutes", 0, 0], ["BPS", 0, 0]], "5": [["minutes", 0, 0], ["BPS", 0, 0]], "50": [["minutes", 0, 0], ["BPS", 0, 0]], "500": [["minutes", 0, 0], ["BPS", 0, 0]], "501": [["minutes", 0, 0], ["BPS", 0, 0]], "502": [["minutes", 0, 0], ["BPS", 0, 0]], "503": [["minutes", 68, 2], ["BPS", 19, 0]], "504": [["minutes", 0, 0], ["BPS", 0, 0]], "505": [["minutes", 0, 0], ["BPS", 0, 0]], "506": [["minutes", 0, 0], ["BPS", 0, 0]], "507": [["minutes", 0, 0], ["BPS", 0, 0]], "508": [["minutes", 63, 2], ["BPS", 12, 0]], "509": [["minutes", 0, 0], ["BPS", 0, 0]], "51": [["minutes", 0, 0], ["BPS", 0, 0]], "510": [["minutes", 0, 0], ["BPS", 0, 0]], "511": [["minutes", 0, 0], ["BPS", 0, 0]], "512": [["minutes", 64, 2], ["BPS", 10, 0]], "513": [["minutes", 0, 0], ["BPS", 0, 0]], "514": [["minutes", 0, 0], ["BPS", 0, 0]], "515": [["minutes", 0, 0], ["BPS", 0, 0]], "516": [["minutes", 68, 2], ["goals_conceded", 3, -1], ["BPS", 16, 0]], "517": [["minutes", 0, 0], ["BPS", 0, 0]], "518": [["minutes", 0, 0], ["BPS", 0, 0]], "519": [["minutes", 79, 2], ["clean_sheets", 1, 1], ["BPS", 13, 0]], "52": [["minutes", 0, 0], ["BPS", 0, 0]], "520": [["minutes", 0, 0], ["BPS", 0, 0]], "521": [["minutes", 0, 0], ["BPS", 0, 0]], "522": [["minutes", 0, 0], ["BPS", 0, 0]], "523": [["minutes", 0, 0], ["BPS", 0, 0]], "524": [["minutes", 0, 0], ["BPS", 0, 0]], "525": [["minutes", 0, 0], ["BPS", 0, 0]], "526": [["minutes", 0, 0], ["BPS", 0, 0]], "527": [["minutes", 63, 2], ["clean_sheets", 1, 1], ["BPS", 5, 0]], "528": [["minutes", 0, 0], ["BPS", 0, 0]], "529": [["minutes", 0, 0], ["BPS", 0, 0]], "53": [["minutes", 0, 0], ["BPS", 0, 0]], "530": [["minutes", 0, 0], ["BPS", 0, 0]], "531": [["minutes", 0, 0], ["BPS", 0, 0]], "532": [["minutes", 0, 0], ["BPS", 0, 0]], "533": [["minutes", 90, 2], ["yellow_cards", 1, -1], ["BPS", 10, 0]], "534": [["minutes", 17, 1], ["goals_scored", 1, 5], ["BPS", 20, 0]], "535": [["minutes", 0, 0], ["BPS", 0, 0]], "536": [["minutes", 10, 1], ["BPS", 3, 0]], "537": [["minutes", 0, 0], ["BPS", 0, 0]], "538": [["minutes", 63, 2], ["clean_sheets", 1, 4], ["BPS", 20, 0]], "539": [["minutes", 0, 0], ["BPS", 0, 0]], "54": [["minutes", 0, 0], ["BPS", 0, 0]], "540": [["minutes", 0, 0], ["BPS", 0, 0]], "541": [["minutes", 0, 0], ["BPS", 0, 0]], "542": [["minutes", 0, 0], ["BPS", 0, 0]], "543": [["minutes", 0, 0], ["BPS", 0, 0]], "544": [["minutes", 0, 0], ["BPS", 0, 0]], "545": [["minutes", 0, 0], ["BPS", 0, 0]], "546": [["minutes", 0, 0], ["BPS", 0, 0]], "547": [["minutes", 0, 0], ["BPS", 0, 0]], "548": [["minutes", 0, 0], ["BPS", 0, 0]], "549": [["minutes", 6, 1], ["BPS", 3, 0]], "55": [["minutes", 0, 0], ["BPS", 0, 0]], "550": [["minutes", 0, 0], ["BPS", 0, 0]], "551": [["minutes", 0, 0], ["BPS", 0, 0]], "552": [["minutes", 0, 0], ["BPS", 0, 0]], "553": [["minutes", 0, 0], ["BPS", 0, 0]], "554": [["minutes", 0, 0], ["BPS", 0, 0]], "555": [["minutes", 0, 0], ["BPS", 0, 0]], "556": [["minutes", 0, 0], ["BPS", 0, 0]], "557": [["minutes", 0, 0], ["BPS", 0, 0]], "558": [["minutes", 68, 2], ["goals_conceded", 3, -1], ["BPS", 12, 0]], "559": [["minutes", 0, 0], ["BPS", 0, 0]], "56": [["minutes", 0, 0], ["BPS", 0, 0]], "560": [["minutes", 0, 0], ["BPS", 0, 0]], "561": [["minutes", 0, 0], ["BPS", 0, 0]], "562": [["minutes", 0, 0], ["BPS", 0, 0]], "563": [["minutes", 0, 0], ["BPS", 0, 0]], "564": [["minutes", 0, 0], ["BPS", 0, 0]], "565": [["minutes", 0, 0], ["BPS", 0, 0]], "566": [["minutes", 0, 0], ["BPS", 0, 0]], "567": [["minutes", 0, 0], ["BPS", 0, 0]], "568": [["minutes", 2, 1], ["BPS", 3, 0]], "569": [["minutes", 0, 0], ["BPS", 0, 0]], "57": [["minutes", 0, 0], ["BPS", 0, 0]], "570": [["minutes", 12, 1], ["yellow_cards", 1, -1], ["BPS", 1, 0]], "571": [["minutes", 0, 0], ["BPS", 0, 0]], "572": [["minutes", 0, 0], ["BPS", 0, 0]], "573": [["minutes", 0, 0], ["BPS", 0, 0]], "574": [["minutes", 0, 0], ["BPS", 0, 0]], "575": [["minutes", 0, 0], ["BPS", 0, 0]], "576": [["minutes", 0, 0], ["BPS", 0, 0]], "577": [["minutes", 77, 2], ["clean_sheets", 1, 1], ["BPS", 18, 0]], "578": [["minutes", 0, 0], ["BPS", 0, 0]], "579": [["minutes", 0, 0], ["BPS", 0, 0]], "58": [["minutes", 0, 0], ["BPS", 0, 0]], "580": [["minutes", 1, 1], ["BPS", 3, 0]], "581": [["minutes", 0, 0], ["BPS", 0, 0]], "582": [["minutes", 90, 2], ["clean_sheets", 1, 1], ["yellow_cards", 1, -1], ["BPS", 9, 0]], "583": [["minutes", 79, 2], ["clean_sheets", 1, 1], ["BPS", 19, 0]], "584": [["minutes", 0, 0], ["BPS", 0, 0]], "585": [["minutes", 0, 0], ["BPS", 0, 0]], "586": [["minutes", 24, 1], ["yellow_cards", 1, -1], ["BPS", -2, 0]], "587": [["minutes", 0, 0], ["BPS", 0, 0]], "588": [["minutes", 0, 0], ["BPS", 0, 0]], "589": [["minutes", 65, 2], ["BPS", 9, 0]], "59": [["minutes", 0, 0], ["BPS", 0, 0]], "590": [["minutes", 0, 0], ["BPS", 0, 0]], "591": [["minutes", 0, 0], ["BPS", 0, 0]], "592": [["minutes", 0, 0], ["BPS", 0, 0]], "593": [["minutes", 90, 2], ["goals_scored", 1, 5], ["bonus", 3, 3], ["BPS", 31, 0]], "594": [["minutes", 0, 0], ["BPS", 0, 0]], "595": [["minutes", 61, 2], ["goals_conceded", 4, -2], ["BPS", 7, 0]], "596": [["minutes", 0, 0], ["BPS", 0, 0]], "597": [["minutes", 0, 0], ["BPS", 0, 0]], "598": [["minutes", 0, 0], ["BPS", 0, 0]], "599": [["minutes", 0, 0], ["BPS", 0, 0]], "6": [["minutes", 64, 2], ["clean_sheets", 1, 1], ["BPS", 11, 0]], "60": [["minutes", 0, 0], ["BPS", 0, 0]], "600": [["minutes", 0, 0], ["BPS", 0, 0]], "601": [["minutes", 0, 0], ["BPS", 0, 0]], "602": [["minutes", 17, 1], ["BPS", 2, 0]], "603": [["minutes", 0, 0], ["BPS", 0, 0]], "604": [["minutes", 0, 0], ["BPS", 0, 0]], "605": [["minutes", 0, 0], ["BPS", 0, 0]], "606": [["minutes", 0, 0], ["BPS", 0, 0]], "607": [["minutes", 0, 0], ["BPS", 0, 0]], "608": [["minutes", 0, 0], ["BPS", 0, 0]], "609": [["minutes", 90, 2], ["yellow_cards", 1, -1], ["BPS", 9, 0]], "61": [["minutes", 0, 0], ["BPS", 0, 0]], "610": [["minutes", 90, 2], ["BPS", 12, 0]], "611": [["minutes", 85, 2], ["clean_sheets", 1, 1], ["BPS", 13, 0]], "612": [["minutes", 68, 2], ["clean_sheets", 1, 4], ["BPS", 27, 0], ["Bonus", 1, 1]], "613": [["minutes", 0, 0], ["BPS", 0, 0]], "614": [["minutes", 63, 2], ["BPS", 14, 0]], "615": [["minutes", 0, 0], ["BPS", 0, 0]], "616": [["minutes", 0, 0], ["BPS", 0, 0]], "617": [["minutes", 73, 2], ["BPS", 6, 0]], "618": [["minutes", 0, 0], ["BPS", 0, 0]], "619": [["minutes", 0, 0], ["BPS", 0, 0]], "62": [["minutes", 0, 0], ["BPS", 0, 0]], "620": [["minutes", 0, 0], ["BPS", 0, 0]], "621": [["minutes", 0, 0], ["BPS", 0, 0]], "622": [["minutes", 0, 0], ["BPS", 0, 0]], "623": [["minutes", 64, 2], ["BPS", 10, 0]], "624": [["minutes", 0, 0], ["BPS", 0, 0]], "625": [["minutes", 68, 2], ["BPS", 1, 0]], "626": [["minutes", 0, 0], ["BPS", 0, 0]], "627": [["minutes", 0, 0], ["BPS", 0, 0]], "628": [["minutes", 90, 2], ["clean_sheets", 1, 4], ["bonus", 1, 1], ["BPS", 30, 0]], "629": [["minutes", 0, 0], ["BPS", 0, 0]], "63": [["minutes", 0, 0], ["BPS", 0, 0]], "630": [["minutes", 0, 0], ["BPS", 0, 0]], "631": [["minutes", 0, 0], ["BPS", 0, 0]], "632": [["minutes", 0, 0], ["BPS", 0, 0]], "633": [["minutes", 0, 0], ["BPS", 0, 0]], "634": [["minutes", 0, 0], ["BPS", 0, 0]], "635": [["minutes", 0, 0], ["BPS", 0, 0]], "636": [["minutes", 0, 0], ["BPS", 0, 0]], "637": [["minutes", 0, 0], ["BPS", 0, 0]], "638": [["minutes", 0, 0], ["BPS", 0, 0]], "639": [["minutes", 0, 0], ["BPS", 0, 0]], "64": [["minutes", 0, 0], ["BPS", 0, 0]], "640": [["minutes", 0, 0], ["BPS", 0, 0]], "641": [["minutes", 0, 0], ["BPS", 0, 0]], "642": [["minutes", 0, 0], ["BPS", 0, 0]], "643": [["minutes", 0, 0], ["BPS", 0, 0]], "644": [["minutes", 0, 0], ["BPS", 0, 0]], "645": [["minutes", 0, 0], ["BPS", 0, 0]], "65": [["minutes", 0, 0], ["BPS", 0, 0]], "66": [["minutes", 0, 0], ["BPS", 0, 0]], "67": [["minutes", 0, 0], ["BPS", 0, 0]], "68": [["minutes", 0, 0], ["BPS", 0, 0]], "69": [["minutes", 0, 0], ["BPS", 0, 0]], "7": [["minutes", 64, 2], ["clean_sheets", 1, 1], ["BPS", 16, 0]], "70": [["minutes", 0, 0], ["BPS", 0, 0]], "71": [["minutes", 0, 0], ["BPS", 0, 0]], "72": [["minutes", 0, 0], ["BPS", 0, 0]], "73": [["minutes", 0, 0], ["BPS", 0, 0]], "74": [["minutes", 0, 0], ["BPS", 0, 0]], "75": [["minutes", 0, 0], ["BPS", 0, 0]], "76": [["minutes", 0, 0], ["BPS", 0, 0]], "77": [["minutes", 0, 0], ["BPS", 0, 0]], "78": [["minutes", 0, 0], ["BPS", 0, 0]], "79": [["minutes", 0, 0], ["BPS", 0, 0]], "8": [["minutes", 0, 0], ["BPS", 0, 0]], "80": [["minutes", 63, 2], ["BPS", 9, 0]], "81": [["minutes", 63, 2], ["goals_conceded", 4, -2], ["saves", 7, 2], ["BPS", 21, 0]], "82": [["minutes", 18, 1], ["BPS", 3, 0]], "83": [["minutes", 18, 1], ["BPS", 3, 0]], "84": [["minutes", 63, 2], ["goals_conceded", 4, -2], ["BPS", 4, 0]], "85": [["minutes", 63, 2], ["goals_conceded", 4, -2], ["BPS", 7, 0]], "86": [["minutes", 63, 2], ["BPS", 7, 0]], "87": [["minutes", 0, 0], ["BPS", 0, 0]], "88": [["minutes", 63, 2], ["BPS", 6, 0]], "89": [["minutes", 1, 1], ["BPS", 3, 0]], "9": [["minutes", 0, 0], ["BPS", 0, 0]], "90": [["minutes", 45, 1], ["goals_conceded", 3, -1], ["BPS", 5, 0]], "91": [["minutes", 0, 0], ["BPS", 0, 0]], "92": [["minutes", 63, 2], ["goals_conceded", 4, -2], ["BPS", 7, 0]], "93": [["minutes", 45, 1], ["BPS", 5, 0]], "94": [["minutes", 0, 0], ["BPS", 0, 0]], "95": [["minutes", 61, 2], ["BPS", 0, 0]], "96": [["minutes", 0, 0], ["BPS", 0, 0]], "97": [["minutes", 0, 0], ["BPS", 0, 0]], "98": [["minutes", 0, 0], ["BPS", 0, 0]], "99": [["minutes", 0, 0], ["BPS", 0, 0]]});
+
+var s_dct = {"d":"done2","l":"live2","y":"yet2","m":"missed2"};
+
+
+if (eo.length==16)
+{
+var end = 15
+}
+else
+{
+var end = 11
+}
+for (var i = 0;  i < end; i++)
+{
+
+e = eo[i];
+t = teams[e];
+html = '<div class="player-voting-item" style="width:19%;text-align: center;margin-left:1%;margin-right:0%" >'
+
+html += '<div style="position: relative;"><img src="../static/logos/'+t+'.png" style="width:80%;margin-bottom:10%">'
+mul = 1
+muls.set(e,mul)
+ad = "";
+if (e==cap)
+{
+if (!(status[cap]=="m" && status[vice]!="m"))
+{html+='<img src="../static/cap.png" style="    position: absolute;bottom: 5%;width:20%;right:40%">'}
+mul = 2
+ad = " (C)"
+if (TC)
+{mul = 3
+ad=" (TC)"
+}
+muls.set(e,mul)
+}
+if (e==vice)
+{
+ad = " (v)"
+if (status[cap]=="m" && status[vice]!="m")
+{
+html+='<img src="../static/cap.png" style="    position: absolute;bottom: 5%;width:20%;right:40%">'
+mul = 2
+
+if (TC)
+{mul = 3
+
+}
+muls.set(e,mul)
+}
+}
+gain = mul - local[e];
+html2 =""
+if (gain>0)
+{
+html2 = html;
+}
+team_gains.set(e, gain*pts[e]);
+
+if (got_local)
+{if(gain >=0.75 && status[e]!="m")
+{
+html+='<p style="  color:black; font-size: 20px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#11088;</p>'
+}
+else if (gain <=0.25 && gain >0.11)
+{
+html+='<p style="  color:black; font-size: 20px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#129335;</p>'
+}
+else if (gain <0)
+{
+html+='<p style="  color:black; font-size: 20px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#128373;</p>'
+}
+else if (gain <= 0.11 && gain >=0)
+{
+html+='<p style="  color:black; font-size: 20px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#128123;</p>'
+}}
+//var one_pt = 10961.4;
+var one_pt = 10000
+if (gain>0)
+{
+html2+='</div><div   class="base"  style="margin:0;font-size:11px">'+players[e]+ad+'</div>'
+if (one_pt !=-1)
+{
+html2+='<div   class="base"  style="margin:0;display:block">Each pt: '+(gain*0.93*one_pt).toFixed(0).replace(/(.)(?=(\d{3})+$)/g,'$1,')+'<img src="../static/up.png" style="width:auto;margin-left:5%" ></div>'
+}
+html2+='<div class="'+s_dct[status[e]]+'" style="margin:0;text-align:-webkit-center!important;"><table style="width:100%!important;table-layout: fixed!important;text-align:-webkit-center!important;justify-content:center!important;"><tr style="text-align:-webkit-center!important;"><td style="text-align:-webkit-center!important;width:30%;justify-content:center!important;">'+pts[e]+'</td><td class="eff" style="display:none;border-left: 1px solid white;text-align:-webkit-center;justify-content:center!important;width:70%">'+(Number(gain*pts[e])).toFixed(2)+'</td></tr></table></div>'
+if (one_pt !=-1)
+{
+if(pts[e]>=0)
+{html2+='<div class="'+s_dct[status[e]]+'" style="margin:0"><span>'+(Number(gain*0.93*pts[e]*one_pt)).toFixed(0).replace(/(.)(?=(\d{3})+$)/g,'$1,')+'<img src="../static/up.png" style="width:auto;margin-left: 10%;" > </span></div>'
+
+
+}
+else
+{html2+='<div class="'+s_dct[status[e]]+'" style="margin:0"><span>'+(Number(-gain*0.93*pts[e]*one_pt)).toFixed(0).replace(/(.)(?=(\d{3})+$)/g,'$1,')+'<img src="../static/down.png" style="width:auto;margin-left: 10%;" > </span></div>'
+
+
+}
+
+}
+
+if (1)
+{
+
+html2 +='<div class ="row" style="margin:0;">'
+
+
+max_gw = curgw+6
+if (max_gw > 39)
+{
+max_gw = 39
+}
+
+var total_num = max_gw-curgw-1;
+
+ww = 20;
+if (total_num>0)
+{
+ww = 100/total_num;
+}
+
+var counter = 0;
+for (var gw = curgw+1 ; gw<max_gw; gw=gw+1)
+{
+
+team_p = tz[t];
+
+fiz = fdr[team_p][gw-1]
+
+
+
+html2 += '<div class="column-fdr" style="margin:0;width: '+ww+'%;padding:0;font-size:1.4vw;font-weight:700;">'
+if (fiz.length==0)
+{
+html2+= '<div style="background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1)
+{
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+html2+= '<div style="color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+upper(fiz[k][0])+'</div>'
+
+
+}
+html2+='</div>'
+
+
+
+}
+
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+html2 +='</div>'
+}
+else{
+document.getElementById("hidefixbtn").innerText="Show Fixtures";
+
+}
+html2+='</div>'
+}
+html+= '</div><div   class="base"  style="margin:0;font-size:11px">'+players[e]+ad+'</div>'
+html+='<div   class="base nofix"  style="margin:0">Top10k: '+(100*top10k[e]).toFixed(2)+'% </div>'
+if (got_local && 6!=2)
+{html+='<div   class="base nofix"  style="margin:0">Your OR: '+(100*local[e]).toFixed(2)+'% </div>'}
+
+html+='<div class="'+s_dct[status[e]]+' nofix"  style="margin:0"><span>'+mul*pts[e]+'</span></div>'
+
+
+html+='<span class="hid"><table id="website2z" style="color:black"><tr style="text-align:center" ><th colspan=3>'+players[e]+'</th></tr>'
+html+='<tr><th>Event</th><th>Value</th><th>Points</th></tr>'
+ex = explaind[e];
+for (var j = 0;  j < ex.length; j++)
+{
+if (ex[j][0]!= "BPS")
+{
+html+='<tr><td>'+ex[j][0]+'</td><td>'+ex[j][1]+'</td><td>'+ex[j][2]+'</td></tr>'
+}
+}
+
+html+='</table></span>'
+
+if (1)
+{
+team_p = tz[t];
+for (var gwz = curgw+1;gwz<39;gwz=gwz+1)
+{
+fiz = fdr[team_p][gwz-1];
+html +='<div class ="row" style="margin:0;">'
+if (fiz.length==0)
+{
+html+= '<div class ="fix'+gwz+' future" style="font-size:0.65rem;width:100%;display:none;background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1){
+wdth = 100/fiz.length;
+adz = "font-size:0.65rem;"
+if (fiz.length>1)
+{
+adz = "font-size:0.65rem;"
+}
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+html+= '<div class ="fix'+gwz+' future" style="'+adz+'width:'+wdth+'%;display:none;color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+(fiz[k][0])+'</div>'
+
+}
+html+='</div>'
+}
+html +='<div class ="row" style="margin:0;">'
+
+
+max_gw = curgw+6
+if (max_gw > 39)
+{
+max_gw = 39
+}
+
+var total_num = max_gw-curgw-1;
+
+ww = 20;
+if (total_num>0)
+{
+ww = 100/total_num;
+}
+
+var counter = 0;
+for (var gw = curgw+1 ; gw<max_gw; gw=gw+1)
+{
+team_p = tz[t];
+fiz = fdr[team_p][gw-1]
+
+
+
+html += '<div class="column-fdr" style="margin:0;width: '+ww+'%;padding:0;font-size:1.4vw;font-weight:700;">'
+if (fiz.length==0)
+{
+html+= '<div style="background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1)
+{
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+html+= '<div style="color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+upper(fiz[k][0])+'</div>'
+
+
+}
+html+='</div>'
+
+
+
+}
+
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+html +='</div>'
+}
+html+='</div>'
+
+
+if (types[e]==1)
+{
+var x = document.getElementById("GKs");
+
+x.innerHTML+=html;
+document.getElementById("GKs2").innerHTML += html2;
+G_score +=mul*pts[e];
+
+
+
+}
+else if (types[e]==2)
+{
+var x = document.getElementById("Defs");
+
+x.innerHTML+=html;
+document.getElementById("Defs2").innerHTML += html2;
+D_score +=mul*pts[e];
+}
+else if (types[e]==3)
+{
+var x = document.getElementById("Mids");
+
+x.innerHTML+=html;
+document.getElementById("Mids2").innerHTML += html2;
+M_score +=mul*pts[e];
+}
+else
+{
+var x = document.getElementById("Fwds");
+
+x.innerHTML+=html;
+document.getElementById("Fwds2").innerHTML += html2;
+F_score +=mul*pts[e];
+}
+}
+if(eo.length <16)
+{
+var benched = 0;
+b = [254, 346, 258, 85];
+a = [346];
+html = '<div class="group-md" style="margin-left:0">';
+for (var i = 0;  i < b.length; i++)
+{
+e = b[i];
+html+='<div class="player-voting-item" style="width:19%;text-align: center;margin-left:1%;margin-right:0%" ><div style="position: relative;"><img src="../static/logos/'+teams[e]+'.png" style="width:80%;margin-bottom:10%">'
+if (a.includes(e))
+{
+html+='<p style="  color:black; font-size: 20px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#128259;</p>'
+team_gains.set(e, (1-local[e])*pts[e]);
+muls.set(e,1);
+if (types[e]==1)
+{
+
+G_score +=mul*pts[e];
+
+
+
+}
+else if (types[e]==2)
+{
+
+D_score +=mul*pts[e];
+}
+else if (types[e]==3)
+{
+
+M_score +=mul*pts[e];
+}
+else
+{
+
+F_score +=mul*pts[e];
+}
+}
+else
+{
+benched = benched + pts[e]
+}
+html+='</div> <div   class="base"  style="margin:0;font-size:11px">'+players[e]+'</div>'
+
+html+='<div   class="base nofix"  style="margin:0">Top10k: '+(100*top10k[e]).toFixed(2)+'% </div>'
+if (got_local && 6!=2)
+{html+='<div   class="base nofix"  style="margin:0">Your OR: '+(100*local[e]).toFixed(2)+'% </div>'}
+
+html+='<div class="'+s_dct[status[e]]+' nofix"  style="margin:0"><span>'+pts[e]+'</span></div>'
+if (1)
+{
+team_p = tz[teams[e]];
+for (var gwz = curgw+1;gwz<39;gwz=gwz+1)
+{
+fiz = fdr[team_p][gwz-1];
+html +='<div class ="row" style="margin:0;">'
+if (fiz.length==0)
+{
+html+= '<div class ="fix'+gwz+' future" style="font-size:0.65rem;width:100%;display:none;background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1){
+wdth = 100/fiz.length;
+adz = "font-size:0.65rem;"
+if (fiz.length>1)
+{
+adz = "font-size:0.65rem;"
+}
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+html+= '<div class ="fix'+gwz+' future" style="'+adz+'width:'+wdth+'%;display:none;color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+(fiz[k][0])+'</div>'
+
+}
+html+='</div>'
+}
+html +='<div class ="row" style="margin:0;">'
+
+
+max_gw = curgw+6
+if (max_gw > 39)
+{
+max_gw = 39
+}
+
+var total_num = max_gw-curgw-1;
+
+ww = 20;
+if (total_num>0)
+{
+ww = 100/total_num;
+}
+
+var counter = 0;
+for (var gw = curgw+1 ; gw<max_gw; gw=gw+1)
+{
+team_p = tz[teams[e]];
+fiz = fdr[team_p][gw-1]
+
+
+
+html += '<div class="column-fdr" style="margin:0;width: '+ww+'%;padding:0;font-size:1.4vw;font-weight:700;">'
+if (fiz.length==0)
+{
+html+= '<div style="background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1)
+{
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+html+= '<div style="color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+upper(fiz[k][0])+'</div>'
+
+
+}
+html+='</div>'
+
+
+
+}
+
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+//html += '<div class="column" style="margin:0;width: 19%;padding:0;font-size:0.5em;font-weight:700">LIV</div>'
+html +='</div>'
+}
+html+='</div>'
+
+}
+var x = document.getElementById("Bench");
+
+x.innerHTML+=html;
+document.getElementById("gwgaintitle").innerText = "Benched";
+document.getElementById("gwgain").innerText = benched;
+
+document.getElementById("G_score").innerText = G_score;
+document.getElementById("D_score").innerText = D_score;
+document.getElementById("M_score").innerText = M_score;
+document.getElementById("F_score").innerText = F_score;
+document.getElementById("futswitch").innerText = "Show strength per line";
+document.getElementById("fplpts").checked = true;
+
+
+
+}
+
+var sow = -1;
+if(got_local)
+{
+
+try{
+star = [...team_gains.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
+html='<div class="group-md" style="margin-left:0">';
+if (star[1]>0.4)
+
+{
+sow = star[0];
+html+='<div class="player-voting-item" style="width:30%;text-align: center;margin-left:1%;margin-right:0%" >'
+html+='<div   class="base"  style="margin:0;font-size:small;margin-bottom: 5%;">Star &#11088;</div>'
+html+='<div style="position: relative;"><img src="../static/logos/'+teams[star[0]]+'.png" style="width:50%">'
+
+html+='</div> <div   class="base"  style="margin:0;font-size:11px">'+players[star[0]]+'</div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+pts[star[0]]+'</span></div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+"Gain: +"+star[1].toFixed(2)+'</span></div></div>'
+document.getElementById("messipic").src="../static/logos/"+teams[star[0]]+".png";
+document.getElementById("messipic").style.width = "80%";
+document.getElementById("messipic").style.bottom = "-2rem";
+document.getElementById("starmessi").innerText = "Main Star: "+players[star[0]]+" ["+pts[star[0]]+"]";
+var change = 4.99;
+var redarrow = "down.png" == "down.png";
+console.log(change,redarrow)
+bg_color = "unset";
+bg ="../static/FUT.png";
+bg_width = "100%";
+botcolor = "#e9cc74"
+color = "#e9cc74";
+title ="So far you get the TOTW Gold card: Ok week";
+if (change>=5 && change <15 && !redarrow)
+{
+bg ="../static/FUT3.png";
+color="black";
+title ="So far you get the POTM card: Good week";
+}
+else if (change>=15 && change <25 && !redarrow)
+{
+bg ="../static/toty.png";
+bg_color = "#1f2ca1";
+bg_width ="122%";
+
+title ="So far you get the TOTY card: Great week!";
+
+}
+else if (change>=25 &&  !redarrow)
+{
+bg ="../static/FUT6.png";
+botcolor = "black";
+color = "black";
+bg_width = "106%"
+title ="Congrats you have the rarest card, an Icon: Outstanding week!";
+
+}
+else if (change>=5 && change<20 && redarrow)
+{
+bg ="../static/FUT7.png";
+title ="So far you get the TOTW Silver card: GW could have gone better, but still not that bad ;)";
+}
+else if (change>=20 && redarrow)
+{
+bg ="../static/FUT8.png";
+color = "black";
+botcolor = "black";
+title = "So far you get the normal gold card: not the best GW, but you can easily bounce back!";
+}
+document.getElementById("futcard").style.backgroundImage = "url("+bg+")";
+document.getElementById("futcard").style.setProperty("background-size", bg_width, "important");
+document.getElementById("futgw").style.color  = color;
+document.getElementById("futscore").style.color  = color;
+document.getElementById("futrank").style.color  = color;
+document.getElementById("futscore").style.backgroundColor  = bg_color;
+document.getElementById("futrank").style.backgroundColor  = bg_color;
+document.getElementById("futtitle").innerText  = title;
+all = document.getElementsByClassName("player-features-col");
+for (var i = 0; i < all.length; i++) {
+all[i].style.color = botcolor;
+}
+console.log("done")
+
+
+}
+}
+catch{
+cont = 1;
+}
+
+var weighted = new Map();
+
+for (const [key, value] of team_gains.entries()) {
+if (status[key]!="m" && status[key]!="y" && muls.get(key) - local[key] > 0 && pts[key]<5 && key!=sow)
+{
+weighted.set(key,pts[key]);}
+
+
+}
+
+try{
+const A = Array.from(weighted);
+
+const sorted = A.sort(function(a, b) {
+if (a[1]> b[1]) return 1;
+if (a[1]== b[1] && (team_gains.get(a[0])) < (team_gains.get(b[0]))) return 1;
+
+return -1;
+});
+//star = [...weighted.entries()].reduce((a, e ) => e[1] < a[1] ? e : a);
+
+if (sorted.length>0)
+
+{
+star = sorted[0];
+html+='<div class="player-voting-item" style="width:30%;text-align: center;margin-left:1%;margin-right:0%" >'
+html+='<div   class="base"  style="margin:0;font-size:small;margin-bottom: 5%;">Flop &#128542;</div>'
+html+='<div style="position: relative;"><img src="../static/logos/'+teams[star[0]]+'.png" style="width:50%">'
+html+='</div> <div   class="base"  style="margin:0;font-size:11px">'+players[star[0]]+'</div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+pts[star[0]]+'</span></div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+"Gain: "+team_gains.get(star[0]).toFixed(2)+'</span></div></div>'}
+
+}
+catch
+{
+cont = 1;
+}
+
+
+
+
+
+
+
+var dangers = new Map();
+var losses = new Map();
+
+for (m in local)
+{
+m = parseInt(m);
+mz = 0
+if (muls.get(m) !== undefined)
+{
+mz = muls.get(m);
+}
+
+threat = local[m]-mz;
+
+if (threat >0)
+{dangers.set(m,threat)
+losses.set(m,threat*pts[m])}
+}
+
+try{
+
+star = [...losses.entries()].reduce((a, e ) => e[1] > a[1] ? e : a);
+if (star[1]!=0)
+
+{
+html+='<div class="player-voting-item" style="width:30%;text-align: center;margin-left:1%;margin-right:0%" >'
+html+='<div   class="base"  style="margin:0;font-size:small;margin-bottom: 5%;">Killer &#128520;</div>'
+html+='<div style="position: relative;"><img src="../static/logos/'+teams[star[0]]+'.png" style="width:50%">'
+html+='</div> <div   class="base"  style="margin:0;font-size:11px">'+players[star[0]]+'</div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+pts[star[0]]+'</span></div>'
+html+='<div class="base"  style="margin:0;font-size:small"><span>'+"Loss: -"+star[1].toFixed(2)+'</span></div></div>'}
+}
+catch
+{
+cont = 1;
+}
+html+='</div>'
+var x = document.getElementById("star");
+
+x.innerHTML+=html;
+
+
+
+}
+
+try{
+function item_parse(item,flag)
+{
+var add = ""
+if (flag)
+{
+add="font-size:xx-small;"
+}
+cls ="done2"
+if (item[item.length-1]==-1)
+{cls="done2"}
+else if (status[item[item.length-1]]=='d')
+{
+cls="done2"
+}
+else if (status[item[item.length-1]]=='l')
+{
+cls="live2"
+}
+else if (status[item[item.length-1]]=='y')
+{
+cls="yet2"
+}
+else if (status[item[item.length-1]]=='m')
+{
+cls="missed2"
+}
+s = ""
+s+='<div class="player-voting-item" style="width:18%;text-align: center;margin-left:1%;margin-right:0%" ><div style="position: relative;">'
+s+= '<img src="../static/logos/'+item[7]+'.png" style="width:80%;margin-bottom:10%">'
+if ((item[1]>0.50 && (cls!="done2" && cls!="missed2")) || (item[3]>3 ))
+{s+='<p style="  color:black; font-size: 16px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#128128;</p>'
+}
+else if ((item[1]>0.30 && (cls!="done2" && cls!="missed2")) || (item[3]>2 ))
+{
+s+='<p style="  color:black; font-size: 16px;font-weight: 500; position: absolute;bottom: 10%;width:30%;right:-2%">&#128520;</p>'
+
+}
+s+='</div><div   class="base"  style="margin:0;font-size:11px">'+item[0]+'</div>'
+if (item[1]=="EO")
+{
+s+= '<div   class="base"  style="margin:0;font-size:small">'+item[1]+'%</div>'
+s+='<div class="'+cls+'" style="font-size:8px;margin:0;text-align:-webkit-center!important;"><table style="width:100%!important;table-layout: fixed!important;text-align:-webkit-center!important;justify-content:center!important;"><tr style="text-align:-webkit-center!important;"><td style="text-align:-webkit-center!important;width:50%;justify-content:center!important;">'+item[2]+'</td><td style="border-left: 1px solid white;text-align:-webkit-center;justify-content:center!important;width:50%;display:none">'+item[3]+'</td></tr></table></div>'
+s+='<div class="'+cls+'" style="'+add+'margin:0"><span>Rank Loss <img src="../static/down.png" style="width:auto;" > </span></div>'
+
+//s+='<div class="'+cls+'" style="margin:0"><span>'+item[2]+'</span></div>'
+//s+='<div class="'+cls+'" style="'+add+'margin:0"><span>'+item[3]+'</span></div>'
+}
+else{
+s+= '<div   class="base"  style="margin:0;font-size:small">'+(100*item[1]).toFixed(2)+'%</div>'
+s+='<div class="'+cls+'" style="margin:0;text-align:-webkit-center!important;"><table style="width:100%!important;table-layout: fixed!important;text-align:-webkit-center!important;justify-content:center!important;"><tr style="text-align:-webkit-center!important;"><td style="text-align:-webkit-center!important;width:30%;justify-content:center!important;">'+item[2]+'</td><td style="border-left: 1px solid white;text-align:-webkit-center;justify-content:center!important;width:70%;display:none">'+(Number(item[3])).toFixed(2)+'</td></tr></table></div>'
+//var one_pt = 10961.4*1.1;
+var one_pt = 11000;
+if ( one_pt != -1)
+{
+if (item[3]>=0)
+{
+s+='<div class="'+cls+'" style="'+add+'margin:0"><span>'+(Number(item[3]*one_pt)).toFixed(0).replace(/(.)(?=(\d{3})+$)/g,'$1,')+'<img src="../static/down.png" style="width:auto;margin-left: 10%;" > </span></div>'
+}
+else
+{
+s+='<div class="'+cls+'" style="'+add+'margin:0"><span>'+(Number(-item[3]*one_pt)).toFixed(0).replace(/(.)(?=(\d{3})+$)/g,'$1,')+'<img src="../static/up.png" style="width:auto;margin-left: 10%;" > </span></div>'
+}
+
+}
+//s+='<div class="'+cls+'" style="'+add+'margin:0"><span>'+(Number(item[3])).toFixed(2)+'</span></div>'
+}
+
+if (1)
+{
+s +='<div class ="row" style="margin:0;">'
+
+
+max_gw = curgw+6
+if (max_gw > 39)
+{
+max_gw = 39
+}
+
+var total_num = max_gw-curgw-1;
+
+ww = 20;
+if (total_num>0)
+{
+ww = 100/total_num;
+}
+
+var counter = 0;
+for (var gw = curgw+1 ; gw<max_gw; gw=gw+1)
+{
+team_p = tz[item[7]];
+fiz = fdr[team_p][gw-1]
+
+
+
+s += '<div class="column-fdr" style="margin:0;width: '+ww+'%;padding:0;font-size:1.4vw;font-weight:700;">'
+if (fiz.length==0)
+{
+s+= '<div style="background-color:black;color:black">BLA</div>'
+}
+for (var k=0;k<fiz.length;k=k+1)
+{
+cc ="black";
+if (colors[fiz[k][0]][1][0]==134 || colors[fiz[k][0]][1][0]==255)
+{
+cc = "white";
+}
+s+= '<div style="color:'+cc+';background-color:rgb('+colors[fiz[k][0]][1]+')">'+upper(fiz[k][0])+'</div>'
+
+
+}
+s+='</div>'
+
+
+
+}
+
+s +='</div>'
+}
+
+
+s+= '</div>'
+return s
+}
+
+
+var danger = [];
+
+for (let [e, value] of dangers)
+{
+
+lst = [players[e],value,pts[e],losses.get(e),0,0,types[e],teams[e],e];
+danger.push(lst);
+}
+
+try{
+
+var info = [];
+
+for (let [e, value] of team_gains)
+{
+if (status[e]=="l" && value >=0)
+{lst = [players[e],value,pts[e],types[e],teams[e],e];
+info.push(lst);}
+}
+
+
+info.sort(function(a,b){return b[1]-a[1];});
+
+
+
+danger2 = danger.filter(function (e) {
+return status[e[e.length-1]]=="l";
+});
+danger2.sort(function(a,b){return b[1]-a[1];});
+var max = 12;
+var temp = info.length
+if (temp > max)
+{max = temp}
+else{
+if (danger2.length > info.length)
+{
+temp = danger2.length
+}
+
+if (temp < max)
+{
+max = temp
+}}
+
+if (max >0  )
+{
+var gains2 = 0;
+var losses2 = 0;
+var html ='<h4 class="player-info-title" style="color:darkblue">Live Battle</h4><br><div class="table-custom-wrap"><table class="table-custom" style="color:black;font-size:90%">'
+html += '<tbody><tr><th></th><th>Gain</th><th></th><th>Loss</th></tr>'
+for (var i2 = 0;  i2 < max; i2++) {
+
+html+='<tr><th>'
+
+if (i2 < info.length)
+{
+old_pts = old_calc[info[i2][5]];
+raw_pts = info[i2][2];
+raw_gain = info[i2][1];
+if (!(old_pts==0))
+{
+raw_pts = raw_pts - old_pts;
+raw_gain = raw_pts*(muls.get(info[i2][5]) - local[info[i2][5]]);
+}
+var pt =info[i2][2]/info[i2][3];
+html+=info[i2][0]+' &nbsp; <a style="color:#de9206;">'+(raw_pts)+'</a></th><th>'+(raw_gain).toFixed(2)+'</th>'
+gains2 = parseFloat(gains2) + (raw_gain)
+
+}
+else
+{
+if (i2==0)
+{
+html+='None</th><th>0</th>'
+}
+
+else{
+html+='</th><th></th>'}
+}
+html+='<th>'
+if (i2 < danger2.length)
+{
+old_pts = old_calc[danger2[i2][8]];
+raw_pts = danger2[i2][2];
+raw_gain = -danger2[i2][3];
+if (!(old_pts==0))
+{
+raw_pts = raw_pts - old_pts;
+if(danger2[i2][8] in muls)
+{
+raw_gain = raw_pts*(muls.get(danger2[i2][8]) - local[danger2[i2][8]]);
+}
+else
+{
+raw_gain = raw_pts*( - local[danger2[i2][8]]);
+}
+}
+
+html+=danger2[i2][0]+' &nbsp; <a style="color:#de9206;">'+raw_pts+'</a></th><th>'+(raw_gain).toFixed(2)+'</th>'
+losses2 = losses2 + (raw_gain)
+}
+else
+{
+html+='</th><th></th>'
+}
+html+='</tr>'
+
+
+
+}
+html+='<tr><th>Total</th><th>'+parseFloat(gains2).toFixed(2)+'</th>'+'<th>Total</th><th>'+parseFloat(losses2).toFixed(2)+'</th></tr>'
+html +='</tbody></table></div><hr>'
+
+
+var x = document.getElementById("battle");
+battle.innerHTML = html;
+
+
+}
+
+}
+catch(err)
+{
+console.log(err)
+}
+
+
+
+
+
+
+danger = danger.filter(function (e) {
+return e[1]>0.05;
+});
+
+
+try
+{
+var hide = "True";
+if (hide !="False")
+{
+hide = "True";
+}
+}
+catch
+{
+
+var hide = true;
+}
+
+
+if (hide=="True")
+{
+hidefix();
+}
+var x = document.getElementById("threat_team");
+danger.sort(function(a,b){return b[1]-a[1];});
+danger.sort(function(a,b){return b[3]-a[3];});
+
+function bg(s)
+{
+if (s=="y")
+{
+return "green"
+}
+else if (s=="d")
+{
+return "rgb(12, 12, 156)"
+}
+else if (s=="m")
+{
+return "red"
+}
+
+else
+{
+return "#de9206;"
+}
+}
+html =""
+for (var k =0; k< danger.length;k++)
+{
+html+='<tr style="background-color:'+bg(status[danger[k][(danger[k].length)-1]])+'">'
+html+='<td style="color:white;width:30%">'+danger[k][0]+'</td>'
+html+='<td style="color:white;width:20%">'+(100*danger[k][1]).toFixed(2)+'%</td>'
+html+='<td style="color:white;width:20%">'+danger[k][2]+'</td>'
+html+='<td style="color:white;width:20%">'+danger[k][3].toFixed(2)+'</td></tr>'
+}
+
+var xz = document.getElementById("danger_table");
+xz.innerHTML = html
+
+ht = ""
+for (var k =0; k< common.length;k++)
+{
+inn = common[k][0][0]
+outt = common[k][0][1]
+ht+='<tr >'
+ht+='<td style="width:20%">'+common[k][1]/100+'%</td>'
+
+ht+='<td style="color:white;width:30%"><div class="player-voting-item" style="text-align: center;margin-left:1%;margin-right:0%"><div style="position: relative;"><img src="../static/logos/'+teams[inn]+'.png" style="width:40%"></div><div class="base" style="margin:0;font-size:11px">'+players[inn]+'</div><div class="done2" style="margin:0;background-color:'+bg(status[inn])+'"><span>'+pts[inn]+'</span></div></div></td>'
+ht+='<td style="color:white;width:30%"><div class="player-voting-item" style="text-align: center;margin-left:1%;margin-right:0%"><div style="position: relative;"><img src="../static/logos/'+teams[outt]+'.png" style="width:40%"></div><div class="base" style="margin:0;font-size:11px">'+players[outt]+'</div><div class="done2" style="margin:0;background-color:'+bg(status[outt])+'"><span>'+pts[outt]+'</span></div></div></td>'
+ht+='<td style="width:20%">'+(pts[inn]-pts[outt])+'</td></tr>'
+if (k==4)
+{break;}
+}
+
+var xz = document.getElementById("commonz_table");
+xz.innerHTML = ht
+ht = ""
+common = [[169, 245], [14, 313], [297, 279], [346, 629], [245, 374], [254, 348], [81, 133], [279, 427], [374, 593], [314, 111], [313, 558], [427, 297], [593, 374], [629, 346], [283, 301], [19, 261], [111, 160], [558, 586], [258, 477], [348, 254], [133, 81]]
+var tot = 0
+if (common.length <11 || true)
+{for (var k =0; k< common.length;k++)
+{
+inn = common[k][0]
+outt = common[k][1]
+ht+='<tr >'
+ht+='<td style="width:20%">'+(k+1)+'</td>'
+
+ht+='<td style="color:white;width:30%"><div class="player-voting-item" style="text-align: center;margin-left:1%;margin-right:0%"><div style="position: relative;"><img src="../static/logos/'+teams[inn]+'.png" style="width:40%"></div><div class="base" style="margin:0;font-size:11px">'+players[inn]+'</div><div class="done2" style="margin:0;background-color:'+bg(status[inn])+'"><span>'+pts[inn]+'</span></div></div></td>'
+ht+='<td style="color:white;width:30%"><div class="player-voting-item" style="text-align: center;margin-left:1%;margin-right:0%"><div style="position: relative;"><img src="../static/logos/'+teams[outt]+'.png" style="width:40%"></div><div class="base" style="margin:0;font-size:11px">'+players[outt]+'</div><div class="done2" style="margin:0;background-color:'+bg(status[outt])+'"><span>'+pts[outt]+'</span></div></div></td>'
+ht+='<td style="width:20%">'+(pts[inn]-pts[outt])+'</td></tr>'
+tot+= pts[inn]-pts[outt];
+
+}
+ht+='<tr >'
+ht+='<td style="width:20%">Total</td>'
+hit = 0
+ht+='<td style="color:white;width:30%"></td><td style="color:white;width:30%"></td>'
+ht+='<td style="width:20%">'+tot+'('+hit+') ='+(tot+hit)+'</td></tr>'
+
+
+var xz = document.getElementById("transferz_table");
+xz.innerHTML = ht}
+
+danger.sort(function(a,b){return a[6].toString().localeCompare(b[6]);});
+var g_count = 0;
+var d_count = 0;
+var m_count = 0;
+var f_count = 0;
+var epts = 0
+var s =""
+s+='<div class="group-md" style="margin-left:0">' +item_parse(["Example","EO","Pts","Loss",90,true,1,10,-1],true)+"</div>"
+s +='<div class="group-md" style="margin-left:0">'
+danger.forEach(function (item, index) {
+
+if ((status[item[item.length-1]]=='d' && item[3]<0.19) || status[item[item.length-1]]=='m')
+{
+aedwfc = 1;
+}
+
+else if (item[6]==1 && g_count <5)
+{
+g_count = g_count+1;
+s+=item_parse(item,false)
+epts+=item[3];
+
+
+}
+
+else if (item[6]==2 && d_count <5){
+if(d_count==0)
+{
+s+='</div><div class="group-md" style="margin-left:0">'}
+d_count = d_count+1;
+s+=item_parse(item,false)
+epts+=item[3];
+
+}
+
+else if (item[6]==3 && m_count <5){
+if(m_count==0)
+{
+s+='</div><div class="group-md" style="margin-left:0">'}
+m_count = m_count+1;
+s+=item_parse(item,false)
+epts+=item[3];
+
+}
+
+else if (item[6]==4 && f_count <5){
+if(f_count==0)
+{
+s+='</div><div class="group-md" style="margin-left:0">'}
+f_count = f_count+1;
+s+=item_parse(item,false)
+epts+=item[3];
+
+
+
+}
+
+
+
+});
+s+='<div>'
+x.innerHTML=s;
+var info = document.getElementById("infoi2");
+epts = epts.toFixed(2);
+//infoi2.innerHTML = '<table class="table-custom table-custom-bordered table-team-statistic"><tr><td style="height:20%;color:black;font-size:xx-small">Effective points:</td></tr><tr><td style="height:20%"><p class="team-statistic-counter" style="font-size:16px">'+epts+'</p></td></tr></table>'
+}
+catch(err)
+{
+console.log(err)
+}
+
+var PL_gain = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0,19:0,20:0};
+var PL_loss = {1:0,2:0,3:0,4:0,5:0,6:0,7:0,8:0,9:0,10:0,11:0,12:0,13:0,14:0,15:0,16:0,17:0,18:0,19:0,20:0};
+
+for (const [m, value] of muls.entries()) {
+t = teams[m];
+p = pts[m]*muls.get(m);
+PL_gain[t] = PL_gain[t]+ p;
+}
+
+for (m in local)
+{
+t = teams[m];
+
+p = pts[m]*local[m];
+PL_loss[t] = PL_loss[t]+p;
+}
+
+lst = []
+for (var i = 1;i <21;i++)
+{
+l = [i,PL_gain[i],(PL_loss[i]).toFixed(2),(PL_gain[i]-PL_loss[i]).toFixed(2), Math.abs(PL_gain[i]-PL_loss[i])];
+lst.push(l);
+}
+lst.sort(function(a,b){return (b[4]-a[4]);});
+html=""
+for (var i = 0;i <20;i++)
+{
+html+='<tr><td style="width:20%">'+tz[lst[i][0]]+'</td><td style="width:20%"> '+lst[i][1]+'</td><td style="width:20%"> '+lst[i][2]+'</td>'
+html+='<td style="width:40%"> '+lst[i][3]
+if (lst[i][3] >1)
+{html+=' &#128515; '}
+else if (lst[i][3] <-1)
+{html+=' &#128545; '}
+html +='</td></tr>'
+}
+const sumValues = obj => Object.values(obj).reduce((a, b) => a + b);
+
+html+='<tr><td style="width:20%">Total</td><td style="width:20%"> '+sumValues(PL_gain)+'</td><td style="width:20%"> '+sumValues(PL_loss).toFixed(2)+'</td>'
+html+='<td style="width:40%"> '+(sumValues(PL_gain)-sumValues(PL_loss)).toFixed(2)
+html +='</td></tr>'
+
+var info = document.getElementById("PL_teams");
+info.innerHTML = html;
+
+})})
+
+})})})})})})
+});
+}
+
+
+function myFunc(){
+
+if (463402!=-1 )
+{
+if (0)
+{
+var a = ([39.0, 34.0, 57.0, 57.0])
+sampleArray = a.map(function(each_element){
+return Number(Math.floor(each_element));
+});
+var birdsCanvas = document.getElementById("investchart");
+Chart.register(ChartDataLabels);
+Chart.defaults.set('plugins.datalabels', {
+weight: 'bold',
+color: 'black'
+});
+
+
+var birdsData = {
+labels: ["GK","DEF","MID","FWD"],
+datasets: [{
+data: sampleArray,
+backgroundColor: [
+"rgba(255, 0, 0, 0.5)",
+"rgba(100, 255, 0, 0.5)",
+"rgba(0, 50, 0, 0.5)",
+"rgba(0, 100, 255, 0.5)",
+
+
+]
+}
+]
+};
+
+var tzz = ["GK", "Defense", "Midline","Attack"]
+var lbls = []
+for (var i=0;i<4;i++)
+{
+n = sampleArray[i];
+if (n>66)
+{
+s ="Heavy "
+}
+else if (n<34)
+{
+s="Light "
+
+}
+else
+{
+s = "Normal "
+}
+
+s+=tzz[i];
+s+=" "+n+"%"
+lbls.push(s);
+
+}
+var options=  {
+
+scales: {
+r: {
+max:100,
+startAngle: 270,
+ticks: {
+display: false,
+
+},
+
+}},
+
+plugins: {
+datalabels: {
+formatter: function(value, context) {
+return lbls[context.dataIndex];
+}, anchor: 'end',
+},
+legend: false,
+}
+};
+
+var polarAreaChart = new Chart(birdsCanvas, {
+type: 'polarArea',
+data: birdsData,
+plugins: [ChartDataLabels],
+options: options
+});
+
+}
+performjs();
+}
+
+}
+
+
+
+
+
+function olddesign()
+{
+$.ajax({
+type: "POST",
+url: "/choose_design",
+data: JSON.stringify({}),
+contentType: 'application/json;charset=UTF-8',
+success:  function(html) {
+
+if (html=="OK"){
+
+window.location.reload();
+}
+
+}})
+}
+
+
+
+function doSomething(v)
+{
+window.location = "../leagues/"+v
+}
+
+function lie()
+{
+console.log("lie")
+}
+</script>
+
+<script type="text/javascript">
+
+
+</script>
+
+
+	</body>
+</html>

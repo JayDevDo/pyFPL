@@ -1,0 +1,205 @@
+
+<div class="ownTeamCnt" id="tmTblCnt_{{ fpl[4]['data']['manager']['id'] }}" >
+	<table class="ownTeamTbl">
+		<thead>
+			<tr>
+				<th class="positionHdr" colspan="1" >Goalkeeper</th>
+				<th colspan="3"></th>
+				<th colspan="1">Totals</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr class="tmTblGKP">				
+				{% for s_gkp in fpl[4]['data']["strtrs"] %}
+					{% if (s_gkp["ballerData"]["element_type"]==1) %}
+					<td class="starters" colspan="1" >
+						<div class="ballerStrtr baller"
+							ballerid="{{ s_gkp['liveBallerData']['id'] }}"
+							fxtrid="{{ s_gkp['liveBallerData']['explain'][0]['fixture'] }}"
+							potsub="{{ s_gkp['liveBallerData']['potentialSub'] }}"
+							>
+							
+							<table width="100%">
+								<tr>
+									<th colspan="3">{{ s_gkp["web_name"] }}</th>
+								</tr>
+								<tr >
+									<th colspan="3" style="border: 1px solid black;">
+									{{ s_gkp["liveBallerData"]["stats"]["total_points"] * s_gkp["multiplier"] }}
+									</th>
+								</tr>
+								{% for e in s_gkp["liveBallerData"]["explain"][0]["stats"] %}
+								<tr>
+									<td>{{ e["value"] }}</td>
+									<td>{{ e["identifier"] }}</td>
+									<td>{{ e["points"] }}</td>
+								</tr>
+								{% endfor %}
+							</table>
+						</div>
+					</td>
+					{% endif %}	
+				{% endfor %}
+				<th colspan="3">
+					{{ fpl[4]['data']["manager"]["name"] }} <br> 
+					{{ fpl[4]['data']["manager"]["player_first_name"] }} 
+					{{ fpl[4]['data']["manager"]["player_last_name"] }} <br>
+					<b>total:</b><em>{{fpl[4]['data']["roundDash"]["total_points"]}}</em><br>
+					<b>tx cost:<b> {{fpl[4]['data']["roundDash"]["event_transfers_cost"]}}
+				</th>
+				<th colspan="1">
+					<div class="ownWeekTotals">
+							<b>round:</b>
+							<strong>{{ fpl[4]['data']["roundDash"]["points"] - fpl[4]['data']["roundDash"]["event_transfers_cost"]  }}</strong>
+					</div>
+				</th>
+			</tr>
+		</tbody>	
+
+		<thead><tr><th class="positionHdr" colspan="5" >Defenders</th></tr></thead>
+
+		<tbody>
+			<tr class="tmTblDEF">
+			{% for s_def in fpl[4]['data']["strtrs"] %}
+				{% if (s_def["ballerData"]["element_type"]==2) %}
+				<td class="starters">
+					<div 	class="ballerStrtr baller" 
+							ballerid="{{ s_def['liveBallerData']['id'] }}"
+							fxtrid="{{ s_def['liveBallerData']['explain'][0]['fixture'] }}"
+							potsub="{{ s_def['liveBallerData']['potentialSub'] }}"
+					>
+						<table width="100%">
+							<tr><th colspan="3">{{ s_def["web_name"] }}</th></tr>
+							<tr >
+								<th colspan="3" style="border: 1px solid black;">
+									{{ s_def["liveBallerData"]["stats"]["total_points"] * s_def["multiplier"]  }}
+								</th>
+							</tr>
+							{% for e in s_def["liveBallerData"]["explain"][0]["stats"] %}
+							<tr>
+								<td>{{ e["value"] }}</td>
+								<td>{{ e["identifier"] }}</td>
+								<td>{{ e["points"] }}</td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</td>
+				{% endif %}	
+			{% endfor %}
+			</tr>
+		</tbody>	
+
+		<thead><tr><th class="positionHdr" colspan="5" >Midfielders</th></tr></thead>
+
+		<tbody>
+			<tr class="tmTblMID">
+			{% for s_mid in fpl[4]['data']["strtrs"] %}
+				{% if (s_mid["ballerData"]["element_type"]==3) %}
+				<td class="starters">
+					<div 	class="ballerStrtr baller" 
+							ballerid="{{ s_mid['liveBallerData']['id'] }}"
+							fxtrid="{{ s_mid['liveBallerData']['explain'][0]['fixture'] }}"
+							potsub="{{ s_mid['liveBallerData']['potentialSub'] }}"
+					>
+						<table width="100%">
+							<tr><th colspan="3">{{ s_mid["web_name"] }}</th></tr>
+							<tr >
+								<th colspan="3" style="border: 1px solid black;">
+									{{ s_mid["liveBallerData"]["stats"]["total_points"] * s_mid["multiplier"]  }}
+								</th>
+							</tr>
+							{% for e in s_mid["liveBallerData"]["explain"][0]["stats"] %}
+							<tr>
+								<td>{{ e["value"] }}</td>
+								<td>{{ e["identifier"] }}</td>
+								<td>{{ e["points"] }}</td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</td>
+				{% endif %}	
+			{% endfor %}
+			</tr>
+		</tbody>
+
+		<thead><tr><th class="positionHdr" colspan="5" >Forwards</th></tr></thead>
+
+		<tbody>
+			<tr class="tmTblFWD">
+			{% for s_fwd in fpl[4]['data']["strtrs"] %}
+				{% if (s_fwd["ballerData"]["element_type"]==4) %}
+				<td class="starters">
+					<div 	class="ballerStrtr baller" 
+							ballerid="{{ s_fwd['liveBallerData']['id'] }}"
+							fxtrid="{{ s_fwd['liveBallerData']['explain'][0]['fixture'] }}"
+							potsub="{{ s_fwd['liveBallerData']['potentialSub'] }}"
+					>
+						<table width="100%">
+							<tr><th colspan="3">{{ s_fwd["web_name"] }}</th></tr>
+							<tr >
+								<th colspan="3" style="border: 1px solid black;">
+									{{ s_fwd["liveBallerData"]["stats"]["total_points"] * s_fwd["multiplier"]  }}
+								</th>
+							</tr>
+							{% for e in s_fwd["liveBallerData"]["explain"][0]["stats"] %}
+							<tr>
+								<td>{{ e["value"] }}</td>
+								<td>{{ e["identifier"] }}</td>
+								<td>{{ e["points"] }}</td>
+							</tr>
+							{% endfor %}
+						</table>
+					</div>
+				</td>
+				{% endif %}	
+			{% endfor %}
+			</tr>
+		</tbody>
+
+		<thead>
+			<tr><th colspan="5" class="bench positionHdr">Bench</th></tr>
+		</thead>
+
+
+		<tbody>
+			<tr id="oppBenchRow">
+				{% for res in fpl[4]['data']["bnch"] %}
+					<td class="bench" benchpos="{{ res['position'] }}">
+						<div 	class="ballerBnch baller" 
+								element_out="{{ res['element_out'] }}"
+								element_in="{{ res['element_in'] }}"
+								ballerid="{{ res['liveBallerData']['id'] }}"
+								fxtrid="{{ res['liveBallerData']['explain'][0]['fixture'] }}"
+						>
+							<table width="100%">
+								<tr>
+									<th colspan="3">
+									{{ res["posNm"]  }} ({{ (res["position"]-11) }})
+									</th>
+								</tr>
+								<tr>
+									<th colspan="3">{{ res["web_name"] }} </th>
+								</tr>
+								<tr>
+									<th colspan="3" style="border: 1px solid black;">
+									{{ res["liveBallerData"]["stats"]["total_points"] }}
+									</th>
+								</tr>
+								{% for e in res["liveBallerData"]["explain"][0]["stats"] %}
+								<tr>
+									<td>{{ e["value"] }}</td>
+									<td>{{ e["identifier"] }}</td>
+									<td>{{ e["points"] }}</td>
+								</tr>
+								{% endfor %}
+							</table>
+						</div>
+					</td>	
+				{% endfor %}		
+			</tr>
+		</tbody>
+	</table>
+</div>

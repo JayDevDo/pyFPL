@@ -1,0 +1,26 @@
+{% include "nav.html" %}
+<!DOCTYPE html>
+<head>
+	<title>Jay's FPl FDL</title>
+</head>
+<script
+    src="{{url_for('static', filename='github_FDL_CONSTANTS.js')}}" >
+</script>
+
+<script
+    src="{{url_for('static', filename='github_FDL_UI.js')}}" >
+</script>
+
+<div class="fdl_container">
+	<div class="row">
+		<div id="evWndwCnt">{% include "02FDL/evWndwSelect.html" %}</div>
+		<div id="df_tableCnt">{% include "02FDL/tm_df_table.html" %}</div>
+	</div>
+
+	<div class="row">
+		<div id="fxtr_tableCnt">{% include "02FDL/fxtrTbl.html" %}</div>
+			{% if fdl[3]['data'][unplanned]|length > 0 %}
+				<div id="ppOviewCnt">{% include "02FDL/ppOview.html" %}</div>
+			{% endif %}
+	</div>
+</div>

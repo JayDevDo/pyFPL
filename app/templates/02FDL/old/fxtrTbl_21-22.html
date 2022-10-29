@@ -1,0 +1,192 @@
+<div id="fxtrTblCnt">
+
+<table id="fxtrTbl" class="table-dark">
+	<thead class="table-dark">
+		<tr class="striped">
+			<th evrnd="999" >Team</th>
+			<th evrnd="999" >select</th>
+			<th evrnd="999" onclick="changDFview()" id="tmDFhdr">Tm diff</th>
+			<th onclick="mk_matchDay_df_matchup(1)" evrnd="1">GW<br>01</th>
+			<th onclick="mk_matchDay_df_matchup(2)" evrnd="2">GW<br>02</th>
+			<th onclick="mk_matchDay_df_matchup(3)" evrnd="3">GW<br>03</th>
+			<th onclick="mk_matchDay_df_matchup(4)" evrnd="4">GW<br>04</th>
+			<th onclick="mk_matchDay_df_matchup(5)" evrnd="5">GW<br>05</th>
+			<th onclick="mk_matchDay_df_matchup(6)" evrnd="6">GW<br>06</th>
+			<th onclick="mk_matchDay_df_matchup(7)" evrnd="7">GW<br>07</th>
+			<th onclick="mk_matchDay_df_matchup(8)" evrnd="8">GW<br>08</th>
+			<th evrnd="8" ibreak="8" class="intlBreak" >Int'l<br>break 1</th>
+
+			<th evrnd="9" ibreak="9" class="intlBreak" >Int'l<br>break 1</th>
+			<th onclick="mk_matchDay_df_matchup(9)" evrnd="9">GW<br>09</th>
+			<th onclick="mk_matchDay_df_matchup(10)" evrnd="10">GW<br>10</th>
+			<th onclick="mk_matchDay_df_matchup(11)" evrnd="11">GW<br>11</th>
+			<th onclick="mk_matchDay_df_matchup(12)" evrnd="12">GW<br>12</th>
+			<th onclick="mk_matchDay_df_matchup(13)" evrnd="13">GW<br>13</th>
+			<th onclick="mk_matchDay_df_matchup(14)" evrnd="14">GW<br>14</th>
+			<th onclick="mk_matchDay_df_matchup(15)" evrnd="15">GW<br>15</th>
+			<th onclick="mk_matchDay_df_matchup(16)" evrnd="16">GW<br>16</th>
+			<th evrnd="16" ibreak="16" class="intlBreak" >World Cup</th>
+
+			<th evrnd="17" ibreak="17" class="intlBreak" >World Cup</th>
+			<th onclick="mk_matchDay_df_matchup(17)" evrnd="17">GW<br>17</th>
+			<th onclick="mk_matchDay_df_matchup(18)" evrnd="18">GW<br>18</th>
+			<th onclick="mk_matchDay_df_matchup(19)" evrnd="19">GW<br>19</th>
+			<th onclick="mk_matchDay_df_matchup(20)" evrnd="20">GW<br>20</th>
+			<th onclick="mk_matchDay_df_matchup(21)" evrnd="21">GW<br>21</th>
+			<th onclick="mk_matchDay_df_matchup(22)" evrnd="22">GW<br>22</th>
+			<th onclick="mk_matchDay_df_matchup(23)" evrnd="23">GW<br>23</th>
+			<th onclick="mk_matchDay_df_matchup(24)" evrnd="24">GW<br>24</th>
+			<th onclick="mk_matchDay_df_matchup(25)" evrnd="25">GW<br>25</th>
+			<th onclick="mk_matchDay_df_matchup(26)" evrnd="26">GW<br>26</th>
+			<th onclick="mk_matchDay_df_matchup(27)" evrnd="27">GW<br>27</th>
+			<th onclick="mk_matchDay_df_matchup(28)" evrnd="28">GW<br>28</th>
+			<th evrnd="28" ibreak="28" class="intlBreak" >Int'l<br>break 2</th>
+
+			<th evrnd="29" ibreak="29" class="intlBreak" >Int'l<br>break 2</th>
+			<th onclick="mk_matchDay_df_matchup(29)" evrnd="29">GW<br>29</th>
+			<th onclick="mk_matchDay_df_matchup(30)" evrnd="30">GW<br>30</th>
+			<th onclick="mk_matchDay_df_matchup(31)" evrnd="31">GW<br>31</th>
+			<th onclick="mk_matchDay_df_matchup(32)" evrnd="32">GW<br>32</th>
+			<th onclick="mk_matchDay_df_matchup(33)" evrnd="33">GW<br>33</th>
+			<th onclick="mk_matchDay_df_matchup(34)" evrnd="34">GW<br>34</th>
+			<th onclick="mk_matchDay_df_matchup(35)" evrnd="35">GW<br>35</th>
+			<th onclick="mk_matchDay_df_matchup(36)" evrnd="36">GW<br>36</th>
+			<th onclick="mk_matchDay_df_matchup(37)" evrnd="37">GW<br>37</th>
+			<th onclick="mk_matchDay_df_matchup(38)" evrnd="38">GW<br>38</th>
+
+			<th evrnd="39" class="clmnHide ppgame">Postponed Games<br>(unplanned)</th>
+		</tr>
+	</thead>
+
+	<tbody class="DF_overview" id="eventTable">
+		{% for c in fdl[1]['data'] %}
+			<tr id="{{ c['id'] }}" tmid="{{ c['id'] }}">
+
+				<th>
+					<span onclick="highlightTeamEvents({{c['short_name'] }})" >
+						{{ c['short_name'] }}
+					</span>
+				</th>
+				<td>
+					<input 	type="checkbox"  class="fxtrTblInput" 
+							name="cb{{c['short_name'] }}" 
+							onclick="hideTeamRow({{c['id']}})"
+					>
+				</td>
+	
+				<th class="dfc" >0</th>
+				
+				{% for r in range(1,40) %}
+					<td class="evtTeamBlock" evrnd="{{ r }}" >
+					{% for f in fdl[2]['data'] %}
+
+						{% if( f['event']==r ) %}
+
+							{% if( 	f['team_h'] == c['id'] ) %}
+								<span 	evrnd="{{ f['event'] }}" 
+										df="{{ f['team_h_difficulty'] }}"
+										class="fxtrSpan"
+										loc="H"
+										fxtrid="{{ f['id'] }}"
+										ppgame="{{ ( f['event']==39 ) }}"
+								>
+								{{f['team_a_nm']}} H({{f['team_h_difficulty']}})
+								</span>
+							
+							{% elif(f['team_a'] == c['id'] ) %}
+								<span 	evrnd="{{ f['event'] }}" 
+										df="{{ f['team_a_difficulty'] }}"
+										fxtrid="{{ f['id'] }}"
+										class="fxtrSpan"
+										loc="A"
+										ppgame="{{ ( f['event']==39 ) }}"
+								>
+								{{f['team_h_nm']}} A({{f['team_a_difficulty']}})
+								</span>
+							
+							{% endif %}
+						
+						{% endif %}
+					
+					{% endfor %}
+					</td>
+				{% endfor %}
+
+				<td class="clmnHide ppgame" evrnd="39">
+					<div></div><br>
+					<div></div>
+				</td>
+
+			</tr>
+		{% endfor %}
+		
+
+<div id="hiddenTblCnt">
+	<span>Selected Teams</span>
+	<table id="hiddenTbl">
+		<thead>
+			<tr>
+			<th evrnd="999" >Team</th>
+			<th evrnd="999" >select</th>
+			<th evrnd="999" onclick="changDFview()" id="tmDFhdr">Tm diff</th>
+			<th onclick="mk_matchDay_df_matchup(1)" evrnd="1">GW<br>01</th>
+			<th onclick="mk_matchDay_df_matchup(2)" evrnd="2">GW<br>02</th>
+			<th onclick="mk_matchDay_df_matchup(3)" evrnd="3">GW<br>03</th>
+			<th onclick="mk_matchDay_df_matchup(4)" evrnd="4">GW<br>04</th>
+			<th onclick="mk_matchDay_df_matchup(5)" evrnd="5">GW<br>05</th>
+			<th onclick="mk_matchDay_df_matchup(6)" evrnd="6">GW<br>06</th>
+			<th onclick="mk_matchDay_df_matchup(7)" evrnd="7">GW<br>07</th>
+			<th onclick="mk_matchDay_df_matchup(8)" evrnd="8">GW<br>08</th>
+			<th evrnd="8" ibreak="8" class="intlBreak" >Int'l<br>break 1</th>
+
+			<th evrnd="9" ibreak="9" class="intlBreak" >Int'l<br>break 1</th>
+			<th onclick="mk_matchDay_df_matchup(9)" evrnd="9">GW<br>09</th>
+			<th onclick="mk_matchDay_df_matchup(10)" evrnd="10">GW<br>10</th>
+			<th onclick="mk_matchDay_df_matchup(11)" evrnd="11">GW<br>11</th>
+			<th onclick="mk_matchDay_df_matchup(12)" evrnd="12">GW<br>12</th>
+			<th onclick="mk_matchDay_df_matchup(13)" evrnd="13">GW<br>13</th>
+			<th onclick="mk_matchDay_df_matchup(14)" evrnd="14">GW<br>14</th>
+			<th onclick="mk_matchDay_df_matchup(15)" evrnd="15">GW<br>15</th>
+			<th onclick="mk_matchDay_df_matchup(16)" evrnd="16">GW<br>16</th>
+			<th evrnd="16" ibreak="16" class="intlBreak" >World Cup</th>
+
+			<th evrnd="17" ibreak="17" class="intlBreak" >World Cup</th>
+			<th onclick="mk_matchDay_df_matchup(17)" evrnd="17">GW<br>17</th>
+			<th onclick="mk_matchDay_df_matchup(18)" evrnd="18">GW<br>18</th>
+			<th onclick="mk_matchDay_df_matchup(19)" evrnd="19">GW<br>19</th>
+			<th onclick="mk_matchDay_df_matchup(20)" evrnd="20">GW<br>20</th>
+			<th onclick="mk_matchDay_df_matchup(21)" evrnd="21">GW<br>21</th>
+			<th onclick="mk_matchDay_df_matchup(22)" evrnd="22">GW<br>22</th>
+			<th onclick="mk_matchDay_df_matchup(23)" evrnd="23">GW<br>23</th>
+			<th onclick="mk_matchDay_df_matchup(24)" evrnd="24">GW<br>24</th>
+			<th onclick="mk_matchDay_df_matchup(25)" evrnd="25">GW<br>25</th>
+			<th onclick="mk_matchDay_df_matchup(26)" evrnd="26">GW<br>26</th>
+			<th onclick="mk_matchDay_df_matchup(27)" evrnd="27">GW<br>27</th>
+			<th onclick="mk_matchDay_df_matchup(28)" evrnd="28">GW<br>28</th>
+			<th evrnd="28" ibreak="28" class="intlBreak" >Int'l<br>break 2</th>
+
+			<th evrnd="29" ibreak="29" class="intlBreak" >Int'l<br>break 2</th>
+			<th onclick="mk_matchDay_df_matchup(29)" evrnd="29">GW<br>29</th>
+			<th onclick="mk_matchDay_df_matchup(30)" evrnd="30">GW<br>30</th>
+			<th onclick="mk_matchDay_df_matchup(31)" evrnd="31">GW<br>31</th>
+			<th onclick="mk_matchDay_df_matchup(32)" evrnd="32">GW<br>32</th>
+			<th onclick="mk_matchDay_df_matchup(33)" evrnd="33">GW<br>33</th>
+			<th onclick="mk_matchDay_df_matchup(34)" evrnd="34">GW<br>34</th>
+			<th onclick="mk_matchDay_df_matchup(35)" evrnd="35">GW<br>35</th>
+			<th onclick="mk_matchDay_df_matchup(36)" evrnd="36">GW<br>36</th>
+			<th onclick="mk_matchDay_df_matchup(37)" evrnd="37">GW<br>37</th>
+			<th onclick="mk_matchDay_df_matchup(38)" evrnd="38">GW<br>38</th>
+
+			<th evrnd="39" class="clmnHide ppgame">Postponed Games<br>(unplanned)</th>
+			</tr>
+		</thead>
+
+		<tbody class="DF_overviewHidden" id="eventTableHiddenRows">
+
+		</tbody>
+
+	</table>
+</div>	
+<script type="text/javascript">
+showEventWindow()
+</script>

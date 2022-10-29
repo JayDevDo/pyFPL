@@ -1,0 +1,88 @@
+
+<div id="evwSelCnt">
+	<table id="selectionsTbl">
+	<tr>
+		<th>
+			<span>starting from <br>round (
+				<span id="curRound">{{ fdl[0]['data'][0]['evwStart'] }}</span>
+			)</span>
+		</th>
+		<th>Rounds<br>to show</th>
+	</tr>
+
+	<tr>
+		<th>
+			<form id="eventWndwStartForm" value="{{ fdl[0]['data']['evwStart'] }}">
+				<select name="strtRnd" 	id="strtRnd"
+						value="{{ fdl[0]['data'][0]['evwStart'] }}"
+						onchange="setEventWndwStart(value),showEventWindow()"
+				>
+				<option value=12 active selected >current (12)</option>
+				<option value=1 >1</option>
+				<option value=2 >2</option>
+				<option value=3 >3</option>
+				<option value=4 >4</option>
+				<option value=5 >5</option>
+				<option value=6 >6</option>
+				<option value=7 >7</option>
+				<option value=8 >8 IB 1 start</option>
+				<option value=9 >9 IB 1 end</option>
+				<option value=10 >10</option>
+				<option value=11 >11</option>
+				<option value=12 >12</option>
+				<option value=13 >13</option>
+				<option value=14 >14</option>
+				<option value=15 >15</option>
+				<option value=16 >16 WC start</option>
+				<option value=17 >17 WC end</option>
+				<option value=18 >18</option>
+				<option value=19 >19</option>
+				<option value=20 >20</option>
+				<option value=21 >21</option>
+				<option value=22 >22</option>
+				<option value=23 >23</option>
+				<option value=24 >24</option>
+				<option value=25 >25</option>
+				<option value=26 >26</option>
+				<option value=27 >27</option>
+				<option value=28 >28 IB 2 start</option>
+				<option value=29 >29 IB 2 end</option>
+				<option value=30 >30</option>
+				<option value=31 >31</option>
+				<option value=32 >32</option>
+				<option value=33 >33</option>
+				<option value=34 >34</option>
+				<option value=35 >35</option>
+				<option value=36 >36</option>
+				<option value=37 >37</option>
+				<option value=38 >38</option>
+				<option value=39 >------------------------------</option>
+				</select>
+			</form>
+		</th>
+
+		<th>
+			<form id="slctdRoundsForm" value="{{ fdl[0]['data'][0]['evwPeriod'] }}" >
+				<select name="slctdRounds" id="slctdRounds"
+						value="{{ fdl[0]['data'][0]['evwPeriod'] }}"
+						onchange="setRndsToShow(value),showEventWindow()"
+				>
+					<option value=1 >1</option>
+					<option value=2 >2</option>
+					<option value=3 >3</option>
+					<option value=4 active selected>4</option>
+					<option value=5 >5</option>
+					<option value=6 >6</option>
+					<option value=7 >7</option>
+					<option value=8 >8</option>
+					<option value=9 >9</option>
+					<option value=10>10</option>
+					<option value=15>15</option>
+					<option value=20>20</option>
+					<option value=38>all</option>
+				</select>
+			</form>
+		</th>
+	</tr>
+	</table>
+</div>

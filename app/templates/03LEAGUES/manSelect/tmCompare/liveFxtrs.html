@@ -1,0 +1,167 @@
+
+<div class="middleGames">
+	<table 	id="liveGames" 
+			class="table-dark-striped table-hover">
+		<thead>
+			<tr><th colspan="5"><h2>Fixtures</h2></th></tr>
+			<tr>
+				<th>HOME</th>
+				<th colspan="3">SCORE</th>
+				<th>AWAY</th>
+			</tr>
+		</thead>
+
+		<tbody>
+			<tr>
+				<th colspan="1"></th>
+				<th colspan="3">Finished</th>
+				<th colspan="1"></th>
+			</tr>
+
+			{% for f in fpl[8]['data'] %}
+				{% if f["status"]=="finished" %}
+				<tr class="lvFxtr finished"
+					title="{{ f['id'] }}"  
+					fxtrid="{{ f['id'] }}"
+					id="lvFxtrTbl_f{{ f['id'] }}"
+					onMouseEnter="highlightFxtr({{f['id']}})"
+					onMouseLeave="highlightFxtr(999)" 
+				>
+					<td>{{ f["team_h_nm"] }} </td>
+					<td>{{ f["team_h_score"] }}</td>
+					<td> - </td>
+					<td>{{ f["team_a_score"] }}</td>
+					<td>{{ f["team_a_nm"] }} </td>
+				</tr>
+				{% endif %}
+			{% endfor %}
+
+			<tr>
+				<th colspan="1"></th>
+				<th colspan="3">Live</th>
+				<th colspan="1"></th>
+			</tr>
+
+			{% for f in fpl[8]['data'] %}
+				{% if f["status"]=="live" %}
+				<tr class="lvFxtr live"
+					title="{{ f['id'] }}"  
+					fxtrid="{{ f['id'] }}"
+					id="lvFxtrTbl_l{{ f['id'] }}"
+					onmouseenter="highlightFxtr({{f['id']}})"
+					onmouseleave="highlightFxtr(999)" 
+				>
+					<td>{{ f["team_h_nm"] }} </td>
+					<td>{{ f["team_h_score"] }}</td>
+					<td> - </td>
+					<td>{{ f["team_a_score"] }}</td>
+					<td>{{ f["team_a_nm"] }} </td>
+				</tr>
+				{% endif %}
+			{% endfor %}
+
+			<tr id="lvFxtrTbl_later" >
+				<th colspan="1"></th>
+				<th colspan="3">Later</th>
+				<th colspan="1"></th>
+			</tr>
+
+			{% for f in fpl[8]['data'] %}
+				{% if f["status"]=="later" %}
+				<tr class="lvFxtr later"
+					title="{{ f['id'] }}"  
+					fxtrid="{{ f['id'] }}"
+					id="lvFxtrTbl_a{{ f['id'] }}"
+					onmouseenter="highlightFxtr({{f['id']}})"
+					onmouseleave="highlightFxtr(999)" 
+				>
+					<td>{{ f["team_h_nm"] }} </td>
+					<td>{{ f["team_h_score"] }}</td>
+					<td> - </td>
+					<td>{{ f["team_a_score"] }}</td>
+					<td>{{ f["team_a_nm"] }} </td>
+				</tr>
+				{% endif %}
+			{% endfor %}
+
+			<tr>
+				<th colspan="1"></th>
+				<th colspan="3">Future</th>
+				<th colspan="1"></th>
+			</tr>
+
+			{% for f in fpl[8]['data'] %}
+				{% if f["status"]=="future" %}
+				<tr class="lvFxtr future"
+					title="{{ f['id'] }}"  
+					fxtrid="{{ f['id'] }}"
+					id="lvFxtrTbl_u{{ f['id'] }}"
+					onmouseenter="highlightFxtr({{f['id']}})"
+					onmouseleave="highlightFxtr(999)" 
+				>
+					<td>{{ f["team_h_nm"] }} </td>
+					<td>{{ f["team_h_score"] }}</td>
+					<td> - </td>
+					<td>{{ f["team_a_score"] }}</td>
+					<td>{{ f["team_a_nm"] }} </td>
+				</tr>
+				{% endif %}
+			{% endfor %}
+		</tbody>
+	</table>
+</div>
+
+<div id="bnsCnt">
+	{% for fxr in fpl[8]['data'] %}
+		<div class="fxtr_bns fxtr_bns_hidden" fxtrid="{{ fxr['id'] }}" title="{{ fxr['id'] }}" >
+			<table class="fxtr_bns">
+				<tr>
+					<th>Rank</th>
+					<th>Name</th>
+					<th>Bonus</th>
+					<th>Points</th>
+				</tr>
+
+				{% for e in fxr['event_bonus']  %}
+				<tr class="fxtr_bns_data" >
+					<td>{{ e["bns_rank"] }}</td>
+					<td>{{ e["web_name"] }}</td>
+					<td>{{ e["value"] }}</td>
+					<td>{{ e["bns_pts"] }}</td>
+				</tr>
+				{% endfor %}
+			</table>
+		</div>
+	{% endfor %}
+</div>
+
+<script type="text/javascript">
+
+$(document).ready(
+	function() {
+
+		highlightFxtr = (fxtrId)=>{
+			showFxtrBonus(fxtrId)
+			$(".highlight").removeClass("highlight");
+			ballersInvDblGW = $("div.ballerLiveGameHdr[fxtrid='"+ fxtrId + "']" ).get()
+
+			if( ballersInvDblGW.length > 0 ){ $(ballersInvDblGW).addClass("highlight");}
+			hasHLGame = $("div.highlight").get();
+		    $.each( 
+				hasHLGame,
+    			function(){$( this ).parent(".ballerLiveHdr").addClass("highlight");} 
+    		);
+		}
+
+		showFxtrBonus = (fxtrId)=>{
+			$("div.fxtr_bns").addClass("fxtr_bns_hidden"); 
+			bnsCnt = $("div.fxtr_bns[fxtrid=" + fxtrId + "]").get()
+			console.log("showFxtrBonus\t" + fxtrId , " len:\t", bnsCnt.length )			
+			$(bnsCnt).removeClass("fxtr_bns_hidden"); 
+			$(bnsCnt).addClass("fxtr_bns_show"); 
+			$("#bnsCnt").detach().appendTo($("#lvFxtrTbl_later th:nth-of-type(2)"));
+		}
+
+});
+
+</script>

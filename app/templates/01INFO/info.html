@@ -1,0 +1,38 @@
+{% include "nav.html" %}
+
+<div id="fplDataCnt">
+	<div id="fplDataTbl">
+		<table>
+			<thead>
+				<tr>
+					<th>Data</th>
+					<th>Count</th>
+				</tr>
+			</thead>
+			<tbody>
+				{% for i in fpl %}
+				<tr>
+					<td>{{ i['id'] }}</td>
+					{% if ( i['id'] == 'ownteam' ) %}
+					<td>
+						<span>{{ i['count'] }}</span>
+						<span>{{ i['data']["manager"]["name"] }}</span>
+						<span>{{ i['data']["manager"]["id"] }}</span> 
+						<!-- span>{{ i['data']["manager"] }}</span -->
+					</td>
+					{% elif( i['id'] == 'oppteam' ) %}
+					<td>
+						<span>{{ i['count'] }}</span>
+						<span>{{ i['data']["manager"]["name"] }}</span>
+						<span>{{ i['data']["manager"]["id"] }}</span>
+						<!-- span>{{ i['data']["manager"] }}</span -->
+					</td>					
+					{% else %}
+					<td>{{ i['count'] }}</td>
+					{% endif %}
+				</tr>
+				{% endfor %}
+			</tbody>
+		</table>
+	</div>
+</div>

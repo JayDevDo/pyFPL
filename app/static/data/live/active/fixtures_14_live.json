@@ -1,0 +1,528 @@
+[
+    {
+        "code": 2292946,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": true,
+        "id": 137,
+        "kickoff_time": "2022-10-29T11:30:00Z",
+        "minutes": 90,
+        "provisional_start_time": false,
+        "started": true,
+        "team_a": 13,
+        "team_a_score": 1,
+        "team_h": 10,
+        "team_h_score": 0,
+        "stats": [
+            {
+                "identifier": "goals_scored",
+                "a": [
+                    {
+                        "value": 1,
+                        "element": 301
+                    }
+                ],
+                "h": []
+            },
+            {
+                "identifier": "assists",
+                "a": [
+                    {
+                        "value": 1,
+                        "element": 305
+                    }
+                ],
+                "h": []
+            },
+            {
+                "identifier": "own_goals",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "penalties_saved",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "penalties_missed",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "yellow_cards",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "red_cards",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "saves",
+                "a": [
+                    {
+                        "value": 5,
+                        "element": 307
+                    }
+                ],
+                "h": [
+                    {
+                        "value": 4,
+                        "element": 254
+                    }
+                ]
+            },
+            {
+                "identifier": "bonus",
+                "a": [],
+                "h": []
+            },
+            {
+                "identifier": "bps",
+                "a": [
+                    {
+                        "value": 31,
+                        "element": 301,
+                        "web_name": "De Bruyne",
+                        "bns_rank": 1,
+                        "bns_pts": 3
+                    },
+                    {
+                        "value": 31,
+                        "element": 307,
+                        "web_name": "Ederson",
+                        "bns_rank": 1,
+                        "bns_pts": 3
+                    },
+                    {
+                        "value": 25,
+                        "element": 302,
+                        "web_name": "Stones",
+                        "bns_rank": 3,
+                        "bns_pts": 1
+                    },
+                    {
+                        "value": 25,
+                        "element": 309,
+                        "web_name": "Laporte",
+                        "bns_rank": 3,
+                        "bns_pts": 1
+                    },
+                    {
+                        "value": 23,
+                        "element": 306,
+                        "web_name": "Cancelo",
+                        "bns_rank": 5,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 22,
+                        "element": 610,
+                        "web_name": "Akanji",
+                        "bns_rank": 6,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 19,
+                        "element": 305,
+                        "web_name": "Grealish",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 15,
+                        "element": 315,
+                        "web_name": "Rodri",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 14,
+                        "element": 300,
+                        "web_name": "G\u00fcndogan",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 9,
+                        "element": 311,
+                        "web_name": "Bernardo",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 3,
+                        "element": 312,
+                        "web_name": "Dias",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 3,
+                        "element": 314,
+                        "web_name": "Foden",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 2,
+                        "element": 319,
+                        "web_name": "\u00c1lvarez",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    }
+                ],
+                "h": [
+                    {
+                        "value": 18,
+                        "element": 254,
+                        "web_name": "Ward",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 17,
+                        "element": 258,
+                        "web_name": "Castagne",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 15,
+                        "element": 257,
+                        "web_name": "Amartey",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 15,
+                        "element": 261,
+                        "web_name": "Maddison",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 13,
+                        "element": 259,
+                        "web_name": "Tielemans",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 12,
+                        "element": 268,
+                        "web_name": "Justin",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 12,
+                        "element": 612,
+                        "web_name": "Faes",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 11,
+                        "element": 267,
+                        "web_name": "S\u00f6y\u00fcnc\u00fc",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 6,
+                        "element": 262,
+                        "web_name": "Iheanacho",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 6,
+                        "element": 264,
+                        "web_name": "Barnes",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 4,
+                        "element": 255,
+                        "web_name": "Vardy",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    },
+                    {
+                        "value": 2,
+                        "element": 252,
+                        "web_name": "Mendy",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": 2,
+                        "element": 266,
+                        "web_name": "Dewsbury-Hall",
+                        "bns_rank": 7,
+                        "bns_pts": -3
+                    },
+                    {
+                        "value": -2,
+                        "element": 271,
+                        "web_name": "Daka",
+                        "bns_rank": 7,
+                        "bns_pts": 0
+                    }
+                ]
+            }
+        ],
+        "team_h_difficulty": 5,
+        "team_a_difficulty": 2,
+        "pulse_id": 75047,
+        "team_h_nm": "Leicester",
+        "team_a_nm": "Man City",
+        "status": "live",
+        "event_bonus": [
+            {
+                "value": 31,
+                "element": 301,
+                "web_name": "De Bruyne",
+                "bns_rank": 1,
+                "bns_pts": 3
+            },
+            {
+                "value": 31,
+                "element": 307,
+                "web_name": "Ederson",
+                "bns_rank": 1,
+                "bns_pts": 3
+            },
+            {
+                "value": 25,
+                "element": 302,
+                "web_name": "Stones",
+                "bns_rank": 3,
+                "bns_pts": 1
+            },
+            {
+                "value": 25,
+                "element": 309,
+                "web_name": "Laporte",
+                "bns_rank": 3,
+                "bns_pts": 1
+            },
+            {
+                "value": 23,
+                "element": 306,
+                "web_name": "Cancelo",
+                "bns_rank": 5,
+                "bns_pts": 0
+            },
+            {
+                "value": 22,
+                "element": 610,
+                "web_name": "Akanji",
+                "bns_rank": 6,
+                "bns_pts": 0
+            }
+        ]
+    },
+    {
+        "code": 2292940,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 132,
+        "kickoff_time": "2022-10-29T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 18,
+        "team_a_score": null,
+        "team_h": 3,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 3,
+        "team_a_difficulty": 2,
+        "pulse_id": 75042,
+        "team_h_nm": "Bournemouth",
+        "team_a_nm": "Spurs",
+        "status": "later"
+    },
+    {
+        "code": 2292942,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 133,
+        "kickoff_time": "2022-10-29T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 20,
+        "team_a_score": null,
+        "team_h": 4,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 3,
+        "pulse_id": 75043,
+        "team_h_nm": "Brentford",
+        "team_a_nm": "Wolves",
+        "status": "later"
+    },
+    {
+        "code": 2292943,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 134,
+        "kickoff_time": "2022-10-29T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 6,
+        "team_a_score": null,
+        "team_h": 5,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 3,
+        "team_a_difficulty": 3,
+        "pulse_id": 75044,
+        "team_h_nm": "Brighton",
+        "team_a_nm": "Chelsea",
+        "status": "later"
+    },
+    {
+        "code": 2292944,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 135,
+        "kickoff_time": "2022-10-29T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 17,
+        "team_a_score": null,
+        "team_h": 7,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 3,
+        "pulse_id": 75045,
+        "team_h_nm": "Crystal Palace",
+        "team_a_nm": "Southampton",
+        "status": "later"
+    },
+    {
+        "code": 2292949,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 140,
+        "kickoff_time": "2022-10-29T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 2,
+        "team_a_score": null,
+        "team_h": 15,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 3,
+        "pulse_id": 75050,
+        "team_h_nm": "Newcastle",
+        "team_a_nm": "Aston Villa",
+        "status": "later"
+    },
+    {
+        "code": 2292945,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 136,
+        "kickoff_time": "2022-10-29T16:30:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 8,
+        "team_a_score": null,
+        "team_h": 9,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 2,
+        "pulse_id": 75046,
+        "team_h_nm": "Fulham",
+        "team_a_nm": "Everton",
+        "status": "later"
+    },
+    {
+        "code": 2292947,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 138,
+        "kickoff_time": "2022-10-29T18:45:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 11,
+        "team_a_score": null,
+        "team_h": 12,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 5,
+        "pulse_id": 75048,
+        "team_h_nm": "Liverpool",
+        "team_a_nm": "Leeds",
+        "status": "later"
+    },
+    {
+        "code": 2292941,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 131,
+        "kickoff_time": "2022-10-30T14:00:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 16,
+        "team_a_score": null,
+        "team_h": 1,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 4,
+        "pulse_id": 75041,
+        "team_h_nm": "Arsenal",
+        "team_a_nm": "Nott'm Forest",
+        "status": "future"
+    },
+    {
+        "code": 2292948,
+        "event": 14,
+        "finished": false,
+        "finished_provisional": false,
+        "id": 139,
+        "kickoff_time": "2022-10-30T16:15:00Z",
+        "minutes": 0,
+        "provisional_start_time": false,
+        "started": false,
+        "team_a": 19,
+        "team_a_score": null,
+        "team_h": 14,
+        "team_h_score": null,
+        "stats": [],
+        "team_h_difficulty": 2,
+        "team_a_difficulty": 4,
+        "pulse_id": 75049,
+        "team_h_nm": "Man Utd",
+        "team_a_nm": "West Ham",
+        "status": "future"
+    }
+]

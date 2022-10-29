@@ -1,0 +1,103 @@
+<script type="text/javascript">
+	/*
+		<!-- div>
+		{% for s_gkp in fpl[4]['data']["strtrs"] %}
+			{% if (s_gkp["ballerData"]["element_type"]==1) %}
+				<div class="ballerStrtr baller starters"
+					ballerid="{{ s_gkp['liveBallerData']['id'] }}"
+					fxtrid="{{ s_gkp['liveBallerData']['stats']['gwGames'][0]['fxt'] }}"
+					potsub="{{ s_gkp['liveBallerData']['potentialSub'] }}"
+					style="flex-grow: 5;"
+					>
+					<div>
+						<span cap="{{ s_gkp['multiplier']==2 }}">
+							{{ s_gkp["web_name"] }}
+						</span>
+						<div class="row">
+							<span style="border: 1px solid black;">
+								{{ s_gkp["liveBallerData"]["stats"]["total_points"] * s_gkp["multiplier"] }}
+							</span>
+						</div>
+						<div><span></span></div>
+					
+					{% for i,g in s_gkp["liveBallerData"]["explain"] %}
+					<div 
+						class="ballerGameStats" 
+						fxtrid="{{ i }}"
+					>
+						<h6>
+							O: {{ i }}
+						</h6>
+						<select value="more">
+							{% for e in s_gkp['liveBallerData']["explain"][i]  %}
+								<option value="{{ e['points'] }}">
+									<span class="span_l">
+										{{ e }}
+										{{ e["points"] }}
+									</span>
+									<span class="span_r">
+										({{ e["value"] }}:{{ e["identifier"] }})
+									</span>
+								</option>
+							{% endfor %}
+						</select>
+					</div>
+					{% endfor %}
+					</div>	
+				</div>
+			{% endif %}	
+		{% endfor %}
+		</div -->
+	*/
+
+/*
+		<!-- div>
+		{% for s_gkp in fpl[4]['data']["strtrs"] %}
+			{% if (s_gkp["ballerData"]["element_type"]==1) %}
+				<div class="ballerStrtr baller starters"
+					ballerid="{{ s_gkp['liveBallerData']['id'] }}"
+					fxtrid="{{ s_gkp['liveBallerData']['stats']['gwGames'][0]['fxt'] }}"
+					potsub="{{ s_gkp['liveBallerData']['potentialSub'] }}"
+					style="flex-grow: 5;"
+					>
+					<div>
+						<span cap="{{ s_gkp['multiplier']==2 }}">
+							{{ s_gkp["web_name"] }}
+						</span>
+						<div class="row">
+							<span style="border: 1px solid black;">
+								{{ s_gkp["liveBallerData"]["stats"]["total_points"] * s_gkp["multiplier"] }}
+							</span>
+						</div>
+						<div><span></span></div>
+					
+					{% for i,g in s_gkp["liveBallerData"]["explain"] %}
+					<div 
+						class="ballerGameStats" 
+						fxtrid="{{ i }}"
+					>
+						<h6>
+							O: {{ i }}
+						</h6>
+						<select value="more">
+							{% for e in s_gkp['liveBallerData']["explain"][i]  %}
+								<option value="{{ e['points'] }}">
+									<span class="span_l">
+										{{ e }}
+										{{ e["points"] }}
+									</span>
+									<span class="span_r">
+										({{ e["value"] }}:{{ e["identifier"] }})
+									</span>
+								</option>
+							{% endfor %}
+						</select>
+					</div>
+					{% endfor %}
+					</div>	
+				</div>
+			{% endif %}	
+		{% endfor %}
+		</div -->
+*/
+</script>

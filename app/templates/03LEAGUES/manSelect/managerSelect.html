@@ -1,0 +1,23 @@
+
+<div id="managerAccordion">
+	<h3 id="lgName">Managers in <strong> {{ fpl[12]['data']['nm'] }}</strong></h3>
+	<div id="mngrList" class="list-group" >
+		{% for man in fpl[9]['data'] %}
+			<a 	class="list-group-item list-group-item-dark"
+				onclick="getOpponent({{man['entry']}})"
+			>
+				<span style="float:left;" >{{ man["entry_name"] }}</span>
+				<span style="margin:auto; width:20%;" ><i></i></span>
+				<span style="float:right;" >{{ man["player_name"] }}</span>
+			</a>
+		{% endfor %}
+	</div>
+</div>
+
+
+<script type="text/javascript">
+	console.log("using:\tapp/templates/03LEAGUES/manSelect/managerSelect.html")
+	$( "#managerAccordion" ).accordion({ collapsible: true });
+	setLgType = (lgTp)=>{ $.getJSON("/leagueType/"+lgTp) }
+	getOpponent = (oppId)=>{window.open( '/opponent/'+ oppId) }
+</script>

@@ -1,0 +1,243 @@
+[
+	{ 
+		"unplanned": [
+
+			{   "ppid": 61,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "ARS",
+				"team_h_id": 1,
+				"team_a_id": 8,
+				"team_a_nm": "EVE",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 62,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "BOU",
+				"team_h_id": 3,
+				"team_a_id": 5,
+				"team_a_nm": "BHA",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 63,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "CRY",
+				"team_h_id": 7,
+				"team_a_id": 14,
+				"team_a_nm": "MNU",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 64,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "FUL",
+				"team_h_id": 9,
+				"team_a_id": 6,
+				"team_a_nm": "CHE",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{  	"ppid": 65,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "LEE",
+				"team_h_id": 11,
+				"team_a_id": 16,
+				"team_a_nm": "NFO",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 66,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "LEI",
+				"team_h_id": 10,
+				"team_a_id": 2,
+				"team_a_nm": "AVL",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 67,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "LIV",
+				"team_h_id": 12,
+				"team_a_id": 20,
+				"team_a_nm": "WOL",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 68,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "MNC",
+				"team_h_id": 13,
+				"team_a_id": 18,
+				"team_a_nm": "TOT",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 69,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "SOU",
+				"team_h_id": 17,
+				"team_a_id": 4,
+				"team_a_nm": "BRE",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 70,
+				"nwRound": 39,
+				"origRnd": 7,
+				"added": false,
+				"team_h_nm": "WHU",
+				"team_h_id": 19,
+				"team_a_id": 15,
+				"team_a_nm": "NEW",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{   "ppid": 73,
+				"nwRound": 39,
+				"origRnd": 8,
+				"added": false,
+				"team_h_nm": "BHA",
+				"team_h_id": 5,
+				"team_a_id": 7,
+				"team_a_nm": "CRY",
+				"status": "postponed",
+				"reason": "No public transport available."
+			},
+
+			{	"ppid": 74,
+				"nwRound": 39,
+				"origRnd": 8,
+				"added": false,
+				"team_h_nm": "CHE",
+				"team_h_id": 6,
+				"team_a_id": 12,
+				"team_a_nm": "LIV",
+				"status": "postponed",
+				"reason": "rip QE2"
+			},
+
+			{	"ppid": 76,
+				"nwRound": 39,
+				"origRnd": 8,
+				"added": false,
+				"team_h_nm": "MUN",
+				"team_h_id": 14,
+				"team_a_id": 11,
+				"team_a_nm": "LEE",
+				"status": "postponed",
+				"reason": "rip QE2"				
+			},
+
+			{	"ppid": 111,
+				"nwRound": 39,
+				"origRnd": 12,
+				"added": false,
+				"team_h_nm": "ARS",
+				"team_h_id": 1,
+				"team_a_id": 13,
+				"team_a_nm": "MNC",
+				"status": "postponed",
+				"reason": "ARS plays recheduled Europa Lg. v PSV. Was postponed 15/9 for QE2 funeral."				
+			}
+
+		] 
+	},
+	{ 
+		"re-planned": [
+			
+		]
+	},
+	{ 
+		"ppRpIds":[ 
+
+		] 
+	},
+	{ 
+		"ppIds": [ 
+			61, 62, 63, 64, 65, 66, 67, 68, 69, 70,
+			73, 74, 76, 111
+		] 
+	},
+	{ 
+		"intlBreaks": 
+		[
+			{	"wkNr": 38,
+				"iBreakId": 0,
+				"prevGW": 8,
+				"prevGWDate": "2022-09-19",
+				"nextGW": 9,
+				"nextGWDate": "2022-10-01",
+				"brkDuration": 2,
+				"brkTitle": "EC Qual 1",
+				"passed": 0,
+				"toCome": 1
+			},
+			{	"wkNr": 45,
+				"iBreakId": 1,
+				"prevGW": 16,
+				"prevGWDate": "2022-11-12",
+				"nextGW": 17,
+				"nextGWDate": "2022-12-26",
+				"brkDuration": 6,
+				"brkTitle": "World Cup",
+				"passed": 0,
+				"toCome": 1
+			},
+			{	"wkNr": 11,
+				"iBreakId": 2,
+				"prevGW": 28,
+				"prevGWDate": "2023-03-18",
+				"nextGW": 29,
+				"nextGWDate": "2023-04-01",
+				"brkDuration": 2,
+				"brkTitle": "EC Qual 2",
+				"passed": 0,
+				"toCome": 1
+			}
+		]
+	},
+	{
+		"example": {   
+					"ppid": 124,
+					"nwRound": 26,
+					"origRnd": 13,
+					"added": false,
+					"team_h_nm": "BHA",
+					"team_h_id": 5,
+					"team_a_id": 17,
+					"team_a_nm": "TOT",
+					"status": "replanned",
+					"reason": "weather conditions"
+				}
+	}
+]

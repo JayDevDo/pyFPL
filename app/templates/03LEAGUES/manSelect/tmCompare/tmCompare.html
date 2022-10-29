@@ -1,0 +1,21 @@
+{% include "nav.html" %}
+
+<head>
+	<title>{{ fpl[5]['data']['manager']['name'] }}</title>
+</head>
+
+<div class="grid">
+	<div class="row">
+		<div class="col-4"> 
+			{% include "03LEAGUES/manSelect/tmCompare/ownTeamDivs.html" %}
+		</div>
+
+		<div class="col-4"> 
+			{% include "03LEAGUES/manSelect/tmCompare/liveFxtrs.html" %}
+		</div>
+
+		<div class="col-4"> 
+			{% include "03LEAGUES/manSelect/tmCompare/oppTeamDivs.html" %}
+		</div>
+	</div>
+</div>

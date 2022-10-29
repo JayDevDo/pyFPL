@@ -1,0 +1,34 @@
+
+{% if fdl[3]['data'][unplanned]|length > 0 %}
+	<div 	id="ppOview">
+		<h1>Postponed</h1>
+		<div id="ppOviewTbl" class="table table-sm table-responsive table-dark" >
+				<div class="ppRow">
+					<span>og</span>
+					<span>nw</span>
+					<span>fxtr</span>
+					<span>home</span>
+					<span>away</span>
+					<span>Reason</span>
+				</div>
+
+				{% for ppg in fdl[3]['data']['unplanned'] %}
+
+				<div tm_h_id="{{ ppg['team_h_id'] }}"
+					tm_a_id="{{ ppg['team_a_id'] }}"
+					pp_gm_id="{{ ppg['ppid'] }}"
+					class="ppRow"
+				>
+					<span>{{ ppg['origRnd'] }}</span>
+					<span>{{ ppg['nwRound'] }}</span>
+					<span>{{ ppg['ppid'] }}</span>
+					<span>{{ ppg['team_h_nm'] }}</span>
+					<span>{{ ppg['team_a_nm'] }}</span>
+					<span colspan="2">{{ ppg['reason'] }}</span>
+				</div>
+
+				{% endfor %}
+
+		</div>
+	</div>
+{% endif  %}

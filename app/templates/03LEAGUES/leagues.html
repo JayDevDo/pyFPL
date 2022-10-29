@@ -1,0 +1,53 @@
+{% include "nav.html" %}
+
+<div id="gridCnt" class="d-flex">
+
+		<div id="leagueAccordion" class="p2 flex-fill">
+
+			<h3 ondoubleclick="setLgType(1)">Head 2 Head</h3>
+			<div id="leagueListH2H"  class="list-group">
+				{% for h in fpl[7]['data'] %}
+					<a 	class="list-group-item list-group-item-dark"
+						title="of {{ h['lgCount'] }}"
+						onclick="setIfrm(1,{{ h['id']}})"
+						href="/league/1/{{ h['id'] }}"
+					>
+					<!--  href="/league/1/{{ h['id'] }}"  -->
+						<span style="float:left;" >  {{ h['name'] }} ({{ h['id'] }})</span>
+						<span style="float:right;"># {{ h['entry_rank'] | numberFormat}}  of {{ h['lgCount'] | numberFormat}}</span>
+					</a>
+				{% endfor %}
+			</div>
+
+			<h3 ondoubleclick="setLgType(0)">Classic</h3>
+			<div id="leagueListClssc" class="list-group" >
+				{% for h in fpl[6]['data'] %}
+					<a 	class="list-group-item list-group-item-dark"
+						title="of {{ h['lgCount'] }}"
+						onclick="setIfrm(0,{{ h['id']}})"
+						href="/league/0/{{ h['id'] }}"
+					>
+					<!--  href="/league/0/{{ h['id'] }}"  -->
+						<span style="float:left;">{{ h['name'] }} ({{ h['id'] }})</span>
+						<span style="float:right;"># {{h['entry_rank'] | numberFormat}}  of {{ h['lgCount'] | numberFormat}}</span>
+					</a>
+				{% endfor %}
+			</div>
+
+		</div>
+
+		<div class="p2 flex-fill">{% include "03LEAGUES/manSelect/managerSelect.html" %}</div>
+
+</div>
+
+<script type="text/javascript">
+	console.log("using:\tapp/templates/03LEAGUES/leagues.html")
+	setIfrm = (lgTp, lgId)=> {$.getJSON("/league/"+lgTp+"/"+lgId )}
+	setLgType = (lgTp)=>{$.getJSON("/leagueType/"+lgTp )}
+	getOpponent = (oppId)=>{window.open( '/opponent/'+ oppId)}
+	$( "#leagueAccordion" ).accordion({
+			collapsible: true,
+			heightStyle: "content",
+			classes: { "ui-accordion": "highlight"}
+	});
+</script>

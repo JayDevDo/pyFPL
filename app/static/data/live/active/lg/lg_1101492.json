@@ -1,0 +1,195 @@
+{
+    "new_entries": {
+        "has_next": false,
+        "page": 1,
+        "results": []
+    },
+    "last_updated_data": "2022-04-25T22:18:38Z",
+    "league": {
+        "id": 1101492,
+        "name": "Liga Noastra",
+        "created": "2021-08-12T01:42:32.201068Z",
+        "closed": false,
+        "max_entries": null,
+        "league_type": "x",
+        "scoring": "c",
+        "admin_entry": 4748392,
+        "start_event": 1,
+        "code_privacy": "p",
+        "has_cup": false,
+        "cup_league": null,
+        "rank": null,
+        "lgCount": 15
+    },
+    "standings": {
+        "has_next": false,
+        "page": 1,
+        "results": [
+            {
+                "id": 31982177,
+                "event_total": 58,
+                "player_name": "Eddie Demirian",
+                "rank": 1,
+                "last_rank": 1,
+                "rank_sort": 1,
+                "total": 2253,
+                "entry": 737469,
+                "entry_name": "DoarDinamoBucuresti"
+            },
+            {
+                "id": 31982153,
+                "event_total": 36,
+                "player_name": "Cristian Mihala",
+                "rank": 2,
+                "last_rank": 2,
+                "rank_sort": 2,
+                "total": 2110,
+                "entry": 836838,
+                "entry_name": "Colon iritabil"
+            },
+            {
+                "id": 31982148,
+                "event_total": 40,
+                "player_name": "Mark Duggan",
+                "rank": 3,
+                "last_rank": 3,
+                "rank_sort": 3,
+                "total": 2052,
+                "entry": 2112824,
+                "entry_name": "1"
+            },
+            {
+                "id": 31982170,
+                "event_total": 72,
+                "player_name": "Jay Vando",
+                "rank": 4,
+                "last_rank": 6,
+                "rank_sort": 4,
+                "total": 2011,
+                "entry": 993831,
+                "entry_name": "Bielsabub's Demons"
+            },
+            {
+                "id": 31982159,
+                "event_total": 45,
+                "player_name": "Focsaneanu Iulian",
+                "rank": 5,
+                "last_rank": 5,
+                "rank_sort": 5,
+                "total": 2002,
+                "entry": 13553,
+                "entry_name": "Rapid"
+            },
+            {
+                "id": 31982151,
+                "event_total": 28,
+                "player_name": "John Scott",
+                "rank": 6,
+                "last_rank": 4,
+                "rank_sort": 6,
+                "total": 2001,
+                "entry": 2045927,
+                "entry_name": "I prefer Varane"
+            },
+            {
+                "id": 31982161,
+                "event_total": 37,
+                "player_name": "Cristian Topirceanu",
+                "rank": 7,
+                "last_rank": 7,
+                "rank_sort": 7,
+                "total": 1921,
+                "entry": 410595,
+                "entry_name": "Big XIX"
+            },
+            {
+                "id": 43679369,
+                "event_total": 57,
+                "player_name": "Cristian Topirceanu",
+                "rank": 8,
+                "last_rank": 8,
+                "rank_sort": 8,
+                "total": 1780,
+                "entry": 6172425,
+                "entry_name": "TAA"
+            },
+            {
+                "id": 31982145,
+                "event_total": 55,
+                "player_name": "Bogdan Milea",
+                "rank": 9,
+                "last_rank": 9,
+                "rank_sort": 9,
+                "total": 1748,
+                "entry": 3791060,
+                "entry_name": "Long Island FC"
+            },
+            {
+                "id": 52338744,
+                "event_total": 41,
+                "player_name": "Lukats Hunor",
+                "rank": 10,
+                "last_rank": 10,
+                "rank_sort": 10,
+                "total": 1740,
+                "entry": 7321648,
+                "entry_name": "FC SIC"
+            },
+            {
+                "id": 31982168,
+                "event_total": 51,
+                "player_name": "Mircea Stefan",
+                "rank": 11,
+                "last_rank": 11,
+                "rank_sort": 11,
+                "total": 1713,
+                "entry": 3958212,
+                "entry_name": "DUN\u0102REA ECHIP\u0102 BUN\u0102"
+            },
+            {
+                "id": 31982181,
+                "event_total": 58,
+                "player_name": "Cristian Topirceanu",
+                "rank": 12,
+                "last_rank": 13,
+                "rank_sort": 12,
+                "total": 1678,
+                "entry": 411177,
+                "entry_name": "The Sixy Boys"
+            },
+            {
+                "id": 31982143,
+                "event_total": 42,
+                "player_name": "Gabriela Popescu",
+                "rank": 13,
+                "last_rank": 12,
+                "rank_sort": 13,
+                "total": 1666,
+                "entry": 4748392,
+                "entry_name": "Monkey FC"
+            },
+            {
+                "id": 33280129,
+                "event_total": 31,
+                "player_name": "Ionut Tataru",
+                "rank": 14,
+                "last_rank": 14,
+                "rank_sort": 14,
+                "total": 1557,
+                "entry": 4906682,
+                "entry_name": "Believe In Miracles"
+            },
+            {
+                "id": 31982167,
+                "event_total": 52,
+                "player_name": "Mihalcea Andrei",
+                "rank": 15,
+                "last_rank": 15,
+                "rank_sort": 15,
+                "total": 1537,
+                "entry": 310297,
+                "entry_name": "SurprizaEtapei"
+            }
+        ]
+    }
+}

@@ -1,0 +1,48 @@
+{
+	'id': 200, 
+
+	'stats': {
+		'minutes': 90, 
+		'goals_scored': 0, 
+		'assists': 0, 
+		'clean_sheets': 0, 
+		'goals_conceded': 2, 
+		'own_goals': 0, 
+		'penalties_saved': 0, 
+		'penalties_missed': 0, 
+		'yellow_cards': 0, 
+		'red_cards': 0, 
+		'saves': 5, 
+		'bonus': 1, 
+		'bps': 20, 
+		'influence': '37.6', 
+		'creativity': '0.0', 
+		'threat': '0.0', 
+		'ict_index': '3.8', 
+		'total_points': 3, 
+		'in_dreamteam': False, 
+		'gwGames': [
+			{'fxt': 325, 'opp': 'Opponent'}, 
+			{'fxt': 172, 'opp': 'Opponent'}
+	]
+	}, 
+
+	'explain': [
+		{
+			'fixture': 325, 
+			'stats': [
+				{'identifier': 'minutes', 'points': 2, 'value': 90}, 
+				{'identifier': 'goals_conceded', 'points': -1, 'value': 2}, 
+				{'identifier': 'saves', 'points': 1, 'value': 5}, 
+				{'identifier': 'bonus', 'points': 1, 'value': 1}
+			]
+		}, 
+		{
+			'fixture': 172, 
+			'stats': [
+				{'identifier': 'minutes', 'points': 0, 'value': 0}
+			]
+		}
+	], 
+	'potentialSub': False
+}

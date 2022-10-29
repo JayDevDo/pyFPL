@@ -1,0 +1,48 @@
+<div class="table-responsive-sm">
+	<table id="teamDFCnt" class="table table-sm table-dark" >
+		<thead class="table-dark">
+			<tr class="df_hdr table-dark">
+				<th></th>
+				{% for clb in fdl[1]['data'] %}
+					<th>{{ clb['short_name'] }}</th>
+				{% endfor %}
+			</tr>
+		</thead>
+
+		<tbody class="table-dark">
+			<tr class="df_home">
+				<th>H</th>
+				{% for clb in fdl[1]['data'] %}
+					<td tmid="{{ clb['id'] }}" df="{{ clb['df'][0] }}">
+						<span class="df_span" df="{{ clb['df'][0] }}">{{ clb['df'][0] }}</span>
+					</td>
+				{% endfor %}
+			</tr>
+			
+			<tr class="df_away">
+				<th>A</th>
+				{% for clb in fdl[1]['data'] %}
+					<td tmid="{{ clb['id'] }}" df="{{ clb['df'][1] }}">
+						<span class="df_span" df="{{ clb['df'][1] }}">{{ clb['df'][1] }}</span>
+					</td>
+				{% endfor %}
+			</tr>		
+			<tr class="pp_count">
+				<th>pp</th>
+				{% for clb in fdl[1]['data'] %}
+					<td tmid="{{ clb['id'] }}" ppgc="{{ clb['ppgc'] }}">
+						<span class="df_span" ppgc="{{ clb['ppgc'] }}">{{ clb['ppgc'] }}</span>
+					</td>
+				{% endfor %}
+			</tr>
+		</tbody>
+
+	</table>		
+</div>
+
+
+<style type="text/css">
+#teamDFCnt{font-size: smaller ;overflow-x: scroll;width: fit-content;}
+#teamDFCnt th,td{padding: 0.2rem 0.2rem 0.2rem 0.2rem!important;}
+.df_span { width: 100%; }
+</style>

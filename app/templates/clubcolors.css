@@ -1,0 +1,233 @@
+
+	    tr[id="ARS"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            red,
+	            red 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="AVL"]{
+	        color: white;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            blue,
+	            blue 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="BRE"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="BHA"]{
+	        color: darkred;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="BUR"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            indianred,
+	            indianred 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="CHE"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            blue,
+	            blue 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="CRY"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            45deg,
+	            blue,
+	            blue 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="EVE"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            blue,
+	            blue 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="LEE"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            white 10px,
+	            white 20px
+	            );
+	    }
+
+	    tr[id="LEI"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            blue,
+	            blue 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="LIV"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            red,
+	            red 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="MNC"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            lightblue,
+	            lightblue 10px,
+	            lightblue 10px,
+	            lightblue 20px
+	            );
+	    }
+
+	    tr[id="MUN"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            red,
+	            red 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="NEW"]{
+	        color: darkmagenta;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            black 10px,
+	            black 20px
+	            );
+	    }
+
+	    tr[id="NOR"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            yellow,
+	            yellow 10px,
+	            green 10px,
+	            green 20px
+	            );
+	    }
+
+
+	    tr[id="SOU"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            red 10px,
+	            red 20px
+	            );
+	    }
+
+	    tr[id="TOT"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            white,
+	            white 10px,
+	            white 10px,
+	            white 20px
+	            );
+	    }
+
+	    tr[id="WAT"] > th{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            yellow,
+	            yellow 10px,
+	            black 10px,
+	            black 20px
+	            );
+	    }
+
+	    tr[id="WAT"] > th{
+	        color: #ff005a;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            yellow,
+	            yellow 12px,
+	            black 12px,
+	            black 20px
+	            );
+	    }
+
+
+	    tr[id="WHU"]{
+	        color: black;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            red ,
+	            red 10px,
+	            blue 10px,
+	            blue 20px
+	            );
+	    }
+
+	    tr[id="WOL"]{
+	        color: white;
+	            background: repeating-linear-gradient(
+	            -45deg,
+	            gold,
+	            gold 10px,
+	            black 10px,
+	            black 20px
+	            );
+	    }

@@ -1,0 +1,89 @@
+
+/* general   */
+*{ font-family: Arial, sans-serif;}
+table, thead, tbody, tr, th, td, h1, h2, h3{ text-align: center !important; vertical-align: top !important; margin-top: 1px !important; font-weight: bolder; }
+em{ font-style: bolder; background-color: #000000; color: #ffffff; }
+div{ padding: 0px 0px 0px 0px !important; margin: 0px 0px 0px 0px !important; }
+li{ list-style: none; }
+input.fxtrTblInput{ width: 25px;}
+td span { height: fit-content; display: inline-block; overflow: auto; }
+
+.span_r{ margin-right: 0px; }
+/*.span_r::before{ content: "--"; } */
+.span_l{  margin-left: 0px; }
+.span_m{ margin: auto; }
+.cmprCnt{ display:inline-grid; }
+.teamCnt{ display:flex-grid;text-align:center; }
+.tmCntTmRowHdr{ width:100%; }
+.man{ background-color:#0033CC; }
+section.man{ background-color:#34568B; }
+section.tx{ background-color:#92A8D1; }
+.gkp{ background-color:#ebff00; color: black; }
+.def{ background-color:#00ff87; }
+.mid{ background-color:#05f0ff; color: black;}
+.fwd{ background-color:#ff2882; }
+.bench{ border:2px solid orangered;background-color:#FFFF99;color:black;vertical-align:top!important;}
+.starters{ vertical-align: top !important; border-radius: 5%; background-color: #00CC33; }
+.baller{ display: inline-grid; margin-top: 0 !important; }
+.baller > section{ margin-top: 0 !important; }
+.baller span[cap="True"]::after{ content: "(C)";color: red; }
+.baller[potsub="False"]{ background-color: #206040; } 
+.ballerStrtr[potsub="True"]{ color: grey ;background: linear-gradient( 45deg,#206040,#206040 75%,orangered 80% ); }
+.highlight{ animation-name: highlight; animation-duration: 2s; animation-iteration-count: 1; }
+.table-sm{  padding: 0.2rem 0.4rem !important;}
+.middleGames{ font-size: 0.7em; }
+.fxtr_bns_hidden{ display: none;}
+.tabShow{ display: 	block;}
+.tchide{ 	display: none;}
+.ppCont{ display: inline-block; }
+.rowHide{ display: none;}
+.clmnHide{ 	display: none;}
+.df_span { width: 100%; }
+.flex-block{ display: inline-table;	}
+.flex-container{ display: inline-flex; }
+.fxtrSpan{  text-align: center; border: 1px solid silver; }
+.fdl_highlight{ animation-name: highlight; animation-duration: 8s; animation-iteration-count: infinite; }
+.rowDiv{ display: inline-grid;  }
+.ppRow{ display: table-row; }
+
+#evWndwCnt{ float:left;width:fit-content;}
+#evwSelCnt{ width: fit-content;}
+#fdl_container{ display:inline-flex;}
+#fxtr_tableCnt{ float:left;width:fit-content;}
+#fxtrTbl{ padding: 0 0 0 0 !important; margin: 0 0 0 0 !important; }
+#df_tableCnt{ float:right;width:fit-content;}
+#eventTable tr{ border-top-width: 5px; box-shadow: 0px 2px white; }
+#gmwkDisplay{ color: #000000; display: inline-flex; z-index: 2; width: 80%; }
+#selectionsTbl tr th{ background-color: #000000 !important; color: #FFFFFF !important; }
+#teamDFCnt{font-size: smaller ;overflow-x: scroll;width: fit-content;}
+#teamDFCnt th,td{padding: 0.2rem 0.2rem 0.2rem 0.2rem!important;}
+#bnsCnt{position: absolute;background-color: black !important;}
+#liveGames{  font-size: 0.9em; width: 85%;}
+
+#ppGamesAcc > li > span{ background-color: white; opacity: 0.71; color:  black; }
+#ppOview{ text-align: left !important; background: repeating-linear-gradient( -45deg, grey, grey 5%, black 5%, black 10% ); box-sizing: border-box; width: fit-content; }
+#ppOviewCnt{ float: right;width: fit-content;}
+#ppOviewTbl{ font-size: 0.7rem !important; font-weight: bolder; line-height: 1.4 !important; opacity: 0.95; }
+#ppOviewTbl > td{ padding: 0 0 0 0 !important; }
+
+
+th.ppgame[evrnd="39"]{ margin-right: 0px !important;}
+td.ppgame[evrnd="39"]{ margin-right: 0px !important;}
+span[df="1"]{ background-color: #375523; color: #000000; }
+span[df="2"]{ background-color: #00ff86; color: #000000; }
+span[df="3"]{ background-color: #ff8533; color: #000000; }
+span[df="4"]{ background-color: #ff005a; color: #ffff00; }
+span[df="5"]{ background-color: #861d46; color: #FFFFFF; }
+span[loc="H"]{ font-weight: bold; }
+span[ppgame='true']{ background-color: #ADADAD !important; color: #000000 !important; }
+
+
+@keyframes highlight{50%{background-color:yellow;border:3 px solid red;}100%{background-color:inherit;border:initial;}}
+
+.modal{ display: flex; flex-direction: row; }
+.notModal{ display: none;}
+
+.tabHidden{ display: none;}
+
+
+div.gameTile{ color: #000000; background-color: #0fafbf; width: 20%; }
